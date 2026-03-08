@@ -33,6 +33,7 @@ const METHODS = {
       'Aguarde a drenagem completa (~3 min no total)',
     ],
     organic: 'Cafés orgânicos naturais têm notas frutadas — evite água acima de 94°C para preservar o aroma.',
+    calibration: 'Feche o moedor completamente (sem forçar), depois abra os cliques recomendados em sentido anti-horário.',
     steps(agua, cafe) {
       const bloom = clamp(round5(cafe * 2), 40, 80);
       const rest = agua - bloom;
@@ -47,7 +48,6 @@ const METHODS = {
       ];
     },
   },
-
   chemex: {
     name: 'Chemex',
     tip: 'Moagem média-grossa. Despeje lentamente. ~4 min',
@@ -63,6 +63,7 @@ const METHODS = {
       'Drenagem total leva cerca de 4 min',
     ],
     organic: 'O filtro espesso da Chemex remove mais óleos, resultando numa bebida mais limpa e delicada.',
+    calibration: 'Feche o moedor completamente (sem forçar), depois abra os cliques recomendados em sentido anti-horário.',
     steps(agua, cafe) {
       const bloom = clamp(round5(cafe * 2), 40, 80);
       const rest = agua - bloom;
@@ -77,7 +78,6 @@ const METHODS = {
       ];
     },
   },
-
   pano: {
     name: 'Coador de pano',
     tip: 'Moagem média. Tradicional e ideal para café orgânico',
@@ -93,6 +93,7 @@ const METHODS = {
       'Não apresse — deixe filtrar naturalmente',
     ],
     organic: 'O coador de pano preserva mais óleos que papel, realçando a doçura e o corpo de cafés orgânicos.',
+    calibration: 'Feche o moedor completamente (sem forçar), depois abra os cliques recomendados em sentido anti-horário.',
     steps(agua, cafe) {
       const bloom = clamp(round5(cafe * 2), 40, 80);
       const rest = agua - bloom;
@@ -105,7 +106,6 @@ const METHODS = {
       ];
     },
   },
-
   prensa: {
     name: 'Prensa Francesa',
     tip: 'Moagem grossa. Aguarde 4 min antes de pressionar',
@@ -122,29 +122,34 @@ const METHODS = {
       'Pressione o êmbolo lentamente e sirva imediatamente',
     ],
     organic: 'A imersão completa da prensa francesa extrai mais óleos e intensidade de cafés orgânicos.',
+    calibration: 'Feche o moedor completamente (sem forçar), depois abra os cliques recomendados. Use mais cliques do que parece necessário — moagem grossa mesmo.',
     steps(agua) {
       return [
-        { name: 'Adicionar café', sub: 'Coloque o café moído grosso no cilindro',            checklist: true },
-        { name: 'Despejar água',  sub: `Despeje todo o volume (${agua} ml) de uma vez`,     checklist: true },
-        { name: 'Mexer',          sub: 'Mexa suavemente por 10 segundos',                    checklist: true },
-        { name: 'Aguardar',       sub: 'Coloque a tampa sem pressionar',                     wait: 240, waitLabel: '4 min' },
-        { name: 'Pressionar',     sub: 'Pressione o êmbolo lentamente até o fundo',         checklist: true },
-        { name: 'Servir',         sub: 'Sirva imediatamente para evitar extração excessiva', checklist: true },
+        { name: 'Adicionar café', sub: 'Coloque o café moído grosso no cilindro',             checklist: true },
+        { name: 'Despejar água',  sub: `Despeje todo o volume (${agua} ml) de uma vez`,      checklist: true },
+        { name: 'Mexer',          sub: 'Mexa suavemente por 10 segundos',                     checklist: true },
+        { name: 'Aguardar',       sub: 'Coloque a tampa sem pressionar',                      wait: 240, waitLabel: '4 min' },
+        { name: 'Pressionar',     sub: 'Pressione o êmbolo lentamente até o fundo',          checklist: true },
+        { name: 'Servir',         sub: 'Sirva imediatamente para evitar extração excessiva',  checklist: true },
       ];
     },
   },
 };
 
-// ─── STATE ────────────────────────────────────────────────────────────────────
-
-const DEFAULT = {
-  portions: 2,
-  sizeId: 'sm',
-  customMl: 200,
-  intensityId: 'equilibrado',
-  methodId: 'v60',
+const GRINDERS = {
+  'timemore-c2':       { name: 'Timemore C2',          unit: 'cliques',  settings: { v60: '18–22', chemex: '22–26', pano: '20–24', prensa: '26–30' } },
+  'timemore-c3':       { name: 'Timemore C3 / C3 Pro', unit: 'cliques',  settings: { v60: '15–20', chemex: '20–24', pano: '18–22', prensa: '22–26' } },
+  'timemore-c3s':      { name: 'Timemore C3S',          unit: 'cliques',  settings: { v60: '14–18', chemex: '18–22', pano: '16–20', prensa: '20–25' } },
+  'comandante-c40':    { name: 'Comandante C40',        unit: 'cliques',  settings: { v60: '22–28', chemex: '28–34', pano: '24–30', prensa: '32–38' } },
+  '1zpresso-jx':       { name: '1Zpresso JX',           unit: 'rotações', settings: { v60: '2.5–3.5', chemex: '3.5–4.2', pano: '3.0–4.0', prensa: '4.0–5.0' } },
+  '1zpresso-jx-pro':   { name: '1Zpresso JX-Pro',       unit: 'rotações', settings: { v60: '2.2–3.5', chemex: '3.2–4.0', pano: '2.8–3.8', prensa: '4.0–4.8' } },
+  'baratza-encore':    { name: 'Baratza Encore',        unit: 'número',   settings: { v60: '15–20', chemex: '20–26', pano: '18–24', prensa: '28–35' } },
+  'hario-skerton-pro': { name: 'Hario Skerton Pro',     unit: 'cliques',  settings: { v60: '6–8',   chemex: '8–10',  pano: '7–9',   prensa: '10–14' } },
 };
 
+// ─── STATE ────────────────────────────────────────────────────────────────────
+
+const DEFAULT = { portions: 2, sizeId: 'sm', customMl: 200, intensityId: 'equilibrado', methodId: 'v60' };
 let state = { ...DEFAULT };
 let prepState = null;
 let timerInterval = null;
@@ -168,9 +173,7 @@ function calcRecipe() {
   return { volumeTotal, cafeG, aguaTotal, sizeMl };
 }
 
-function calcSteps(recipe) {
-  return METHODS[state.methodId].steps(recipe.aguaTotal, recipe.cafeG);
-}
+function calcSteps(recipe) { return METHODS[state.methodId].steps(recipe.aguaTotal, recipe.cafeG); }
 
 function formatTime(s) {
   if (s < 0) s = 0;
@@ -187,11 +190,7 @@ function formatDate(ts) {
 }
 
 function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // ─── SVG ICONS ────────────────────────────────────────────────────────────────
@@ -200,7 +199,6 @@ function cupSVG(id, ml) {
   const h = ml ? Math.round(24 * (ml / 80)) : 24;
   const aspect = id === 'lg' ? 0.55 : id === 'xl' ? 1.05 : 0.82;
   const w = Math.round(h * aspect);
-
   if (id === 'xs' || id === 'sm' || id === 'md') {
     return `<svg width="${w}" height="${h}" viewBox="0 0 34 44" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M6 6 Q5 26 17 27 Q29 26 28 6 Z" fill="currentColor" opacity="0.18" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
@@ -272,9 +270,7 @@ function buildShareURL() {
 }
 
 function copyToClipboard(text) {
-  if (navigator.clipboard) {
-    return navigator.clipboard.writeText(text).then(() => true).catch(() => false);
-  }
+  if (navigator.clipboard) return navigator.clipboard.writeText(text).then(() => true).catch(() => false);
   const el = document.createElement('textarea');
   el.value = text;
   el.style.cssText = 'position:fixed;opacity:0;top:0;left:0';
@@ -293,84 +289,75 @@ function showToast(msg) {
   el.textContent = msg;
   document.body.appendChild(el);
   requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('toast-show')));
-  setTimeout(() => {
-    el.classList.remove('toast-show');
-    setTimeout(() => el.remove(), 300);
-  }, 2500);
+  setTimeout(() => { el.classList.remove('toast-show'); setTimeout(() => el.remove(), 300); }, 2500);
 }
 
 // ─── STORAGE ──────────────────────────────────────────────────────────────────
 
-function saveState() {
-  try { localStorage.setItem('coado-state', JSON.stringify(state)); } catch {}
-}
+function saveState() { try { localStorage.setItem('coado-state', JSON.stringify(state)); } catch {} }
 
 function loadState() {
-  // URL params take priority (shared link)
   const params = new URLSearchParams(location.search);
   if (params.has('p') || params.has('s') || params.has('i') || params.has('m')) {
-    const p = parseInt(params.get('p'));
-    const s = params.get('s');
-    const i = params.get('i');
-    const m = params.get('m');
-    const c = parseInt(params.get('c'));
+    const p = parseInt(params.get('p')), s = params.get('s'),
+          i = params.get('i'), m = params.get('m'), c = parseInt(params.get('c'));
     if (p >= 1 && p <= 10) state.portions = p;
     if (SIZES.find(x => x.id === s)) state.sizeId = s;
     if (INTENSITIES.find(x => x.id === i)) state.intensityId = i;
     if (METHODS[m]) state.methodId = m;
     if (c >= 50 && c <= 1000) state.customMl = c;
-    // Clean URL without page reload
     history.replaceState({}, '', location.pathname);
     showToast('Receita compartilhada carregada!');
     return;
   }
-  try {
-    const saved = JSON.parse(localStorage.getItem('coado-state') || 'null');
-    if (saved) Object.assign(state, saved);
-  } catch {}
+  try { const s = JSON.parse(localStorage.getItem('coado-state') || 'null'); if (s) Object.assign(state, s); } catch {}
+}
+
+// ─── GRINDER ──────────────────────────────────────────────────────────────────
+
+function isGrinderFirstTime() { return localStorage.getItem('coado-grinder') === null; }
+
+function loadGrinder() {
+  const g = localStorage.getItem('coado-grinder');
+  if (!g || g === 'none') return null;
+  return GRINDERS[g] ? g : null;
+}
+
+function saveGrinder(id) { localStorage.setItem('coado-grinder', id || 'none'); }
+
+function getGrinderDisplay(grinderId, methodId) {
+  if (!grinderId) return { value: METHODS[methodId].grind, sub: null };
+  const g = GRINDERS[grinderId];
+  if (!g) return { value: METHODS[methodId].grind, sub: null };
+  const setting = g.settings[methodId];
+  if (!setting) return { value: METHODS[methodId].grind, sub: null };
+  return { value: `${setting} ${g.unit}`, sub: `${g.name} · ${METHODS[methodId].grind}` };
 }
 
 // ─── NOTES ────────────────────────────────────────────────────────────────────
 
 function noteKey() { return `${state.methodId}_${state.intensityId}`; }
-
-function loadNotes() {
-  try { return JSON.parse(localStorage.getItem('coado-notes') || '{}'); } catch { return {}; }
-}
-
+function loadNotes() { try { return JSON.parse(localStorage.getItem('coado-notes') || '{}'); } catch { return {}; } }
 function saveNote(text) {
-  const notes = loadNotes();
-  const k = noteKey();
-  if (text.trim()) notes[k] = text.trim();
-  else delete notes[k];
+  const notes = loadNotes(); const k = noteKey();
+  if (text.trim()) notes[k] = text.trim(); else delete notes[k];
   try { localStorage.setItem('coado-notes', JSON.stringify(notes)); } catch {}
 }
-
-function getCurrentNote() {
-  return loadNotes()[noteKey()] || '';
-}
+function getCurrentNote() { return loadNotes()[noteKey()] || ''; }
 
 // ─── HISTORY ──────────────────────────────────────────────────────────────────
 
-function loadHistory() {
-  try { return JSON.parse(localStorage.getItem('coado-history') || '[]'); } catch { return []; }
-}
+function loadHistory() { try { return JSON.parse(localStorage.getItem('coado-history') || '[]'); } catch { return []; } }
 
 function saveToHistory(duration) {
   const recipe = calcRecipe();
   const size = SIZES.find(s => s.id === state.sizeId);
   const history = loadHistory();
   history.unshift({
-    ts: Date.now(),
-    portions: state.portions,
-    sizeId: state.sizeId,
-    customMl: state.customMl,
-    sizeName: size.id === 'custom' ? (state.customMl + 'ml') : size.name,
-    intensityId: state.intensityId,
-    methodId: state.methodId,
-    aguaTotal: recipe.aguaTotal,
-    cafeG: recipe.cafeG,
-    duration,
+    ts: Date.now(), portions: state.portions, sizeId: state.sizeId,
+    customMl: state.customMl, sizeName: size.id === 'custom' ? (state.customMl + 'ml') : size.name,
+    intensityId: state.intensityId, methodId: state.methodId,
+    aguaTotal: recipe.aguaTotal, cafeG: recipe.cafeG, duration,
   });
   while (history.length > 10) history.pop();
   try { localStorage.setItem('coado-history', JSON.stringify(history)); } catch {}
@@ -386,15 +373,8 @@ function startGlobalTimer() {
     if (el) el.textContent = '⏱ ' + formatTime(getElapsed());
   }, 1000);
 }
-
-function stopGlobalTimer() {
-  clearInterval(globalTimerInterval);
-  globalTimerInterval = null;
-}
-
-function getElapsed() {
-  return prepStartTime ? Math.floor((Date.now() - prepStartTime) / 1000) : 0;
-}
+function stopGlobalTimer() { clearInterval(globalTimerInterval); globalTimerInterval = null; }
+function getElapsed() { return prepStartTime ? Math.floor((Date.now() - prepStartTime) / 1000) : 0; }
 
 // ─── RENDER CONFIG ────────────────────────────────────────────────────────────
 
@@ -404,16 +384,55 @@ function renderConfig() {
   const intensity = INTENSITIES.find(i => i.id === state.intensityId);
   const note = getCurrentNote();
   const hist = loadHistory();
+  const grinderId = loadGrinder();
+  const grinder = grinderId ? GRINDERS[grinderId] : null;
+  const grinderDisplay = getGrinderDisplay(grinderId, state.methodId);
+  const firstTime = isGrinderFirstTime();
+
+  const grinderGrid = `
+    <div class="grinder-grid" id="grinder-grid">
+      ${Object.entries(GRINDERS).map(([id, g]) => `
+        <button class="grinder-btn ${id === grinderId ? 'selected' : ''}"
+                data-grinder="${id}" aria-pressed="${id === grinderId}">
+          <span class="grinder-name">${g.name}</span>
+          <span class="grinder-unit">${g.unit}</span>
+        </button>`).join('')}
+      <button class="grinder-btn grinder-btn-none ${!grinderId && !firstTime ? 'selected' : ''}"
+              data-grinder="none" aria-pressed="${!grinderId && !firstTime}">
+        <span class="grinder-name">Sem moedor específico</span>
+        <span class="grinder-unit">descrição genérica</span>
+      </button>
+    </div>
+    <p class="grinder-note">⚠️ Valores são pontos de partida — ajuste ±2–3 cliques conforme o resultado na xícara.</p>`;
+
+  const grinderSection = firstTime
+    ? `<section class="section" id="section-grinder">
+        <h2 class="section-title">Meu moedor <span class="section-opt">· opcional</span></h2>
+        ${grinderGrid}
+      </section>`
+    : `<section class="section" id="section-grinder">
+        <details class="accordion" id="grinder-accordion">
+          <summary class="accordion-summary">
+            ⚙️ Moedor: ${grinder ? grinder.name : 'Sem moedor específico'}
+          </summary>
+          <div class="accordion-body">${grinderGrid}</div>
+        </details>
+      </section>`;
 
   document.getElementById('app').innerHTML = `
     <div class="config-screen" role="main">
 
       <header class="app-header">
-        <h1 class="app-title">☕ Coado</h1>
+        <div class="app-header-row">
+          <div class="app-header-spacer"></div>
+          <h1 class="app-title">☕ Coado</h1>
+          <button class="btn-grinder-icon" id="btn-grinder-icon" title="Configurar moedor" aria-label="Configurar moedor">⚙️</button>
+        </div>
         <p class="app-tagline">Seu café, do jeito certo.</p>
       </header>
 
-      <!-- Porções -->
+      ${grinderSection}
+
       <section class="section">
         <h2 class="section-title">Quantas porções?</h2>
         <div class="portion-selector">
@@ -423,22 +442,17 @@ function renderConfig() {
         </div>
       </section>
 
-      <!-- Tamanho -->
       <section class="section">
         <h2 class="section-title">Tamanho do recipiente</h2>
         <div class="size-cards" role="group" aria-label="Tamanho do recipiente" id="size-cards">
           ${SIZES.map(s => `
             <button class="size-card ${s.id === state.sizeId ? 'selected' : ''}"
-                    data-size="${s.id}"
-                    aria-pressed="${s.id === state.sizeId}"
+                    data-size="${s.id}" aria-pressed="${s.id === state.sizeId}"
                     aria-label="${s.name}${s.ml ? ', ' + s.ml + 'ml' : ''}">
-              <div class="size-icon">
-                ${s.id === 'custom' ? customSVG() : cupSVG(s.id, s.ml)}
-              </div>
+              <div class="size-icon">${s.id === 'custom' ? customSVG() : cupSVG(s.id, s.ml)}</div>
               <div class="size-name">${s.name}</div>
               <div class="size-ml">${s.ml ? s.ml + ' ml' : 'livre'}</div>
-            </button>
-          `).join('')}
+            </button>`).join('')}
         </div>
         ${state.sizeId === 'custom' ? `
           <div class="custom-ml-row">
@@ -446,44 +460,36 @@ function renderConfig() {
             <input type="number" id="custom-ml" class="custom-ml-input"
                    value="${state.customMl}" min="50" max="1000" step="10" aria-label="Volume em ml">
             <span style="font-size:.85rem;color:var(--muted)">ml</span>
-          </div>
-        ` : ''}
+          </div>` : ''}
       </section>
 
-      <!-- Intensidade -->
       <section class="section">
         <h2 class="section-title">Intensidade</h2>
         <div class="intensity-group" role="group" aria-label="Intensidade" id="intensity-group">
           ${INTENSITIES.map(i => `
             <button class="intensity-btn ${i.id === state.intensityId ? 'selected' : ''}"
-                    data-intensity="${i.id}"
-                    aria-pressed="${i.id === state.intensityId}"
+                    data-intensity="${i.id}" aria-pressed="${i.id === state.intensityId}"
                     style="--color:${i.color}; --bg-color:${i.bg}">
               <span class="intensity-dot"></span>
               <span class="intensity-name">${i.name}</span>
               ${i.id === state.intensityId ? `<span class="intensity-ratio">${i.ratio}</span>` : ''}
-            </button>
-          `).join('')}
+            </button>`).join('')}
         </div>
       </section>
 
-      <!-- Método -->
       <section class="section">
         <h2 class="section-title">Método de preparo</h2>
         <div class="method-grid" role="group" aria-label="Método de preparo" id="method-grid">
           ${Object.entries(METHODS).map(([id, m]) => `
             <button class="method-card ${id === state.methodId ? 'selected' : ''}"
-                    data-method="${id}"
-                    aria-pressed="${id === state.methodId}">
+                    data-method="${id}" aria-pressed="${id === state.methodId}">
               <div class="method-icon">${methodSVG(id)}</div>
               <div class="method-name">${m.name}</div>
-            </button>
-          `).join('')}
+            </button>`).join('')}
         </div>
         <div class="method-tip" role="status">${method.tip}</div>
       </section>
 
-      <!-- Resultado -->
       <section class="section" aria-label="Sua receita">
         <div class="recipe-card">
           <h2 class="recipe-title">☕ Sua receita</h2>
@@ -506,8 +512,14 @@ function renderConfig() {
             <div class="recipe-row">
               <span class="recipe-icon">📐</span>
               <span class="recipe-label">Moagem</span>
-              <span class="recipe-value">${method.grind}</span>
+              <span class="recipe-value">${grinderDisplay.value}</span>
             </div>
+            ${grinderDisplay.sub ? `
+            <div class="recipe-row recipe-row-sub">
+              <span class="recipe-icon"></span>
+              <span class="recipe-label"></span>
+              <span class="recipe-value-sub">${grinderDisplay.sub}</span>
+            </div>` : ''}
           </div>
           <div class="recipe-actions">
             <button class="btn-start" id="btn-start">▶ Iniciar Preparo</button>
@@ -516,7 +528,6 @@ function renderConfig() {
         </div>
       </section>
 
-      <!-- Notas pessoais -->
       <section class="section">
         <h2 class="section-title">Minhas notas — ${method.name} · ${intensity.name}</h2>
         <textarea class="notes-area" id="notes-area"
@@ -524,7 +535,6 @@ function renderConfig() {
                   rows="3">${escapeHtml(note)}</textarea>
       </section>
 
-      <!-- Saiba mais -->
       <section class="section">
         <details class="accordion">
           <summary class="accordion-summary">💡 Saiba mais — ${method.name}</summary>
@@ -534,13 +544,13 @@ function renderConfig() {
               ${method.details.map(d => `<li>${d}</li>`).join('')}
             </ol>
             <p class="acc-organic">🌱 ${method.organic}</p>
+            ${grinder ? `<p class="acc-calibration">🔧 <strong>${grinder.name}:</strong> ${method.calibration} Configuração para ${method.name}: <strong>${grinder.settings[state.methodId]} ${grinder.unit}</strong>.</p>` : ''}
           </div>
         </details>
       </section>
 
-      <!-- Histórico -->
       <section class="section">
-        <details class="accordion" ${hist.length === 0 ? '' : ''}>
+        <details class="accordion">
           <summary class="accordion-summary">
             📋 Histórico${hist.length > 0 ? ` (${hist.length})` : ''}
           </summary>
@@ -549,17 +559,13 @@ function renderConfig() {
               ? `<p class="history-empty">Nenhum preparo registrado ainda.<br>Complete seu primeiro preparo para ver o histórico aqui.</p>`
               : `<div class="history-list" id="history-list">
                   ${hist.map((h, i) => {
-                    const hIntensity = INTENSITIES.find(x => x.id === h.intensityId);
-                    const hMethod = METHODS[h.methodId];
-                    return `
-                    <div class="history-item" data-hist="${i}" role="button" tabindex="0"
-                         aria-label="Usar receita: ${hMethod ? hMethod.name : h.methodId}, ${hIntensity ? hIntensity.name : h.intensityId}">
+                    const hI = INTENSITIES.find(x => x.id === h.intensityId);
+                    const hM = METHODS[h.methodId];
+                    return `<div class="history-item" data-hist="${i}" role="button" tabindex="0">
                       <div class="history-item-top">
-                        <span class="history-badge">${hMethod ? hMethod.name : h.methodId}</span>
-                        <span class="history-badge history-badge-intensity"
-                              style="--color:${hIntensity ? hIntensity.color : '#888'}">
-                          ${hIntensity ? hIntensity.name : h.intensityId}
-                        </span>
+                        <span class="history-badge">${hM ? hM.name : h.methodId}</span>
+                        <span class="history-badge history-badge-intensity" style="--color:${hI ? hI.color : '#888'}">
+                          ${hI ? hI.name : h.intensityId}</span>
                         <span class="history-date">${formatDate(h.ts)}</span>
                       </div>
                       <div class="history-item-info">
@@ -568,19 +574,36 @@ function renderConfig() {
                       </div>
                     </div>`;
                   }).join('')}
-                </div>`
-            }
+                </div>`}
           </div>
         </details>
       </section>
 
-    </div>
-  `;
+    </div>`;
 
   bindConfigEvents();
 }
 
 function bindConfigEvents() {
+  document.getElementById('btn-grinder-icon').addEventListener('click', () => {
+    const section = document.getElementById('section-grinder');
+    const accordion = document.getElementById('grinder-accordion');
+    if (accordion && !accordion.open) accordion.open = true;
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  const grinderGrid = document.getElementById('grinder-grid');
+  if (grinderGrid) {
+    grinderGrid.addEventListener('click', e => {
+      const btn = e.target.closest('[data-grinder]');
+      if (!btn) return;
+      const id = btn.dataset.grinder;
+      saveGrinder(id === 'none' ? null : id);
+      showToast(id === 'none' ? 'Sem moedor específico' : `${GRINDERS[id]?.name} selecionado!`);
+      renderConfig();
+    });
+  }
+
   document.getElementById('btn-minus').addEventListener('click', () => {
     if (state.portions > 1) { state.portions--; saveState(); renderConfig(); }
   });
@@ -592,16 +615,14 @@ function bindConfigEvents() {
     const card = e.target.closest('[data-size]');
     if (!card) return;
     state.sizeId = card.dataset.size;
-    saveState();
-    renderConfig();
+    saveState(); renderConfig();
   });
 
   const customInput = document.getElementById('custom-ml');
   if (customInput) {
     customInput.addEventListener('input', e => {
       state.customMl = parseInt(e.target.value) || 200;
-      saveState();
-      refreshRecipe();
+      saveState(); refreshRecipe();
     });
   }
 
@@ -609,16 +630,14 @@ function bindConfigEvents() {
     const btn = e.target.closest('[data-intensity]');
     if (!btn) return;
     state.intensityId = btn.dataset.intensity;
-    saveState();
-    renderConfig();
+    saveState(); renderConfig();
   });
 
   document.getElementById('method-grid').addEventListener('click', e => {
     const card = e.target.closest('[data-method]');
     if (!card) return;
     state.methodId = card.dataset.method;
-    saveState();
-    renderConfig();
+    saveState(); renderConfig();
   });
 
   document.getElementById('btn-start').addEventListener('click', () => {
@@ -633,7 +652,6 @@ function bindConfigEvents() {
     copyToClipboard(url).then(ok => showToast(ok ? '🔗 Link copiado!' : 'Link: ' + url));
   });
 
-  // Notes: auto-save with debounce
   const notesArea = document.getElementById('notes-area');
   if (notesArea) {
     notesArea.addEventListener('input', e => {
@@ -642,7 +660,6 @@ function bindConfigEvents() {
     });
   }
 
-  // History: click to restore recipe
   const histList = document.getElementById('history-list');
   if (histList) {
     const restore = e => {
@@ -651,15 +668,9 @@ function bindConfigEvents() {
       if (e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ') return;
       const h = loadHistory()[parseInt(item.dataset.hist)];
       if (!h) return;
-      Object.assign(state, {
-        portions: h.portions,
-        sizeId: h.sizeId,
-        customMl: h.customMl || DEFAULT.customMl,
-        intensityId: h.intensityId,
-        methodId: h.methodId,
-      });
-      saveState();
-      renderConfig();
+      Object.assign(state, { portions: h.portions, sizeId: h.sizeId,
+        customMl: h.customMl || DEFAULT.customMl, intensityId: h.intensityId, methodId: h.methodId });
+      saveState(); renderConfig();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       showToast('Receita restaurada!');
     };
@@ -684,12 +695,10 @@ function renderPrep() {
   const idx = prepState.stepIndex;
   const step = steps[idx];
   const total = steps.length;
-
   const pouredBefore = steps.slice(0, idx).reduce((s, st) => s + (st.vol || 0), 0);
   const remaining = recipe.aguaTotal - pouredBefore - (step.vol || 0);
 
   let bodyHTML = '';
-
   if (prepState.waiting) {
     bodyHTML = `
       <div class="timer-display">
@@ -697,8 +706,7 @@ function renderPrep() {
         <div class="timer-label">Aguarde</div>
         <div class="timer-value" id="timer-value" aria-live="polite">${formatTime(prepState.timeLeft)}</div>
         <button class="btn-skip" id="btn-skip-wait">pular espera</button>
-      </div>
-    `;
+      </div>`;
   } else {
     const volBar = step.vol ? `
       <div class="step-volume">
@@ -710,23 +718,17 @@ function renderPrep() {
       <div class="step-meta">
         <span>Despejado até aqui: ${pouredBefore} ml</span>
         <span>Restante: ${Math.max(0, remaining)} ml</span>
-      </div>
-    ` : '';
+      </div>` : '';
 
     const hint = step.checklist
       ? `<p class="step-checklist-hint">Confirme quando finalizado</p>`
-      : (step.wait && !step.vol
-          ? `<p class="step-checklist-hint">⏳ Timer de ${step.waitLabel} será iniciado ao confirmar</p>`
-          : '');
+      : (step.wait && !step.vol ? `<p class="step-checklist-hint">⏳ Timer de ${step.waitLabel} será iniciado ao confirmar</p>` : '');
 
-    bodyHTML = `
-      ${volBar}
-      ${hint}
+    bodyHTML = `${volBar}${hint}
       <div class="prep-actions">
         ${idx > 0 ? `<button class="btn-back" id="btn-back">← Voltar</button>` : '<span></span>'}
         <button class="btn-done" id="btn-done">${step.checklist ? '✓ Feito' : '✓ Despejei'}</button>
-      </div>
-    `;
+      </div>`;
   }
 
   document.getElementById('app').innerHTML = `
@@ -734,70 +736,48 @@ function renderPrep() {
       <div class="prep-header">
         <button class="btn-close" id="btn-close" aria-label="Encerrar preparo">✕ Encerrar</button>
         <div class="prep-progress">ETAPA ${idx + 1} de ${total}</div>
-        <div class="global-timer" id="global-timer" aria-label="Tempo total de preparo">
-          ⏱ ${formatTime(getElapsed())}
-        </div>
+        <div class="global-timer" id="global-timer">⏱ ${formatTime(getElapsed())}</div>
       </div>
       <div class="prep-step">
         <h2 class="step-name">${step.name}</h2>
         <p class="step-sub">${step.sub}</p>
         ${bodyHTML}
       </div>
-    </div>
-  `;
+    </div>`;
 
   bindPrepEvents(steps);
 }
 
 function bindPrepEvents(steps) {
   document.getElementById('btn-close').addEventListener('click', () => {
-    clearInterval(timerInterval);
-    stopGlobalTimer();
-    prepState = null;
-    prepStartTime = null;
-    renderConfig();
+    clearInterval(timerInterval); stopGlobalTimer();
+    prepState = null; prepStartTime = null; renderConfig();
   });
 
   if (prepState.waiting) {
     document.getElementById('btn-skip-wait').addEventListener('click', () => {
-      clearInterval(timerInterval);
-      prepState.waiting = false;
-      advanceStep(steps);
+      clearInterval(timerInterval); prepState.waiting = false; advanceStep(steps);
     });
     return;
   }
 
   const btnBack = document.getElementById('btn-back');
-  if (btnBack) {
-    btnBack.addEventListener('click', () => {
-      clearInterval(timerInterval);
-      prepState.stepIndex--;
-      prepState.waiting = false;
-      renderPrep();
-    });
-  }
+  if (btnBack) btnBack.addEventListener('click', () => {
+    clearInterval(timerInterval); prepState.stepIndex--; prepState.waiting = false; renderPrep();
+  });
 
   document.getElementById('btn-done').addEventListener('click', () => {
     const step = steps[prepState.stepIndex];
     if (step.wait) {
-      prepState.waiting = true;
-      prepState.timeLeft = step.wait;
-      renderPrep();
-      startCountdown(steps);
-    } else {
-      advanceStep(steps);
-    }
+      prepState.waiting = true; prepState.timeLeft = step.wait;
+      renderPrep(); startCountdown(steps);
+    } else { advanceStep(steps); }
   });
 }
 
 function advanceStep(steps) {
-  prepState.stepIndex++;
-  prepState.waiting = false;
-  if (prepState.stepIndex >= steps.length) {
-    renderDone();
-  } else {
-    renderPrep();
-  }
+  prepState.stepIndex++; prepState.waiting = false;
+  if (prepState.stepIndex >= steps.length) renderDone(); else renderPrep();
 }
 
 function startCountdown(steps) {
@@ -807,9 +787,7 @@ function startCountdown(steps) {
     const el = document.getElementById('timer-value');
     if (el) el.textContent = formatTime(prepState.timeLeft);
     if (prepState.timeLeft <= 0) {
-      clearInterval(timerInterval);
-      prepState.waiting = false;
-      advanceStep(steps);
+      clearInterval(timerInterval); prepState.waiting = false; advanceStep(steps);
     }
   }, 1000);
 }
@@ -841,21 +819,16 @@ function renderDone() {
                   rows="3">${escapeHtml(note)}</textarea>
       </div>
       <button class="btn-restart" id="btn-restart">Fazer outro café</button>
-    </div>
-  `;
+    </div>`;
 
   const notesArea = document.getElementById('done-notes-area');
-  if (notesArea) {
-    notesArea.addEventListener('input', e => {
-      clearTimeout(noteSaveTimer);
-      noteSaveTimer = setTimeout(() => saveNote(e.target.value), 600);
-    });
-  }
+  if (notesArea) notesArea.addEventListener('input', e => {
+    clearTimeout(noteSaveTimer);
+    noteSaveTimer = setTimeout(() => saveNote(e.target.value), 600);
+  });
 
   document.getElementById('btn-restart').addEventListener('click', () => {
-    prepState = null;
-    prepStartTime = null;
-    renderConfig();
+    prepState = null; prepStartTime = null; renderConfig();
   });
 }
 
@@ -865,7 +838,5 @@ loadState();
 renderConfig();
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').catch(() => {});
-  });
+  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
 }

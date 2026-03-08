@@ -552,37 +552,71 @@ function getMoagemDisplay(grinderId, metodo) {
 
 | Aspecto | Comportamento |
 |---------|---------------|
-| Persistência | `localStorage` salva moedor selecionado + última configuração; ao abrir o app, carrega automaticamente |
+| Persistência | `localStorage` salva moedor (`coado-grinder`), configuração (`coado-state`), notas (`coado-notes`), histórico (`coado-history`) |
 | Padrão inicial | 2 porções · xícara média (120ml) · intensidade equilibrada · V60 |
 | Tempo real | Todos os cálculos atualizam instantaneamente, sem botão de "calcular" |
 | Feedback visual | Card de resultado tem animação suave ao atualizar; método selecionado fica destacado |
-| Área de toque | Mínimo de 48×48px em todos os controles interativos |
+| Área de toque | Mínimo de 44×44px em todos os controles interativos |
 | Contraste | Textos com contraste adequado para uso em ambiente com pouca luz (manhã cedo) |
-| Moedor | Seleção persiste entre sessões; alterável a qualquer momento via ⚙️ no topo |
+| Moedor | Seleção persiste entre sessões; alterável a qualquer momento via ⚙️ no topo da tela |
+| Timer global | Visível no header do Modo Preparo; exibe tempo total decorrido desde o início |
+| Compartilhar | Botão 🔗 no card de receita copia URL com parâmetros; ao abrir o link, receita é restaurada |
+| Toast | Feedback visual não-intrusivo para ações: moedor salvo, link copiado, receita restaurada |
+| Notas | Persistidas por chave `método_intensidade` (ex: `v60_equilibrado`); editáveis durante e após o preparo |
+| Histórico | Últimos 10 preparos; toque restaura configuração; data relativa (hoje/ontem/dd/mm) |
+
+---
+
+### Seção 6 — Notas Pessoais
+
+Campo de texto livre, **persistido por combinação método + intensidade** (ex: chave `v60_equilibrado`).
+
+- Carregado automaticamente ao abrir a tela ou mudar método/intensidade
+- Salvo automaticamente com debounce de 600ms após cada alteração
+- Também editável na **tela de conclusão** do preparo
+- Armazenamento: `localStorage['coado-notes']` como objeto JSON
+
+---
+
+### Seção 7 — Saiba Mais (Acordeão)
+
+Acordeão colapsado por padrão. Ao expandir, exibe:
+
+- **Temperatura ideal** para o método selecionado
+- **Passo a passo** do método (3–6 passos)
+- **Dica sobre café orgânico**
+- **Dica de calibração** (apenas se moedor selecionado): instrução de como calibrar o zero do moedor e a configuração recomendada para o método atual
+
+---
+
+### Seção 8 — Histórico (Acordeão)
+
+Acordeão colapsado por padrão. Exibe os últimos 10 preparos concluídos.
+
+- Cada item mostra: método, intensidade, porções, tamanho, água, café, duração e data
+- Tocar em um item **restaura a configuração** correspondente (exceto moedor)
+- Armazenamento: `localStorage['coado-history']` como array JSON (máx. 10 entradas)
+- A data é exibida como "hoje", "ontem" ou "dd/mm"
 
 ---
 
 ## O que NÃO incluir
 
 - ❌ Login / conta de usuário
-- ❌ Histórico de preparos
-- ❌ Receitas salvas
+- ❌ Receitas salvas (editáveis pelo usuário)
 - ❌ Múltiplos idiomas
 - ❌ Animações pesadas
 - ❌ Publicidade ou rastreamento
 
 ---
 
-## Evoluções Futuras (fora do escopo v1)
+## Evoluções Futuras (fora do escopo v2)
 
-- Timer global de preparo visível durante o Modo Preparo
-- Notas pessoais por receita
-- Histórico dos últimos preparos
-- Compartilhar receita via link
 - Adicionar espresso como método com lógica própria (proporção 1:2, dose em gramas, sem etapas de despeje)
 - Modo barista avançado (bloom customizado, fluxo de despeje)
 - Suporte a mais moedores (Niche Zero, Kinu M47, Fellow Ode Gen 2)
 - Ajuste por torra: -2 cliques para torras claras, +2 cliques para torras escuras
+- Exportação de histórico (CSV / compartilhamento)
 
 ---
 
@@ -592,6 +626,7 @@ function getMoagemDisplay(grinderId, metodo) {
 [Abrir Coado]
       ↓
 [Seção 0 — primeira vez] Qual é o seu moedor? (opcional, salvo)
+  → retornos: acordeão colapsado com moedor atual; ⚙️ no header reabre
       ↓
 [Seção 1] Quantas porções? + Tamanho do recipiente (ícones proporcionais)
       ↓
@@ -602,14 +637,23 @@ function getMoagemDisplay(grinderId, metodo) {
 [Seção 4] Resultado em tempo real:
           Água · Café · Tempo · Moagem (cliques do moedor OU descrição genérica)
       ↓
-         [▶ Iniciar Preparo]
+[Seção 5] Minhas notas — campo de texto persistido por método+intensidade
       ↓
-[MODO PREPARO]
-  Bloom (timer) → Despeje 1 → Despeje 2 → ... → ☕ Pronto!
+[Seção 6] 💡 Saiba mais — acordeão: temperatura, passo a passo, dica orgânico, calibração
       ↓
-         [Fazer outro café → volta à Seção 1]
+[Seção 7] 📋 Histórico — acordeão: últimos 10 preparos, restauráveis com toque
+      ↓
+         [▶ Iniciar Preparo]   [🔗 Compartilhar]
+      ↓
+[MODO PREPARO — timer global no header]
+  Bloom (timer regressivo) → Despeje 1 → Despeje 2 → ... → ☕ Pronto!
+      ↓
+[TELA DE CONCLUSÃO]
+  ⏱ Tempo total · Notas editáveis · [Fazer outro café]
+      ↓
+         [Fazer outro café → volta à configuração com valores preservados]
 ```
 
 ---
 
-*Coado — Especificação v1.3 · Pronto para implementação com Claude Code*
+*Coado — Especificação v2.0 · Reflete a versão em produção no GitHub Pages*
