@@ -19,36 +19,6 @@ const INTENSITIES = [
 ];
 
 const METHODS = {
-  v60: {
-    name: 'V60',
-    tip: 'Moagem média-fina. Despeje em espiral. ~3 min',
-    grind: 'Média-fina',
-    time: '2:30–3:30 min',
-    compensation: 0,
-    temp: '92–94°C',
-    details: [
-      'Dobre o filtro e pré-aqueça o V60 com água quente',
-      'Adicione o café moído e nivele levemente',
-      'Bloom: despeje o dobro do peso do café, aguarde 30–45s',
-      'Continue despejando em espiral do centro para fora em 2 pulsos',
-      'Aguarde a drenagem completa (~3 min no total)',
-    ],
-    organic: 'Cafés orgânicos naturais têm notas frutadas — evite água acima de 94°C para preservar o aroma.',
-    calibration: 'Feche o moedor completamente (sem forçar), depois abra os cliques recomendados em sentido anti-horário.',
-    steps(agua, cafe) {
-      const bloom = clamp(round5(cafe * 2), 40, 80);
-      const rest = agua - bloom;
-      const d1 = round5(rest * 0.40);
-      const d2 = round5(rest * 0.35);
-      const d3 = agua - bloom - d1 - d2;
-      return [
-        { name: 'Bloom',            sub: 'Liberar CO₂, despertar o café', vol: bloom, wait: 38, waitLabel: '~35–45s' },
-        { name: 'Primeiro Despeje', sub: 'Doçura e corpo',                vol: d1 },
-        { name: 'Segundo Despeje',  sub: 'Acidez e complexidade',         vol: d2 },
-        { name: 'Despeje Final',    sub: 'Equilíbrio e volume',           vol: d3 },
-      ];
-    },
-  },
   chemex: {
     name: 'Chemex',
     tip: 'Moagem média-grossa. Despeje lentamente. ~4 min',
@@ -76,6 +46,36 @@ const METHODS = {
         { name: 'Primeiro Despeje', sub: 'Extração inicial, doçura',       vol: d1,    wait: 30, waitLabel: '30s' },
         { name: 'Segundo Despeje',  sub: 'Corpo e acidez balanceada',      vol: d2,    wait: 20, waitLabel: '20s' },
         { name: 'Terceiro Despeje', sub: 'Finalização e ajuste de volume', vol: d3 },
+      ];
+    },
+  },
+  v60: {
+    name: 'V60',
+    tip: 'Moagem média-fina. Despeje em espiral. ~3 min',
+    grind: 'Média-fina',
+    time: '2:30–3:30 min',
+    compensation: 0,
+    temp: '92–94°C',
+    details: [
+      'Dobre o filtro e pré-aqueça o V60 com água quente',
+      'Adicione o café moído e nivele levemente',
+      'Bloom: despeje o dobro do peso do café, aguarde 30–45s',
+      'Continue despejando em espiral do centro para fora em 2 pulsos',
+      'Aguarde a drenagem completa (~3 min no total)',
+    ],
+    organic: 'Cafés orgânicos naturais têm notas frutadas — evite água acima de 94°C para preservar o aroma.',
+    calibration: 'Feche o moedor completamente (sem forçar), depois abra os cliques recomendados em sentido anti-horário.',
+    steps(agua, cafe) {
+      const bloom = clamp(round5(cafe * 2), 40, 80);
+      const rest = agua - bloom;
+      const d1 = round5(rest * 0.40);
+      const d2 = round5(rest * 0.35);
+      const d3 = agua - bloom - d1 - d2;
+      return [
+        { name: 'Bloom',            sub: 'Liberar CO₂, despertar o café', vol: bloom, wait: 38, waitLabel: '~35–45s' },
+        { name: 'Primeiro Despeje', sub: 'Doçura e corpo',                vol: d1 },
+        { name: 'Segundo Despeje',  sub: 'Acidez e complexidade',         vol: d2 },
+        { name: 'Despeje Final',    sub: 'Equilíbrio e volume',           vol: d3 },
       ];
     },
   },
@@ -243,7 +243,7 @@ const GRINDERS = {
 
 // ─── STATE ────────────────────────────────────────────────────────────────────
 
-const DEFAULT = { portions: 2, sizeId: 'sm', customMl: 200, intensityId: 'equilibrado', methodId: 'v60', shotType: 'duplo' };
+const DEFAULT = { portions: 3, sizeId: 'md', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo' };
 let state = { ...DEFAULT };
 let prepState = null;
 let timerInterval = null;
@@ -1023,16 +1023,17 @@ function renderPrep() {
         <button class="btn-skip" id="btn-skip-wait">pular espera</button>
       </div>`;
   } else {
+    const cumulativePoured = pouredBefore + (step.vol || 0);
     const volBar = step.vol && !isEspresso ? `
       <div class="step-volume">
         <div class="volume-bar-label">${step.vol} ml</div>
-        <div class="volume-bar" role="progressbar" aria-valuenow="${step.vol}" aria-valuemax="${recipe.aguaTotal}">
-          <div class="volume-bar-fill" style="width:${Math.min(100, (step.vol / recipe.aguaTotal) * 100).toFixed(1)}%"></div>
+        <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
+          <div class="volume-bar-fill" style="width:${Math.min(100, (cumulativePoured / recipe.aguaTotal) * 100).toFixed(1)}%"></div>
         </div>
       </div>
       <div class="step-meta">
         <span>Despejado até aqui: ${pouredBefore} ml</span>
-        <span>Restante: ${Math.max(0, remaining)} ml</span>
+        <span>Restante: ${Math.max(0, remaining)} ml · Total: ${recipe.aguaTotal} ml</span>
       </div>` : '';
 
     const hint = step.checklist

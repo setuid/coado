@@ -1,4 +1,4 @@
-# Coado — Especificação Funcional v3.1
+# Coado — Especificação Funcional v3.2
 
 **Coado** é um aplicativo web mobile-first para auxiliar na preparação de café orgânico moído. A interface é minimalista e de uso rápido, pensada para ser acessada pela manhã com poucos toques.
 
@@ -201,8 +201,8 @@ Cada moedor exibe nome, unidade de ajuste e um botão de manual:
 | Intensidade   | g/100ml | Ratio barista | Cor       |
 |---------------|---------|---------------|-----------|
 | Suave         | 5       | 1:20          | 🟢 Verde  |
-| Equilibrado *(padrão)* | 6 | 1:16    | 🟠 Laranja |
-| Forte         | 8       | 1:12          | 🔴 Vermelho |
+| Equilibrado   | 6       | 1:16          | 🟠 Laranja |
+| Forte *(padrão)* | 8   | 1:12          | 🔴 Vermelho |
 | Extra Forte   | 10      | 1:10          | ⬛ Preto/Chumbo |
 
 > **Extra Forte** — ratio 1:10 (10g de café por 100ml de água). Usado por baristas para café de filtro muito concentrado, semelhante ao estilo "café coado nordestino". Não recomendado para métodos de imersão longa (prensa francesa) — resulta em excesso de amargor.
@@ -217,12 +217,13 @@ Cada moedor exibe nome, unidade de ajuste e um botão de manual:
 
 **5 métodos disponíveis** (adicionado Espresso):
 
-| Método          | Dica rápida                                          |
-|-----------------|------------------------------------------------------|
-| V60             | Moagem média-fina. Despeje em espiral. ~3 min        |
-| Chemex          | Moagem média-grossa. Despeje lentamente. ~4 min      |
-| Prensa Francesa | Moagem grossa. Aguarde 4 min antes de pressionar     |
-| Coador de pano  | Moagem média. Tradicional e ideal para café orgânico |
+| Método          | Dica rápida                                          | Ordem |
+|-----------------|------------------------------------------------------|-------|
+| Chemex *(padrão)* | Moagem média-grossa. Despeje lentamente. ~4 min  | 1º    |
+| V60             | Moagem média-fina. Despeje em espiral. ~3 min        | 2º    |
+| Coador de pano  | Moagem média. Tradicional e ideal para café orgânico | 3º    |
+| Prensa Francesa | Moagem grossa. Aguarde 4 min antes de pressionar     | 4º    |
+| Espresso        | Moagem fina. Dose + extração em 25–30s               | 5º    |
 | Espresso ☕     | Moagem fina. Dose + extração em 25–30s               |
 
 **Compensação de água por método:**
@@ -347,6 +348,17 @@ Adicionado para espresso:
 ---
 
 ## MODO PREPARO
+
+### Filtro — Barra de Progresso (métodos V60, Chemex, Pano, Prensa)
+
+Em cada etapa de despeje, exibe:
+- **Volume do passo atual** em destaque (ex: `95 ml`)
+- **Barra de progresso acumulada**: representa `(volume já despejado + volume deste passo) / total`, de forma que a barra atinja 100% ao confirmar o último despeje
+- **Meta**: `Despejado até aqui: X ml` (antes do passo atual) · `Restante: Y ml · Total: Z ml`
+
+> ⚠️ Correção v3.2: a barra de progresso usa o volume **acumulado** (não apenas o passo atual), evitando exibição incorreta de barra quase vazia no último despeje.
+
+---
 
 ### Espresso — Modo Preparo (Checklist)
 
@@ -548,7 +560,7 @@ pressao    = 9 bar (informativo — o app não controla)
 | Aspecto | Comportamento |
 |---------|---------------|
 | Persistência | `localStorage`: `coado-grinder`, `coado-state`, `coado-notes`, `coado-history` |
-| Padrão inicial | 2 porções · xícara média · equilibrado · V60 |
+| Padrão inicial | **3 porções · xícara grande · forte · Chemex** |
 | Tempo real | Cálculos atualizam instantaneamente |
 | Área de toque | Mínimo 44×44px |
 | Moedor | Busca em tempo real; PDF do manual acessível na seleção; **auto-carregado entre sessões** (sem ação do usuário) |
@@ -630,6 +642,11 @@ pressao    = 9 bar (informativo — o app não controla)
 
 ## Changelog
 
+### v3.2
+- **Defaults ajustados**: Chemex (1º na lista), 3 porções, xícara grande, intensidade Forte
+- **Barra de progresso corrigida**: agora usa volume acumulado (pouredBefore + step.vol), atingindo 100% no último despeje
+- **Total ml visível**: linha de meta exibe "Restante: X ml · Total: Y ml" durante o preparo
+
 ### v3.1
 - Comportamento de persistência do moedor tornado explícito: seleção é auto-carregada ao reabrir o app, sem interação do usuário
 - Correção de estilos CSS para todos os elementos adicionados na v3.0 (shot cards, star rating, avisos, busca de moedor)
@@ -643,4 +660,4 @@ pressao    = 9 bar (informativo — o app não controla)
 - Avaliação 1–5 estrelas na tela de conclusão
 - Compartilhamento de receita via URL params
 
-*Coado — Especificação v3.1 · Versão em produção no GitHub Pages*
+*Coado — Especificação v3.2 · Versão em produção no GitHub Pages*
