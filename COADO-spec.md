@@ -23,22 +23,23 @@ Usuário único, uso pessoal, pela manhã. A experiência deve ser **rápida, in
 
 - HTML + CSS + JavaScript puro (sem frameworks, para leveza máxima)
 - PWA simples (manifesto + service worker básico para funcionar offline)
-- Armazenamento de preferências no `localStorage`
+- Armazenamento no `localStorage` — sem backend, sem login
 
 ---
 
 ## Arquitetura de Telas
 
-O app tem **dois modos**:
+O app tem **três telas**:
 
 1. **Modo Configuração** — tela única com scroll vertical, onde o usuário define sua receita
 2. **Modo Preparo** — tela imersiva passo a passo, ativada ao iniciar o preparo
+3. **Tela de Conclusão** — confirmação do café pronto, com duração e campo de notas
 
 ---
 
 ## MODO CONFIGURAÇÃO
 
-### Seção 1 — Quantidade de Xícaras / Copos
+### Seção 1 — Quantidade de Porções
 
 **Seletor de número de porções**
 - Botões `–` e `+` com o número centralizado, de 1 a 10
@@ -103,16 +104,16 @@ Cards tocáveis com ícone/ilustração simples. Ao selecionar, uma dica rápida
 Exibido em tempo real, atualizado automaticamente a cada mudança nas seções acima.
 
 ```
-┌─────────────────────────────────┐
-│  ☕ Sua receita                  │
-│                                 │
-│  💧 Água:     XXX ml            │
-│  🌿 Café:     XX g              │
-│  ⏱ Tempo:    ~ X min           │
-│  📐 Moagem:   Média-fina        │
-│                                 │
-│       [ ▶ Iniciar Preparo ]     │
-└─────────────────────────────────┘
+┌─────────────────────────────────────┐
+│  ☕ Sua receita                      │
+│                                     │
+│  💧 Água:     XXX ml                │
+│  🌿 Café:     XX g                  │
+│  ⏱ Tempo:    ~ X min               │
+│  📐 Moagem:   Média-fina            │
+│                                     │
+│  [ ▶ Iniciar Preparo ]   [ 🔗 ]    │
+└─────────────────────────────────────┘
 ```
 
 - **Água**: volume total em ml, com fator de compensação do método já aplicado
@@ -120,12 +121,25 @@ Exibido em tempo real, atualizado automaticamente a cada mudança nas seções a
 - **Tempo estimado**: de acordo com o método
 - **Moagem recomendada**: de acordo com o método
 - **Botão "▶ Iniciar Preparo"**: ativa o Modo Preparo
+- **Botão "🔗"**: gera e copia para a área de transferência um link com a receita codificada em parâmetros de URL
 
 ---
 
-### Seção 5 — Dica do Método (Acordeão)
+### Seção 5 — Notas Pessoais
 
-Colapsado por padrão. Ao tocar em "saiba mais", expande com:
+Campo de texto livre associado à combinação **método + intensidade** atual (ex: V60 + Equilibrado).
+
+- Salvo automaticamente no `localStorage` com debounce de 600ms
+- Persiste entre sessões
+- Chave de armazenamento: `coado-notes` → objeto `{ "v60_equilibrado": "minha nota", ... }`
+- Label indica claramente a qual receita a nota pertence: *"Minhas notas — V60 · Equilibrado"*
+- Também exibido e editável na Tela de Conclusão, logo após o preparo
+
+---
+
+### Seção 6 — Saiba Mais (Acordeão)
+
+Colapsado por padrão. Ao tocar, expande com:
 
 - Passo a passo simplificado do método (3–5 passos)
 - Temperatura ideal da água:
@@ -137,15 +151,53 @@ Colapsado por padrão. Ao tocar em "saiba mais", expande com:
 
 ---
 
+### Seção 7 — Histórico de Preparos (Acordeão)
+
+Colapsado por padrão. Exibe os **últimos 10 preparos** registrados.
+
+```
+┌─────────────────────────────────────┐
+│ 📋 Histórico (3)                  ▾ │
+├─────────────────────────────────────┤
+│  [V60] [Equilibrado]       hoje     │
+│  2× Xícara média · 240ml · 14.4g   │
+│  ⏱ 3:42                            │
+├─────────────────────────────────────┤
+│  [Chemex] [Suave]          ontem    │
+│  1× Xícara grande · 158ml · 7.5g   │
+├─────────────────────────────────────┤
+│  ...                                │
+└─────────────────────────────────────┘
+```
+
+- Cada entrada exibe: método, intensidade, porções × recipiente, água, café e duração (se completo)
+- **Tocar em uma entrada restaura aquela receita** no Modo Configuração e rola para o topo
+- Armazenado em `localStorage` com chave `coado-history` como array de objetos (máx. 10)
+- Cada objeto contém: `ts`, `portions`, `sizeId`, `customMl`, `sizeName`, `intensityId`, `methodId`, `aguaTotal`, `cafeG`, `duration`
+
+---
+
 ## MODO PREPARO
 
 Ativado pelo botão "▶ Iniciar Preparo". A tela muda completamente para uma interface imersiva de **uma etapa por vez**.
+
+### Header do Modo Preparo
+
+```
+┌───────────────────────────────────────┐
+│  ✕ Encerrar   ETAPA 2 de 4   ⏱ 1:23  │
+└───────────────────────────────────────┘
+```
+
+- **Timer global** (canto direito): contador crescente que mostra o tempo total decorrido desde o início do preparo, atualizado a cada segundo
+- O timer global corre em paralelo ao timer regressivo de cada etapa
+- Ao encerrar manualmente, o timer para e o tempo **não** é salvo no histórico
 
 ### Interface de Cada Etapa
 
 ```
 ┌──────────────────────────────────────┐
-│  ETAPA 2 de 4                        │
+│  ✕ Encerrar   ETAPA 2 de 4  ⏱ 0:52  │
 │                                      │
 │  💧 Primeiro Despeje                 │
 │     Corpo e Doçura                   │
@@ -155,16 +207,13 @@ Ativado pelo botão "▶ Iniciar Preparo". A tela muda completamente para uma in
 │  Total despejado até agora: 172 ml  │
 │  Restante: 178 ml                   │
 │                                      │
-│  💡 Despeje em espiral do centro     │
-│     para fora. Leve e contínuo.      │
-│                                      │
-│         [ ✓ Despejei ]               │
+│  [ ← Voltar ]    [ ✓ Despejei ]     │
 └──────────────────────────────────────┘
 ```
 
-- **"✓ Despejei"** — avança para a próxima etapa
+- **"✓ Despejei"** / **"✓ Feito"** — avança para a próxima etapa
 - **"← Voltar"** — retorna à etapa anterior
-- **"✕ Encerrar"** — volta ao Modo Configuração
+- **"✕ Encerrar"** — para o timer global e volta ao Modo Configuração
 
 ---
 
@@ -196,11 +245,11 @@ Tempo total estimado: **3:30–4:30 min**
 
 #### Coador de Pano
 
-| Etapa | Nome              | Objetivo           | Volume           | Aguardar |
-|-------|-------------------|--------------------|------------------|----------|
-| 1     | Bloom             | Umedecer o café    | café_g × 2 ml    | 30s      |
-| 2     | Despeje Principal | Extração principal | ~60% do restante | —        |
-| 3     | Despeje Final     | Volume e equilíbrio| restante         | —        |
+| Etapa | Nome              | Objetivo            | Volume           | Aguardar |
+|-------|-------------------|---------------------|------------------|----------|
+| 1     | Bloom             | Umedecer o café     | café_g × 2 ml    | 30s      |
+| 2     | Despeje Principal | Extração principal  | ~60% do restante | —        |
+| 3     | Despeje Final     | Volume e equilíbrio | restante         | —        |
 
 Tempo total estimado: **2:00–3:00 min**
 
@@ -231,10 +280,11 @@ Nas etapas com tempo de espera definido (bloom, descanso da prensa), exibir auto
 - Visual apenas — sem som
 - Ao chegar em zero, avança automaticamente para a próxima etapa
 - Botão "pular espera" sempre disponível
+- Corre em paralelo ao timer global do header
 
 ---
 
-### Tela de Conclusão
+## TELA DE CONCLUSÃO
 
 ```
 ┌──────────────────────────────────────┐
@@ -243,12 +293,46 @@ Nas etapas com tempo de espera definido (bloom, descanso da prensa), exibir auto
 │                                      │
 │      Bom proveito. 😊               │
 │                                      │
+│    ⏱ Preparo em: 3:42               │
+│                                      │
+│  ┌────────────────────────────────┐  │
+│  │ Notas — V60 · Equilibrado      │  │
+│  │ Como ficou? Algo para ajustar? │  │
+│  └────────────────────────────────┘  │
+│                                      │
 │       [ Fazer outro café ]           │
 │                                      │
 └──────────────────────────────────────┘
 ```
 
-"Fazer outro café" retorna ao Modo Configuração com os valores anteriores preservados.
+- **Duração total**: exibida automaticamente com base no timer global
+- **Campo de notas**: pré-preenchido com a nota existente para essa receita (método + intensidade); editável e salvo automaticamente
+- O preparo é registrado no histórico ao chegar nesta tela
+- "Fazer outro café" retorna ao Modo Configuração com os valores anteriores preservados
+
+---
+
+## Compartilhar Receita via Link
+
+O botão **🔗** no card de resultado gera uma URL com a receita codificada:
+
+```
+https://setuid.github.io/coado/?p=2&s=sm&i=equilibrado&m=v60
+```
+
+| Parâmetro | Significado        | Exemplo   |
+|-----------|--------------------|-----------|
+| `p`       | Número de porções  | `2`       |
+| `s`       | ID do recipiente   | `sm`      |
+| `i`       | ID da intensidade  | `equilibrado` |
+| `m`       | ID do método       | `v60`     |
+| `c`       | Volume customizado | `250` (só quando `s=custom`) |
+
+**Comportamento ao abrir o link compartilhado:**
+- Os parâmetros são lidos e o estado é restaurado automaticamente
+- A URL é limpa (`history.replaceState`) sem recarregar a página
+- Um toast exibe: *"Receita compartilhada carregada!"*
+- O `localStorage` do usuário não é sobrescrito — a receita compartilhada só persiste se o usuário interagir
 
 ---
 
@@ -285,37 +369,47 @@ despeje_3       = 350 − 42 − 125 − 110 = 73ml → arredonda para 75ml
 
 ---
 
+## Armazenamento (localStorage)
+
+| Chave             | Tipo    | Conteúdo                                          |
+|-------------------|---------|---------------------------------------------------|
+| `coado-state`     | Objeto  | Última configuração (porções, recipiente, etc.)   |
+| `coado-notes`     | Objeto  | Notas por chave `"método_intensidade"`            |
+| `coado-history`   | Array   | Últimos 10 preparos (objetos com ts, quantidades, duração) |
+
+---
+
 ## Comportamento e UX
 
 | Aspecto | Comportamento |
 |---------|---------------|
 | Persistência | `localStorage` salva a última configuração; ao abrir o app, carrega automaticamente |
 | Padrão inicial | 2 porções · xícara média (120ml) · intensidade equilibrada · V60 |
+| URL compartilhada | Parâmetros de URL sobrepõem o localStorage apenas na carga inicial; a URL é limpa em seguida |
 | Tempo real | Todos os cálculos atualizam instantaneamente, sem botão de "calcular" |
-| Feedback visual | Card de resultado tem animação suave ao atualizar; método selecionado fica destacado |
+| Feedback visual | Toast de confirmação ao copiar link; método/intensidade selecionados ficam destacados |
 | Área de toque | Mínimo de 48×48px em todos os controles interativos |
 | Contraste | Textos com contraste adequado para uso em ambiente com pouca luz (manhã cedo) |
+| Notas | Salvas com debounce de 600ms; sem botão de salvar explícito |
+| Histórico | Máximo de 10 entradas; a mais antiga é removida ao inserir a 11ª |
 
 ---
 
 ## O que NÃO incluir
 
 - ❌ Login / conta de usuário
-- ❌ Histórico de preparos
-- ❌ Receitas salvas
+- ❌ Backend ou banco de dados
 - ❌ Múltiplos idiomas
 - ❌ Animações pesadas
 - ❌ Publicidade ou rastreamento
 
 ---
 
-## Evoluções Futuras (fora do escopo v1)
+## Evoluções Futuras
 
-- Timer global de preparo visível durante o Modo Preparo
-- Notas pessoais por receita
-- Histórico dos últimos preparos
-- Compartilhar receita via link
-- Modo barista avançado (controle de bloom customizado, fluxo de despeje)
+- Modo barista avançado (controle de bloom customizado, fluxo de despeje, temperatura)
+- Gráfico de extração ao longo do tempo
+- Exportar notas e histórico como CSV/JSON
 
 ---
 
@@ -324,22 +418,33 @@ despeje_3       = 350 − 42 − 125 − 110 = 73ml → arredonda para 75ml
 ```
 [Abrir Coado]
       ↓
+  [URL com ?params?] → restaurar receita → limpar URL
+      ↓
 [Seção 1] Quantas porções? + Tamanho do recipiente (ícones proporcionais)
       ↓
 [Seção 2] Intensidade (Suave · Equilibrado · Forte) + proporção barista
       ↓
 [Seção 3] Método (V60 · Chemex · Prensa Francesa · Coador de pano)
       ↓
-[Seção 4] Resultado em tempo real: Água · Café · Moagem · Tempo
+[Seção 4] Resultado em tempo real: Água · Café · Moagem · Tempo + [🔗 Compartilhar]
+      ↓
+[Seção 5] Notas pessoais (método + intensidade)
+      ↓
+[Seção 6] Saiba mais (acordeão)
+      ↓
+[Seção 7] Histórico (acordeão) — tocar restaura a receita
       ↓
          [▶ Iniciar Preparo]
       ↓
-[MODO PREPARO]
-  Bloom (timer) → Despeje 1 → Despeje 2 → ... → ☕ Pronto!
+[MODO PREPARO] — timer global no header
+  Bloom (timer regressivo) → Despeje 1 → Despeje 2 → ... → Conclusão
       ↓
-         [Fazer outro café → volta à Seção 1]
+[TELA DE CONCLUSÃO]
+  ⏱ Duração · Notas editáveis · Registra no histórico
+      ↓
+         [Fazer outro café → volta ao Modo Configuração]
 ```
 
 ---
 
-*Coado — Especificação v1.2 · Pronto para implementação com Claude Code*
+*Coado — Especificação v2.0 · Atualizada para refletir a implementação atual*
