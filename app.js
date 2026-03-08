@@ -1116,8 +1116,11 @@ function renderDone() {
   stopGlobalTimer();
   saveToHistory(elapsed);
 
+  const recipe = calcRecipe();
   const method = METHODS[state.methodId];
   const intensity = INTENSITIES.find(i => i.id === state.intensityId);
+  const grinderId = loadGrinder();
+  const grinderDisplay = getGrinderDisplay(grinderId, state.methodId);
   const note = getCurrentNote();
   const isEspresso = method.isEspresso;
 
@@ -1125,12 +1128,32 @@ function renderDone() {
     ? `Espresso · ${state.shotType === 'simples' ? 'Dose simples' : 'Dose dupla'}`
     : `${method.name} · ${intensity.name}`;
 
+  const recipeRows = isEspresso ? `
+    <div class="done-recipe-row"><span>Dose</span><strong>${recipe.dosePerShot}g × ${state.portions} = ${recipe.dose}g</strong></div>
+    <div class="done-recipe-row"><span>Yield</span><strong>${recipe.yieldPerShot}–${recipe.yieldPerShot + 4}ml × ${state.portions}</strong></div>
+    <div class="done-recipe-row"><span>Moagem</span><strong>${grinderDisplay.value}</strong></div>
+    <div class="done-recipe-row"><span>Extração</span><strong>25–30s</strong></div>
+    <div class="done-recipe-row"><span>Temperatura</span><strong>${method.temp}</strong></div>
+  ` : `
+    <div class="done-recipe-row"><span>Água</span><strong>${recipe.aguaTotal} ml</strong></div>
+    <div class="done-recipe-row"><span>Café</span><strong>${recipe.cafeG} g</strong></div>
+    <div class="done-recipe-row"><span>Moagem</span><strong>${grinderDisplay.value}</strong></div>
+    <div class="done-recipe-row"><span>Tempo</span><strong>${method.time}</strong></div>
+    <div class="done-recipe-row"><span>Temperatura</span><strong>${method.temp}</strong></div>
+    ${!isEspresso ? `<div class="done-recipe-row"><span>Intensidade</span><strong>${intensity.name} (${intensity.ratio})</strong></div>` : ''}
+  `;
+
   document.getElementById('app').innerHTML = `
     <div class="done-screen" role="main">
       <div class="done-emoji" aria-hidden="true">☕</div>
       <h2 class="done-title">Café pronto!</h2>
       <p class="done-msg">Bom proveito. 😊</p>
       ${elapsed > 0 ? `<p class="done-time">⏱ Preparo em: <strong>${formatTime(elapsed)}</strong></p>` : ''}
+
+      <div class="done-recipe-card">
+        <div class="done-recipe-title">${method.name}${!isEspresso ? ' · ' + intensity.name : ' · ' + (state.shotType === 'duplo' ? 'Dose dupla' : 'Dose simples')} · ${state.portions} porç.</div>
+        ${recipeRows}
+      </div>
 
       <div class="rating-group" id="rating-group">
         <p class="rating-label">Como ficou este café?</p>

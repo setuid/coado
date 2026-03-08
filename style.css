@@ -585,6 +585,38 @@ textarea { resize: vertical; }
 }
 .btn-restart:active { opacity: 0.85; }
 
+/* ── Done Recipe Card ── */
+.done-recipe-card {
+  width: 100%;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.done-recipe-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.75;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.1rem;
+}
+.done-recipe-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.done-recipe-row span { color: var(--muted); }
+.done-recipe-row strong { color: var(--text); font-weight: 600; text-align: right; }
+
 /* ── Toast ── */
 .toast {
   position: fixed;

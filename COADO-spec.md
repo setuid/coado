@@ -1,4 +1,4 @@
-# Coado — Especificação Funcional v3.2
+# Coado — Especificação Funcional v3.3
 
 **Coado** é um aplicativo web mobile-first para auxiliar na preparação de café orgânico moído. A interface é minimalista e de uso rápido, pensada para ser acessada pela manhã com poucos toques.
 
@@ -392,11 +392,20 @@ Após "Café pronto!", o usuário pode avaliar o preparo:
 │                                      │
 │      Bom proveito. 😊               │
 │                                      │
+│  ⏱ Preparo em: 2:45                 │
+│                                      │
+│  ┌── Chemex · Forte · 3 porç. ─────┐ │
+│  │ Água        450 ml              │ │
+│  │ Café        36 g                │ │
+│  │ Moagem      22–26 cliques       │ │
+│  │ Tempo       3:30–4:30 min       │ │
+│  │ Temperatura 90–93°C             │ │
+│  │ Intensidade Forte (1:12)        │ │
+│  └─────────────────────────────────┘ │
+│                                      │
 │  Como ficou este café?               │
 │  ☆ ☆ ☆ ☆ ☆                         │
 │  (toque para avaliar)                │
-│                                      │
-│  ⏱ Preparo em: 2:45                 │
 │                                      │
 │  ┌── Notas ──────────────────────┐   │
 │  │ campo de texto livre          │   │
@@ -642,6 +651,9 @@ pressao    = 9 bar (informativo — o app não controla)
 
 ## Changelog
 
+### v3.3
+- **Card de receita na tela de conclusão**: após o preparo, exibe um resumo compacto com método, intensidade, porções, água, café, moagem, tempo e temperatura — para o usuário lembrar o que fez e comparar com a avaliação
+
 ### v3.2
 - **Defaults ajustados**: Chemex (1º na lista), 3 porções, xícara grande, intensidade Forte
 - **Barra de progresso corrigida**: agora usa volume acumulado (pouredBefore + step.vol), atingindo 100% no último despeje
@@ -660,4 +672,4 @@ pressao    = 9 bar (informativo — o app não controla)
 - Avaliação 1–5 estrelas na tela de conclusão
 - Compartilhamento de receita via URL params
 
-*Coado — Especificação v3.2 · Versão em produção no GitHub Pages*
+*Coado — Especificação v3.3 · Versão em produção no GitHub Pages*
