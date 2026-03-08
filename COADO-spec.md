@@ -38,6 +38,34 @@ O app tem **dois modos**:
 
 ## MODO CONFIGURAÇÃO
 
+### Seção 0 — Seleção de Moedor (opcional, persistida)
+
+Exibida **uma única vez na primeira abertura do app**, e sempre acessível via ícone de configuração no canto superior. O usuário seleciona seu moedor para que o app exiba configurações precisas de moagem ao longo de toda a experiência.
+
+**Comportamento:**
+- Se nenhum moedor for selecionado, o app exibe descrições genéricas de moagem (ex: "Moagem média-fina")
+- Se um moedor for selecionado, o app exibe o número de cliques/posição específico para aquele modelo
+- A seleção é salva no `localStorage` e persiste entre sessões
+- Pode ser alterada a qualquer momento via ícone de configuração (⚙️) no topo da tela
+
+**Moedores disponíveis:**
+
+| Moedor | Tipo de ajuste | Observação |
+|--------|---------------|------------|
+| Timemore C2 | Cliques a partir do zero | Popular, excelente custo-benefício |
+| Timemore C3 / C3 Pro | Cliques a partir do zero | Sucessor do C2, burrs S2C |
+| Timemore C3S | Cliques a partir do zero | Versão compacta do C3 |
+| Comandante C40 | Cliques a partir do zero | Referência premium alemã |
+| 1Zpresso JX | Rotações + número + clique (ex: 2.5.0) | Formato: rotações.número.clique |
+| 1Zpresso JX-Pro | Rotações + número + clique (ex: 2.5.0) | Mais preciso para espresso |
+| Baratza Encore | Número de 1 a 40 | Elétrico; números maiores = moagem mais grossa |
+| Hario Skerton Pro | Cliques a partir do zero | Clássico, moagem irregular em configurações finas |
+| Sem moedor específico | — | Exibe descrições genéricas |
+
+> ⚠️ **Nota importante a exibir ao usuário**: Os valores de cliques são pontos de partida. Fatores como torra, origem do grão, umidade e preferência pessoal podem exigir ajuste fino de ±2 a 3 cliques.
+
+---
+
 ### Seção 1 — Quantidade de Xícaras / Copos
 
 **Seletor de número de porções**
@@ -102,6 +130,7 @@ Cards tocáveis com ícone/ilustração simples. Ao selecionar, uma dica rápida
 
 Exibido em tempo real, atualizado automaticamente a cada mudança nas seções acima.
 
+**Sem moedor selecionado:**
 ```
 ┌─────────────────────────────────┐
 │  ☕ Sua receita                  │
@@ -115,10 +144,25 @@ Exibido em tempo real, atualizado automaticamente a cada mudança nas seções a
 └─────────────────────────────────┘
 ```
 
+**Com moedor selecionado (ex: Timemore C3):**
+```
+┌─────────────────────────────────┐
+│  ☕ Sua receita                  │
+│                                 │
+│  💧 Água:     XXX ml            │
+│  🌿 Café:     XX g              │
+│  ⏱ Tempo:    ~ X min           │
+│  📐 Moagem:   20 cliques        │
+│     Timemore C3 · Média-fina    │
+│                                 │
+│       [ ▶ Iniciar Preparo ]     │
+└─────────────────────────────────┘
+```
+
 - **Água**: volume total em ml, com fator de compensação do método já aplicado
 - **Café**: gramas a moer
 - **Tempo estimado**: de acordo com o método
-- **Moagem recomendada**: de acordo com o método
+- **Moagem**: descrição genérica se sem moedor; número de cliques + modelo se moedor selecionado
 - **Botão "▶ Iniciar Preparo"**: ativa o Modo Preparo
 
 ---
@@ -134,6 +178,130 @@ Colapsado por padrão. Ao tocar em "saiba mais", expande com:
   - Prensa Francesa: 92–96°C
   - Coador de pano: 90–92°C
 - Dica sobre café orgânico (ex: *"Cafés orgânicos naturais tendem a ter notas frutadas — evite água fervendo para preservar o aroma"*)
+- **Se moedor selecionado**: dica de como calibrar o zero do moedor antes de contar os cliques
+
+---
+
+## TABELA DE CONFIGURAÇÕES DE MOEDOR POR MÉTODO
+
+Esta é a tabela de dados interna que o app usa para exibir o número correto de cliques no card de resultado. Todos os valores são pontos de partida recomendados para café de torra média — o usuário deve ajustar ±2 a 3 cliques conforme o resultado na xícara.
+
+### Timemore C2
+
+Sistema: cliques a partir do zero. Mínimo recomendado: 6 cliques (abaixo pode danificar as burrs).
+
+| Método          | Cliques recomendados | Categoria        |
+|-----------------|----------------------|------------------|
+| V60             | 18–22                | Média-fina       |
+| Chemex          | 22–26                | Média-grossa     |
+| Coador de pano  | 20–24                | Média            |
+| Prensa Francesa | 26–30                | Grossa           |
+
+> O C2 não é recomendado para espresso — range de ajuste muito pequeno na faixa fina.
+
+---
+
+### Timemore C3 / C3 Pro
+
+Sistema: cliques a partir do zero. Mínimo recomendado: 6 cliques. Burrs S2C (Spike to Cut).
+
+| Método          | Cliques recomendados | Categoria        |
+|-----------------|----------------------|------------------|
+| V60             | 15–20                | Média-fina       |
+| Chemex          | 20–24                | Média-grossa     |
+| Coador de pano  | 18–22                | Média            |
+| Prensa Francesa | 22–26                | Grossa           |
+
+> O C3 consegue moer para espresso (6–12 cliques), mas o range de ajuste é limitado — use apenas com máquinas de pressurized basket.
+
+---
+
+### Timemore C3S
+
+Sistema: cliques a partir do zero. Versão compacta com mesmas burrs do C3.
+
+| Método          | Cliques recomendados | Categoria        |
+|-----------------|----------------------|------------------|
+| V60             | 14–18                | Média-fina       |
+| Chemex          | 18–22                | Média-grossa     |
+| Coador de pano  | 16–20                | Média            |
+| Prensa Francesa | 20–25                | Grossa           |
+
+---
+
+### Comandante C40
+
+Sistema: cliques a partir do zero. Referência da indústria — ~30 microns por clique.
+
+| Método          | Cliques recomendados | Categoria        |
+|-----------------|----------------------|------------------|
+| V60             | 22–28                | Média-fina       |
+| Chemex          | 28–34                | Média-grossa     |
+| Coador de pano  | 24–30                | Média            |
+| Prensa Francesa | 32–38                | Grossa           |
+
+> Para espresso: 10–15 cliques. O Comandante é um dos poucos hand grinders que performa bem para espresso.
+
+---
+
+### 1Zpresso JX
+
+Sistema: rotações + número + clique (ex: `2.5.0` = 2 rotações completas, posição 5, clique 0). Cada rotação = 40 cliques = 0,5mm de ajuste.
+
+| Método          | Configuração recomendada | Equivalente em cliques totais |
+|-----------------|--------------------------|-------------------------------|
+| V60             | 2.5.0 – 3.5.0            | ~100–140 cliques              |
+| Chemex          | 3.5.0 – 4.2.0            | ~140–168 cliques              |
+| Coador de pano  | 3.0.0 – 4.0.0            | ~120–160 cliques              |
+| Prensa Francesa | 4.0.0 – 5.0.0            | ~160–200 cliques              |
+
+> O JX é otimizado para café de filtro. Para espresso, o JX-Pro oferece mais precisão.
+
+---
+
+### 1Zpresso JX-Pro
+
+Sistema: rotações + número + clique (ex: `1.5.0`). Mesmo sistema do JX, burrs ligeiramente diferentes.
+
+| Método          | Configuração recomendada | Categoria        |
+|-----------------|--------------------------|------------------|
+| Espresso        | 1.0.0 – 2.0.0            | Fina             |
+| V60             | 2.2.0 – 3.5.0            | Média-fina       |
+| Chemex          | 3.2.0 – 4.0.0            | Média-grossa     |
+| Coador de pano  | 2.8.0 – 3.8.0            | Média            |
+| Prensa Francesa | 4.0.0 – 4.8.0            | Grossa           |
+
+---
+
+### Baratza Encore
+
+Sistema: número de 1 a 40 impresso no anel do hopper. **Números maiores = moagem mais grossa** (ao contrário dos manuais de cliques). Elétrico.
+
+| Método          | Configuração recomendada | Categoria        |
+|-----------------|--------------------------|------------------|
+| V60             | 15–20                    | Média-fina       |
+| Chemex          | 20–26                    | Média-grossa     |
+| Coador de pano  | 18–24                    | Média            |
+| Prensa Francesa | 28–35                    | Grossa           |
+
+> O Encore não é recomendado para espresso — ajuste muito impreciso na faixa fina. Use o setting 8 apenas em máquinas com pressurized basket.
+
+> ⚙️ **Como ajustar**: gire o hopper (parte superior) alinhando a linha branca ao número desejado. Ajuste sempre com o moedor ligado para preservar as burrs.
+
+---
+
+### Hario Skerton Pro
+
+Sistema: cliques a partir do zero (ajuste na parte inferior do moedor).
+
+| Método          | Cliques recomendados | Categoria        |
+|-----------------|----------------------|------------------|
+| V60             | 6–8                  | Média-fina       |
+| Chemex          | 8–10                 | Média-grossa     |
+| Coador de pano  | 7–9                  | Média            |
+| Prensa Francesa | 10–14                | Grossa           |
+
+> O Skerton Pro tem desempenho irregular em moagens finas. Evite usar para espresso. Para café de filtro, funciona bem.
 
 ---
 
@@ -283,18 +451,114 @@ despeje_3       = 350 − 42 − 125 − 110 = 73ml → arredonda para 75ml
 // (o despeje final absorve o resíduo do arredondamento)
 ```
 
+### Lookup de Configuração de Moedor
+
+```javascript
+// Estrutura de dados interna (JavaScript)
+const grinderSettings = {
+  "timemore-c2": {
+    nome: "Timemore C2",
+    unidade: "cliques",
+    metodos: {
+      v60:    { min: 18, max: 22, display: "18–22 cliques" },
+      chemex: { min: 22, max: 26, display: "22–26 cliques" },
+      pano:   { min: 20, max: 24, display: "20–24 cliques" },
+      prensa: { min: 26, max: 30, display: "26–30 cliques" }
+    }
+  },
+  "timemore-c3": {
+    nome: "Timemore C3 / C3 Pro",
+    unidade: "cliques",
+    metodos: {
+      v60:    { min: 15, max: 20, display: "15–20 cliques" },
+      chemex: { min: 20, max: 24, display: "20–24 cliques" },
+      pano:   { min: 18, max: 22, display: "18–22 cliques" },
+      prensa: { min: 22, max: 26, display: "22–26 cliques" }
+    }
+  },
+  "timemore-c3s": {
+    nome: "Timemore C3S",
+    unidade: "cliques",
+    metodos: {
+      v60:    { min: 14, max: 18, display: "14–18 cliques" },
+      chemex: { min: 18, max: 22, display: "18–22 cliques" },
+      pano:   { min: 16, max: 20, display: "16–20 cliques" },
+      prensa: { min: 20, max: 25, display: "20–25 cliques" }
+    }
+  },
+  "comandante-c40": {
+    nome: "Comandante C40",
+    unidade: "cliques",
+    metodos: {
+      v60:    { min: 22, max: 28, display: "22–28 cliques" },
+      chemex: { min: 28, max: 34, display: "28–34 cliques" },
+      pano:   { min: 24, max: 30, display: "24–30 cliques" },
+      prensa: { min: 32, max: 38, display: "32–38 cliques" }
+    }
+  },
+  "1zpresso-jx": {
+    nome: "1Zpresso JX",
+    unidade: "rotações",
+    metodos: {
+      v60:    { display: "2.5 – 3.5 rotações" },
+      chemex: { display: "3.5 – 4.2 rotações" },
+      pano:   { display: "3.0 – 4.0 rotações" },
+      prensa: { display: "4.0 – 5.0 rotações" }
+    }
+  },
+  "1zpresso-jx-pro": {
+    nome: "1Zpresso JX-Pro",
+    unidade: "rotações",
+    metodos: {
+      v60:    { display: "2.2 – 3.5 rotações" },
+      chemex: { display: "3.2 – 4.0 rotações" },
+      pano:   { display: "2.8 – 3.8 rotações" },
+      prensa: { display: "4.0 – 4.8 rotações" }
+    }
+  },
+  "baratza-encore": {
+    nome: "Baratza Encore",
+    unidade: "número (1–40)",
+    instrucao: "Números maiores = moagem mais grossa",
+    metodos: {
+      v60:    { min: 15, max: 20, display: "15–20" },
+      chemex: { min: 20, max: 26, display: "20–26" },
+      pano:   { min: 18, max: 24, display: "18–24" },
+      prensa: { min: 28, max: 35, display: "28–35" }
+    }
+  },
+  "hario-skerton-pro": {
+    nome: "Hario Skerton Pro",
+    unidade: "cliques",
+    metodos: {
+      v60:    { min: 6,  max: 8,  display: "6–8 cliques" },
+      chemex: { min: 8,  max: 10, display: "8–10 cliques" },
+      pano:   { min: 7,  max: 9,  display: "7–9 cliques" },
+      prensa: { min: 10, max: 14, display: "10–14 cliques" }
+    }
+  }
+}
+
+// Lookup ao exibir o card de resultado:
+function getMoagemDisplay(grinderId, metodo) {
+  if (!grinderId) return "Média-fina"; // fallback genérico
+  return grinderSettings[grinderId].metodos[metodo].display;
+}
+```
+
 ---
 
 ## Comportamento e UX
 
 | Aspecto | Comportamento |
 |---------|---------------|
-| Persistência | `localStorage` salva a última configuração; ao abrir o app, carrega automaticamente |
+| Persistência | `localStorage` salva moedor selecionado + última configuração; ao abrir o app, carrega automaticamente |
 | Padrão inicial | 2 porções · xícara média (120ml) · intensidade equilibrada · V60 |
 | Tempo real | Todos os cálculos atualizam instantaneamente, sem botão de "calcular" |
 | Feedback visual | Card de resultado tem animação suave ao atualizar; método selecionado fica destacado |
 | Área de toque | Mínimo de 48×48px em todos os controles interativos |
 | Contraste | Textos com contraste adequado para uso em ambiente com pouca luz (manhã cedo) |
+| Moedor | Seleção persiste entre sessões; alterável a qualquer momento via ⚙️ no topo |
 
 ---
 
@@ -315,7 +579,10 @@ despeje_3       = 350 − 42 − 125 − 110 = 73ml → arredonda para 75ml
 - Notas pessoais por receita
 - Histórico dos últimos preparos
 - Compartilhar receita via link
-- Modo barista avançado (controle de bloom customizado, fluxo de despeje)
+- Adicionar espresso como método com lógica própria (proporção 1:2, dose em gramas, sem etapas de despeje)
+- Modo barista avançado (bloom customizado, fluxo de despeje)
+- Suporte a mais moedores (Niche Zero, Kinu M47, Fellow Ode Gen 2)
+- Ajuste por torra: -2 cliques para torras claras, +2 cliques para torras escuras
 
 ---
 
@@ -324,13 +591,16 @@ despeje_3       = 350 − 42 − 125 − 110 = 73ml → arredonda para 75ml
 ```
 [Abrir Coado]
       ↓
+[Seção 0 — primeira vez] Qual é o seu moedor? (opcional, salvo)
+      ↓
 [Seção 1] Quantas porções? + Tamanho do recipiente (ícones proporcionais)
       ↓
 [Seção 2] Intensidade (Suave · Equilibrado · Forte) + proporção barista
       ↓
 [Seção 3] Método (V60 · Chemex · Prensa Francesa · Coador de pano)
       ↓
-[Seção 4] Resultado em tempo real: Água · Café · Moagem · Tempo
+[Seção 4] Resultado em tempo real:
+          Água · Café · Tempo · Moagem (cliques do moedor OU descrição genérica)
       ↓
          [▶ Iniciar Preparo]
       ↓
@@ -342,4 +612,4 @@ despeje_3       = 350 − 42 − 125 − 110 = 73ml → arredonda para 75ml
 
 ---
 
-*Coado — Especificação v1.2 · Pronto para implementação com Claude Code*
+*Coado — Especificação v1.3 · Pronto para implementação com Claude Code*
