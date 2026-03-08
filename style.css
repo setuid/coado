@@ -173,11 +173,6 @@ textarea { resize: vertical; }
 .custom-ml-input:focus { border-color: var(--accent); }
 
 /* ── Intensity ── */
-.intensity-group {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.6rem;
-}
 .intensity-btn {
   display: flex;
   flex-direction: column;
@@ -730,6 +725,133 @@ textarea { resize: vertical; }
   padding: 0.6rem 0.8rem;
   line-height: 1.5;
 }
+
+/* ── Grinder Search ── */
+.grinder-search {
+  width: 100%;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.9rem;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--surface);
+  outline: none;
+  margin-bottom: 0.6rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.grinder-search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(74,37,18,0.07); }
+.grinder-no-results {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.5rem 0;
+  font-style: italic;
+}
+
+/* ── Shot Cards (Espresso) ── */
+.shot-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.shot-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1rem 0.75rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  transition: all var(--transition);
+  text-align: center;
+}
+.shot-card.selected { border-color: var(--accent); background: #FBF5EF; box-shadow: var(--shadow-sm); }
+.shot-name { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+.shot-info { font-size: 0.8rem; color: var(--muted); font-family: monospace; }
+.shot-badge { font-size: 0.68rem; color: var(--accent); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ── Intensity grid — 2×2 for 4 options ── */
+.intensity-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+/* ── Warnings ── */
+.intensity-warning,
+.espresso-grinder-warning {
+  margin-top: 0.6rem;
+  font-size: 0.82rem;
+  color: #7B3F00;
+  background: #FFF3E0;
+  border: 1px solid #FFB74D;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.8rem;
+  line-height: 1.4;
+}
+.espresso-grinder-warning { color: var(--muted); background: var(--surface-2); border-color: var(--border); }
+
+/* ── Accordion espresso tips ── */
+.acc-espresso-tip {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Star Rating (Done Screen) ── */
+.rating-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+.rating-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.stars {
+  display: flex;
+  gap: 0.35rem;
+}
+.star-btn {
+  font-size: 2rem;
+  line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition);
+  color: var(--accent);
+}
+.star-btn:active { transform: scale(0.88); }
+.star-btn.active { color: #E65100; }
+
+/* ── History stars ── */
+.history-stars {
+  font-size: 0.72rem;
+  letter-spacing: -1px;
+  color: var(--accent);
+}
+
+/* ── Share button (Done Screen) ── */
+.btn-share-done {
+  padding: 0.85rem 2rem;
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  color: var(--accent);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  min-height: 52px;
+  width: 100%;
+  transition: background var(--transition);
+}
+.btn-share-done:active { background: var(--border); }
 
 /* ── Reduce motion ── */
 @media (prefers-reduced-motion: reduce) {

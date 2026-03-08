@@ -1,0 +1,162 @@
+[
+  {
+    "id": "timemore-c2",
+    "name": "Timemore C2",
+    "brand": "Timemore",
+    "type": "manual",
+    "unit": "cliques",
+    "unitDescription": "Cliques a partir do zero (fechar sem forçar = posição 0)",
+    "calibrationNote": "Feche o moedor completamente sem forçar. Esse é o ponto zero. Abra os cliques em sentido anti-horário.",
+    "manualUrl": "https://www.manualslib.com/manual/3910577/Timemore-Chestnut-C2.html",
+    "espressoCapable": false,
+    "espressoNote": "Não recomendado para espresso — range de ajuste muito pequeno na faixa fina.",
+    "notes": "Mínimo recomendado: 6 cliques. Pode danificar as burrs abaixo disso.",
+    "settings": {
+      "v60": "18–22",
+      "chemex": "22–26",
+      "pano": "20–24",
+      "prensa": "26–30",
+      "espresso": null
+    }
+  },
+  {
+    "id": "timemore-c3",
+    "name": "Timemore C3 / C3 Pro",
+    "brand": "Timemore",
+    "type": "manual",
+    "unit": "cliques",
+    "unitDescription": "Cliques a partir do zero (fechar sem forçar = posição 0). Burrs S2C (Spike to Cut).",
+    "calibrationNote": "Feche o moedor completamente sem forçar. Esse é o ponto zero. Abra os cliques em sentido anti-horário.",
+    "manualUrl": "https://www.manualslib.com/manual/3910579/Timemore-Chestnut-C3.html",
+    "espressoCapable": "limited",
+    "espressoNote": "Apenas com cesta pressurizada (pressurized basket) — janela de ajuste muito estreita (7–8 cliques).",
+    "notes": "Mínimo recomendado: 6 cliques. C3 ESP variant é específica para espresso.",
+    "settings": {
+      "v60": "15–20",
+      "chemex": "20–24",
+      "pano": "18–22",
+      "prensa": "22–26",
+      "espresso": "7–8"
+    }
+  },
+  {
+    "id": "timemore-c3s",
+    "name": "Timemore C3S",
+    "brand": "Timemore",
+    "type": "manual",
+    "unit": "cliques",
+    "unitDescription": "Cliques a partir do zero. Versão compacta com mesmas burrs do C3.",
+    "calibrationNote": "Feche o moedor completamente sem forçar. Esse é o ponto zero. Abra os cliques em sentido anti-horário.",
+    "manualUrl": "https://manuals.plus/asin/B0C1TZN9T5",
+    "espressoCapable": "limited",
+    "espressoNote": "Apenas com cesta pressurizada (pressurized basket) — mesma limitação do C3.",
+    "notes": "Versão compacta e leve do C3. Ideal para viagem.",
+    "settings": {
+      "v60": "14–18",
+      "chemex": "18–22",
+      "pano": "16–20",
+      "prensa": "20–25",
+      "espresso": "7–8"
+    }
+  },
+  {
+    "id": "comandante-c40",
+    "name": "Comandante C40",
+    "brand": "Comandante",
+    "type": "manual",
+    "unit": "cliques",
+    "unitDescription": "Cliques a partir do zero. ~25–30 µm por clique. Referência da indústria.",
+    "calibrationNote": "Feche o moedor completamente sem forçar. Cada clique equivale a ~25–30 µm de ajuste — alta precisão. Red Clix dobra o número de posições.",
+    "manualUrl": "https://www.maxicoffee.com/images/pdf/C40-Manual.pdf",
+    "espressoCapable": true,
+    "espressoNote": "Excelente para espresso — ~25–30 µm por clique, alta precisão. Red Clix upgrade: 18–24 cliques.",
+    "notes": "Referência premium alemã. Red Clix upgrade dobra a precisão de ajuste.",
+    "settings": {
+      "v60": "22–28",
+      "chemex": "28–34",
+      "pano": "24–30",
+      "prensa": "32–38",
+      "espresso": "10–15"
+    }
+  },
+  {
+    "id": "1zpresso-jx",
+    "name": "1Zpresso JX",
+    "brand": "1Zpresso",
+    "type": "manual",
+    "unit": "rotações",
+    "unitDescription": "Rotações a partir do zero. Cada rotação = 40 cliques = 0,5mm de ajuste.",
+    "calibrationNote": "Gire o ajuste até o zero (parar de girar sem forçar). Depois abra o número de rotações indicado. Cada rotação = 40 cliques.",
+    "manualUrl": "https://1zpresso.coffee/manual-j-en/",
+    "espressoCapable": false,
+    "espressoNote": "Tecnicamente possível (~1.5–1.8 rot) mas resultado inconsistente. Prefira o JX-Pro para espresso.",
+    "notes": "Otimizado para café de filtro. Para espresso, o JX-Pro é mais adequado.",
+    "settings": {
+      "v60": "2.5–3.5",
+      "chemex": "3.5–4.2",
+      "pano": "3.0–4.0",
+      "prensa": "4.0–5.0",
+      "espresso": null
+    }
+  },
+  {
+    "id": "1zpresso-jx-pro",
+    "name": "1Zpresso JX-Pro",
+    "brand": "1Zpresso",
+    "type": "manual",
+    "unit": "rotações",
+    "unitDescription": "Rotações a partir do zero. 40 cliques/rot, 12.5 µm/clique.",
+    "calibrationNote": "Gire o ajuste até o zero (parar de girar sem forçar). Depois abra o número de rotações indicado.",
+    "manualUrl": "https://1zpresso.coffee/manual-jxpro-en/",
+    "espressoCapable": true,
+    "espressoNote": "Projetado para espresso também — configuração 1.6–1.8 rotações (setting #12–16, ~48–72 cliques totais).",
+    "notes": "Versão mais precisa para espresso. 40 cliques por rotação, 12.5 µm por clique.",
+    "settings": {
+      "v60": "2.2–3.5",
+      "chemex": "3.2–4.0",
+      "pano": "2.8–3.8",
+      "prensa": "4.0–4.8",
+      "espresso": "1.6–1.8"
+    }
+  },
+  {
+    "id": "baratza-encore",
+    "name": "Baratza Encore",
+    "brand": "Baratza",
+    "type": "electric",
+    "unit": "número",
+    "unitDescription": "Número de 1 a 40. Números maiores = moagem mais grossa (ao contrário dos manuais de cliques).",
+    "calibrationNote": "Gire o hopper (parte superior) alinhando a linha branca ao número desejado. Ajuste sempre com o moedor ligado para preservar as burrs.",
+    "manualUrl": "https://assets.breville.com/ZCG485/manual-encore-en-v4-3-120122.pdf",
+    "espressoCapable": false,
+    "espressoNote": "Não recomendado para espresso — saltos grandes entre settings (impreciso na faixa fina).",
+    "notes": "Elétrico. Números maiores = moagem mais grossa. Referência entry-level elétrico.",
+    "settings": {
+      "v60": "15–20",
+      "chemex": "20–26",
+      "pano": "18–24",
+      "prensa": "28–35",
+      "espresso": null
+    }
+  },
+  {
+    "id": "hario-skerton-pro",
+    "name": "Hario Skerton Pro",
+    "brand": "Hario",
+    "type": "manual",
+    "unit": "cliques",
+    "unitDescription": "Cliques a partir do zero. Ajuste na parte inferior do moedor.",
+    "calibrationNote": "O ajuste fica na parte inferior do moedor. Feche completamente (posição 0) e abra os cliques indicados.",
+    "manualUrl": "https://global.hario.com/product/MMCS-2B.pdf",
+    "espressoCapable": false,
+    "espressoNote": "Não recomendado para espresso — distribuição irregular de partículas na faixa muito fina.",
+    "notes": "Clássico japonês. Desempenho regular em moagens finas. Ótimo para filtro.",
+    "settings": {
+      "v60": "6–8",
+      "chemex": "8–10",
+      "pano": "7–9",
+      "prensa": "10–14",
+      "espresso": null
+    }
+  }
+]

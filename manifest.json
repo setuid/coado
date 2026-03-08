@@ -1,6 +1,7 @@
 {
   "name": "Coado",
   "short_name": "Coado",
+  "version": "3.1.0",
   "description": "Seu café, do jeito certo.",
   "start_url": "/coado/",
   "scope": "/coado/",
