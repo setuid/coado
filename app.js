@@ -1,6 +1,6 @@
 'use strict';
 
-const APP_VERSION = '3.4';
+const APP_VERSION = '3.5';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -254,7 +254,7 @@ const GRINDERS = {
 
 // ─── STATE ────────────────────────────────────────────────────────────────────
 
-const DEFAULT = { portions: 3, sizeId: 'md', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo' };
+const DEFAULT = { portions: 3, sizeId: 'sm', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo' };
 let state = { ...DEFAULT };
 let prepState = null;
 let timerInterval = null;
@@ -1023,7 +1023,7 @@ function renderPrep() {
   const step = steps[idx];
   const total = steps.length;
   const isEspresso = METHODS[state.methodId].isEspresso;
-  // Usa override se o usuário ajustou o volume real despejado em etapas anteriores
+  // Usa override se o usuário ajustou o volume real despejado em ataques anteriores
   const pouredBefore = steps.slice(0, idx).reduce((s, st, i) => {
     const vol = prepState.stepOverride[i] !== undefined ? prepState.stepOverride[i] : (st.vol || 0);
     return s + vol;
@@ -1052,7 +1052,7 @@ function renderPrep() {
       <div class="pour-current">
         <span class="pour-current-value">${currentVol} ml</span>
         ${hasOverride ? '<span class="vol-adjusted">ajustado</span>' : ''}
-        <span class="pour-current-label">nesta etapa</span>
+        <span class="pour-current-label">neste ataque</span>
       </div>
       <div class="pour-adjust">
         <button class="btn-pour-adj" id="btn-pour-minus" aria-label="Diminuir 5ml">−5 ml</button>
@@ -1065,7 +1065,7 @@ function renderPrep() {
           <span class="pour-stat-value">${pouredBefore} ml</span>
         </div>
         <div class="pour-stat pour-stat-accent">
-          <span class="pour-stat-label">Após esta etapa</span>
+          <span class="pour-stat-label">Após este ataque</span>
           <span class="pour-stat-value">${cumulativePoured} ml</span>
         </div>
         <div class="pour-stat">
@@ -1093,7 +1093,7 @@ function renderPrep() {
     <div class="prep-screen" role="main">
       <div class="prep-header">
         <button class="btn-close" id="btn-close" aria-label="Encerrar preparo">✕ Encerrar</button>
-        <div class="prep-progress">ETAPA ${idx + 1} de ${total}</div>
+        <div class="prep-progress">ATAQUE ${idx + 1} de ${total}</div>
         <div class="global-timer" id="global-timer">⏱ ${formatTime(getElapsed())}</div>
       </div>
       <div class="prep-step">
