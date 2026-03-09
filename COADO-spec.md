@@ -1,4 +1,4 @@
-# Coado — Especificação Funcional v3.3
+# Coado — Especificação Funcional v3.4
 
 **Coado** é um aplicativo web mobile-first para auxiliar na preparação de café orgânico moído. A interface é minimalista e de uso rápido, pensada para ser acessada pela manhã com poucos toques.
 
@@ -651,6 +651,12 @@ pressao    = 9 bar (informativo — o app não controla)
 
 ## Changelog
 
+### v3.4
+- **Cache busting automático**: Service Worker versionado (`coado-v3.4`). Ao detectar nova versão, o app recarrega automaticamente sem precisar limpar cache manualmente. Histórico do usuário (localStorage) preservado.
+- **Breville Smart Grinder Pro**: adicionado à lista de moedores com settings para todos os métodos (número 1–60).
+- **Ajuste de volume no preparo**: botões `−5ml` / `+5ml` em cada etapa de despeje permitem corrigir o volume real despejado; a conta de "restante" se recalcula automaticamente. Badge "ajustado" aparece quando o valor foi alterado.
+- **Versão do app visível**: exibida no cabeçalho da home (`v3.4`) e no rodapé de todas as telas.
+
 ### v3.3
 - **Card de receita na tela de conclusão**: após o preparo, exibe um resumo compacto com método, intensidade, porções, água, café, moagem, tempo e temperatura — para o usuário lembrar o que fez e comparar com a avaliação
 
@@ -672,4 +678,4 @@ pressao    = 9 bar (informativo — o app não controla)
 - Avaliação 1–5 estrelas na tela de conclusão
 - Compartilhamento de receita via URL params
 
-*Coado — Especificação v3.3 · Versão em produção no GitHub Pages*
+*Coado — Especificação v3.4 · Versão em produção no GitHub Pages*

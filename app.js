@@ -1,5 +1,7 @@
 'use strict';
 
+const APP_VERSION = '3.4';
+
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const SIZES = [
@@ -229,6 +231,15 @@ const GRINDERS = {
     espressoCapable: false,
     espressoNote: 'Não recomendado para espresso — saltos grandes entre settings, muito impreciso na faixa fina.',
     settings: { v60: '15–20', chemex: '20–26', pano: '18–24', prensa: '28–35', espresso: null },
+  },
+  'breville-smart-grinder-pro': {
+    name: 'Breville Smart Grinder Pro',
+    unit: 'número',
+    calibrationNote: 'O ajuste é feito pelo dial digital (1–60). Números menores = moagem mais fina. Ajuste sempre com o moedor desligado antes de ligar.',
+    manualUrl: 'https://www.breville.com/content/dam/breville/au/assets/grinders/finished-goods/bcg820/bcg820-manual.pdf',
+    espressoCapable: true,
+    espressoNote: 'Bom para espresso — faixa de 1–16 com boa consistência. Ajuste 1 número por vez.',
+    settings: { v60: '20–26', chemex: '26–32', pano: '22–28', prensa: '36–44', espresso: '10–15' },
   },
   'hario-skerton-pro': {
     name: 'Hario Skerton Pro',
@@ -750,6 +761,7 @@ function renderConfig() {
           <button class="btn-grinder-icon" id="btn-grinder-icon" title="Configurar moedor" aria-label="Configurar moedor">⚙️</button>
         </div>
         <p class="app-tagline">Seu café, do jeito certo.</p>
+        <p class="app-version">v${APP_VERSION}</p>
       </header>
 
       ${grinderSection}
@@ -837,6 +849,7 @@ function renderConfig() {
         </details>
       </section>
 
+      <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
     </div>`;
 
   bindConfigEvents();
@@ -950,7 +963,7 @@ function bindConfigEvents() {
 
   document.getElementById('btn-start').addEventListener('click', () => {
     clearInterval(timerInterval);
-    prepState = { stepIndex: 0, waiting: false, timeLeft: 0 };
+    prepState = { stepIndex: 0, waiting: false, timeLeft: 0, stepOverride: {} };
     startGlobalTimer();
     renderPrep();
   });
@@ -1010,8 +1023,13 @@ function renderPrep() {
   const step = steps[idx];
   const total = steps.length;
   const isEspresso = METHODS[state.methodId].isEspresso;
-  const pouredBefore = steps.slice(0, idx).reduce((s, st) => s + (st.vol || 0), 0);
-  const remaining = (recipe.aguaTotal || 0) - pouredBefore - (step.vol || 0);
+  // Usa override se o usuário ajustou o volume real despejado em etapas anteriores
+  const pouredBefore = steps.slice(0, idx).reduce((s, st, i) => {
+    const vol = prepState.stepOverride[i] !== undefined ? prepState.stepOverride[i] : (st.vol || 0);
+    return s + vol;
+  }, 0);
+  const currentVol = prepState.stepOverride[idx] !== undefined ? prepState.stepOverride[idx] : (step.vol || 0);
+  const remaining = (recipe.aguaTotal || 0) - pouredBefore - currentVol;
 
   let bodyHTML = '';
   if (prepState.waiting) {
@@ -1023,13 +1041,19 @@ function renderPrep() {
         <button class="btn-skip" id="btn-skip-wait">pular espera</button>
       </div>`;
   } else {
-    const cumulativePoured = pouredBefore + (step.vol || 0);
+    const cumulativePoured = pouredBefore + currentVol;
+    const hasOverride = prepState.stepOverride[idx] !== undefined;
     const volBar = step.vol && !isEspresso ? `
       <div class="step-volume">
-        <div class="volume-bar-label">${step.vol} ml</div>
+        <div class="volume-bar-label">${currentVol} ml${hasOverride ? ' <span class="vol-adjusted">ajustado</span>' : ''}</div>
         <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
           <div class="volume-bar-fill" style="width:${Math.min(100, (cumulativePoured / recipe.aguaTotal) * 100).toFixed(1)}%"></div>
         </div>
+      </div>
+      <div class="pour-adjust">
+        <button class="btn-pour-adj" id="btn-pour-minus" aria-label="Diminuir 5ml">−5ml</button>
+        <span class="pour-adjust-label">Despejei exatamente</span>
+        <button class="btn-pour-adj" id="btn-pour-plus" aria-label="Aumentar 5ml">+5ml</button>
       </div>
       <div class="step-meta">
         <span>Despejado até aqui: ${pouredBefore} ml</span>
@@ -1059,6 +1083,7 @@ function renderPrep() {
         <p class="step-sub">${step.sub}</p>
         ${bodyHTML}
       </div>
+      <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
     </div>`;
 
   bindPrepEvents(steps);
@@ -1080,6 +1105,24 @@ function bindPrepEvents(steps) {
   const btnBack = document.getElementById('btn-back');
   if (btnBack) btnBack.addEventListener('click', () => {
     clearInterval(timerInterval); prepState.stepIndex--; prepState.waiting = false; renderPrep();
+  });
+
+  const btnPourMinus = document.getElementById('btn-pour-minus');
+  if (btnPourMinus) btnPourMinus.addEventListener('click', () => {
+    const step = steps[prepState.stepIndex];
+    const cur = prepState.stepOverride[prepState.stepIndex] !== undefined
+      ? prepState.stepOverride[prepState.stepIndex] : step.vol;
+    prepState.stepOverride[prepState.stepIndex] = Math.max(0, cur - 5);
+    renderPrep();
+  });
+
+  const btnPourPlus = document.getElementById('btn-pour-plus');
+  if (btnPourPlus) btnPourPlus.addEventListener('click', () => {
+    const step = steps[prepState.stepIndex];
+    const cur = prepState.stepOverride[prepState.stepIndex] !== undefined
+      ? prepState.stepOverride[prepState.stepIndex] : step.vol;
+    prepState.stepOverride[prepState.stepIndex] = cur + 5;
+    renderPrep();
   });
 
   document.getElementById('btn-done').addEventListener('click', () => {
@@ -1173,6 +1216,7 @@ function renderDone() {
 
       <button class="btn-share-done" id="btn-share-done">🔗 Compartilhar esta receita</button>
       <button class="btn-restart" id="btn-restart">Fazer outro café</button>
+      <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
     </div>`;
 
   // Star rating
@@ -1213,5 +1257,17 @@ loadState();
 renderConfig();
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(() => {}); });
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      // Verifica update ao app retornar ao foco (garante versão nova sem fechar o app)
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') reg.update();
+      });
+    }).catch(() => {});
+
+    // Quando o novo SW assume o controle, recarrega para servir os arquivos novos
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      location.reload();
+    });
+  });
 }
