@@ -1045,19 +1045,37 @@ function renderPrep() {
     const hasOverride = prepState.stepOverride[idx] !== undefined;
     const volBar = step.vol && !isEspresso ? `
       <div class="step-volume">
-        <div class="volume-bar-label">${currentVol} ml${hasOverride ? ' <span class="vol-adjusted">ajustado</span>' : ''}</div>
         <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
           <div class="volume-bar-fill" style="width:${Math.min(100, (cumulativePoured / recipe.aguaTotal) * 100).toFixed(1)}%"></div>
         </div>
       </div>
-      <div class="pour-adjust">
-        <button class="btn-pour-adj" id="btn-pour-minus" aria-label="Diminuir 5ml">−5ml</button>
-        <span class="pour-adjust-label">Despejei exatamente</span>
-        <button class="btn-pour-adj" id="btn-pour-plus" aria-label="Aumentar 5ml">+5ml</button>
+      <div class="pour-current">
+        <span class="pour-current-value">${currentVol} ml</span>
+        ${hasOverride ? '<span class="vol-adjusted">ajustado</span>' : ''}
+        <span class="pour-current-label">nesta etapa</span>
       </div>
-      <div class="step-meta">
-        <span>Despejado até aqui: ${pouredBefore} ml</span>
-        <span>Restante: ${Math.max(0, remaining)} ml · Total: ${recipe.aguaTotal} ml</span>
+      <div class="pour-adjust">
+        <button class="btn-pour-adj" id="btn-pour-minus" aria-label="Diminuir 5ml">−5 ml</button>
+        <span class="pour-adjust-label">Ajustar volume real</span>
+        <button class="btn-pour-adj" id="btn-pour-plus" aria-label="Aumentar 5ml">+5 ml</button>
+      </div>
+      <div class="pour-stats-grid">
+        <div class="pour-stat">
+          <span class="pour-stat-label">Já despejado</span>
+          <span class="pour-stat-value">${pouredBefore} ml</span>
+        </div>
+        <div class="pour-stat pour-stat-accent">
+          <span class="pour-stat-label">Após esta etapa</span>
+          <span class="pour-stat-value">${cumulativePoured} ml</span>
+        </div>
+        <div class="pour-stat">
+          <span class="pour-stat-label">Ainda falta</span>
+          <span class="pour-stat-value">${Math.max(0, remaining)} ml</span>
+        </div>
+        <div class="pour-stat pour-stat-muted">
+          <span class="pour-stat-label">Total</span>
+          <span class="pour-stat-value">${recipe.aguaTotal} ml</span>
+        </div>
       </div>` : '';
 
     const hint = step.checklist
