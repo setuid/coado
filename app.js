@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '3.6';
-const CACHE = 'coado-v3.6';
+const APP_VERSION = '3.7';
+const CACHE = 'coado-v3.7';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -2141,7 +2141,7 @@ function renderConfig() {
           <button class="btn-grinder-icon" id="btn-grinder-icon" title="Configurar moedor" aria-label="Configurar moedor">⚙️</button>
         </div>
         <p class="app-tagline">${t('tagline')}</p>
-        <p class="app-version">v${APP_VERSION}</p>
+        <button class="app-version" id="btn-version" aria-label="Ver histórico de versões">v${APP_VERSION}</button>
         <div class="lang-panel" id="lang-panel" hidden>
           ${LANGS.map(l => `<button class="lang-btn ${l.id === lang ? 'selected' : ''}" data-lang="${l.id}">${l.flag} <span>${l.name}</span></button>`).join('')}
         </div>
@@ -2248,6 +2248,8 @@ function deleteHistoryItem(idx) {
 }
 
 function bindConfigEvents() {
+  document.getElementById('btn-version').addEventListener('click', () => renderChangelog());
+
   document.getElementById('btn-grinder-icon').addEventListener('click', () => {
     const section = document.getElementById('section-grinder');
     const accordion = document.getElementById('grinder-accordion');
@@ -2713,6 +2715,123 @@ function renderDone() {
   document.getElementById('btn-restart').addEventListener('click', () => {
     prepState = null; prepStartTime = null; renderConfig();
   });
+}
+
+// ─── CHANGELOG ────────────────────────────────────────────────────────────────
+
+const CHANGELOG = [
+  {
+    version: '3.7',
+    date: 'Mar 2026',
+    items: [
+      'Alarme sonoro ao fim do timer de espera de cada etapa',
+      'Tela de changelog acessível pela versão na home',
+    ],
+  },
+  {
+    version: '3.6',
+    date: 'Mar 2026',
+    items: [
+      'Internacionalização completa: 8 idiomas (PT, EN, ES, IT, AR, JA, ZH, RU)',
+      'Seletor de idioma com bandeiras no cabeçalho',
+      'Exclusão individual de itens do histórico',
+    ],
+  },
+  {
+    version: '3.5',
+    date: 'Fev 2026',
+    items: [
+      'Modo de preparo passo a passo ("Ataque")',
+      'Timer de espera por etapa com contagem regressiva',
+      'Xícara média como padrão ao abrir o app',
+    ],
+  },
+  {
+    version: '3.4',
+    date: 'Fev 2026',
+    items: [
+      'Suporte ao moedor Breville',
+      'Ajuste manual de volume por etapa durante o preparo',
+      'Versão visível na tela inicial',
+      'Cache busting automático a cada atualização',
+    ],
+  },
+  {
+    version: '3.3',
+    date: 'Jan 2026',
+    items: [
+      'Card de receita completa na tela de conclusão',
+      'Compartilhar receita via link',
+    ],
+  },
+  {
+    version: '3.2',
+    date: 'Jan 2026',
+    items: [
+      'Chemex como método padrão',
+      'Barra de progresso de volume durante o despejo',
+      'Melhorias nos valores padrão de porções e intensidade',
+    ],
+  },
+  {
+    version: '3.1',
+    date: 'Jan 2026',
+    items: [
+      'Persistência da escolha de moedor entre sessões',
+      'Suporte a Espresso (simples e duplo)',
+      'Nova intensidade "Extra Forte"',
+    ],
+  },
+  {
+    version: '3.0',
+    date: 'Dez 2025',
+    items: [
+      'Seleção de moedor com dicas de calibração (Seção 0)',
+      'Timer global de preparo no cabeçalho',
+      'Notas pessoais por método e intensidade',
+      'Histórico de preparos com avaliação por estrelas',
+    ],
+  },
+  {
+    version: '2.0',
+    date: 'Dez 2025',
+    items: [
+      'App PWA completo com suporte offline (Service Worker)',
+      'Quatro métodos: Chemex, V60, Pano, Prensa Francesa',
+      'Cálculo automático de água e café por porção',
+      'Design mobile-first instalável na tela inicial',
+    ],
+  },
+];
+
+function renderChangelog() {
+  document.getElementById('app').innerHTML = `
+    <div class="changelog-screen" role="main">
+      <header class="app-header">
+        <div class="app-header-row">
+          <button class="btn-back" id="btn-changelog-back" aria-label="Voltar">←</button>
+          <h1 class="app-title">Novidades</h1>
+          <span style="width:2.5rem"></span>
+        </div>
+      </header>
+
+      <div class="changelog-list">
+        ${CHANGELOG.map((entry, i) => `
+          <div class="changelog-entry ${i === 0 ? 'changelog-entry--latest' : ''}">
+            <div class="changelog-entry-header">
+              <span class="changelog-version">v${entry.version}</span>
+              ${i === 0 ? '<span class="changelog-badge">Atual</span>' : ''}
+              <span class="changelog-date">${entry.date}</span>
+            </div>
+            <ul class="changelog-items">
+              ${entry.items.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+
+  document.getElementById('btn-changelog-back').addEventListener('click', () => renderConfig());
 }
 
 // ─── INIT ─────────────────────────────────────────────────────────────────────
