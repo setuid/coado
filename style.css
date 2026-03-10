@@ -59,6 +59,7 @@ textarea { resize: vertical; }
   color: #FFF8F0;
   border-radius: 0 0 28px 28px;
   margin-bottom: 1.5rem;
+  position: relative;
 }
 .app-title { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; }
 .app-tagline { font-size: 0.95rem; opacity: 0.75; margin-top: 0.25rem; font-style: italic; }
@@ -989,6 +990,73 @@ textarea { resize: vertical; }
   transition: background var(--transition);
 }
 .btn-share-done:active { background: var(--border); }
+
+/* ── Language Picker ── */
+.btn-lang {
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.2rem;
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  transition: transform var(--transition);
+  position: absolute;
+  left: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-lang:active { transform: scale(0.9); }
+.lang-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 1rem;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 100;
+  min-width: 160px;
+  color: var(--text);
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+}
+.lang-btn:hover { background: var(--surface-2); }
+.lang-btn.selected { font-weight: 700; color: var(--accent); }
+
+/* ── History Delete Button ── */
+.btn-hist-delete {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  opacity: 0.4;
+  padding: 0.2rem 0.4rem;
+  margin-left: auto;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition), color var(--transition);
+  color: var(--text);
+  flex-shrink: 0;
+}
+.btn-hist-delete:hover { opacity: 1; color: #B71C1C; }
 
 /* ── Reduce motion ── */
 @media (prefers-reduced-motion: reduce) {
