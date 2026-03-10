@@ -1002,7 +1002,7 @@ textarea { resize: vertical; }
   line-height: 1;
   transition: transform var(--transition);
   position: absolute;
-  left: 0;
+  right: 48px;
   width: 44px;
   height: 44px;
   display: flex;
@@ -1013,7 +1013,7 @@ textarea { resize: vertical; }
 .lang-panel {
   position: absolute;
   top: calc(100% + 0.5rem);
-  left: 1rem;
+  right: 1rem;
   background: var(--surface);
   border: 1.5px solid var(--border);
   border-radius: var(--radius);
