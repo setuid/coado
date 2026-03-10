@@ -187,6 +187,8 @@ const T = {
     'recipe.title.filter': '☕ Sua receita',
     'recipe.title.espresso': '☕ Sua receita — Espresso',
     'step.pano.bloom.sub': 'Umedecer o café',
+    'method.pano.name': 'Coador de pano',
+    'method.prensa.name': 'Prensa Francesa',
   },
   en: {
     'tagline': 'Your coffee, the right way.',
@@ -355,6 +357,8 @@ const T = {
     'recipe.title.filter': '☕ Your recipe',
     'recipe.title.espresso': '☕ Your recipe — Espresso',
     'step.pano.bloom.sub': 'Wet the coffee',
+    'method.pano.name': 'Cloth Filter',
+    'method.prensa.name': 'French Press',
   },
   es: {
     'tagline': 'Tu café, como debe ser.',
@@ -523,6 +527,8 @@ const T = {
     'recipe.title.filter': '☕ Tu receta',
     'recipe.title.espresso': '☕ Tu receta — Espresso',
     'step.pano.bloom.sub': 'Humedecer el café',
+    'method.pano.name': 'Filtro de tela',
+    'method.prensa.name': 'Prensa Francesa',
   },
   it: {
     'tagline': 'Il tuo caffè, nel modo giusto.',
@@ -691,6 +697,8 @@ const T = {
     'recipe.title.filter': '☕ La tua ricetta',
     'recipe.title.espresso': '☕ La tua ricetta — Espresso',
     'step.pano.bloom.sub': 'Bagnare il caffè',
+    'method.pano.name': 'Filtro di stoffa',
+    'method.prensa.name': 'French Press',
   },
   ar: {
     'tagline': 'قهوتك، على الطريقة الصحيحة.',
@@ -859,6 +867,8 @@ const T = {
     'recipe.title.filter': '☕ وصفتك',
     'recipe.title.espresso': '☕ وصفتك — إسبريسو',
     'step.pano.bloom.sub': 'تبليل القهوة',
+    'method.pano.name': 'فلتر القماش',
+    'method.prensa.name': 'الضغط الفرنسي',
   },
   ja: {
     'tagline': 'あなたのコーヒー、正しい方法で。',
@@ -1027,6 +1037,8 @@ const T = {
     'recipe.title.filter': '☕ あなたのレシピ',
     'recipe.title.espresso': '☕ あなたのレシピ — エスプレッソ',
     'step.pano.bloom.sub': 'コーヒーを濡らす',
+    'method.pano.name': 'ネルドリップ',
+    'method.prensa.name': 'フレンチプレス',
   },
   zh: {
     'tagline': '您的咖啡，恰到好处。',
@@ -1195,6 +1207,8 @@ const T = {
     'recipe.title.filter': '☕ 您的食谱',
     'recipe.title.espresso': '☕ 您的食谱 — 浓缩咖啡',
     'step.pano.bloom.sub': '浸湿咖啡粉',
+    'method.pano.name': '布滤杯',
+    'method.prensa.name': '法压壶',
   },
   ru: {
     'tagline': 'Ваш кофе, правильным способом.',
@@ -1363,6 +1377,8 @@ const T = {
     'recipe.title.filter': '☕ Ваш рецепт',
     'recipe.title.espresso': '☕ Ваш рецепт — Эспрессо',
     'step.pano.bloom.sub': 'Смочить кофе',
+    'method.pano.name': 'Тканевый фильтр',
+    'method.prensa.name': 'Французский пресс',
   },
 };
 
@@ -1435,7 +1451,7 @@ const METHODS = {
     },
   },
   pano: {
-    name: 'Coador de pano',
+    get name() { return t('method.pano.name'); },
     get tip() { return t('method.pano.tip'); },
     get grind() { return t('method.pano.grind'); },
     time: '2:00–3:00 min',
@@ -1457,7 +1473,7 @@ const METHODS = {
     },
   },
   prensa: {
-    name: 'Prensa Francesa',
+    get name() { return t('method.prensa.name'); },
     get tip() { return t('method.prensa.tip'); },
     get grind() { return t('method.prensa.grind'); },
     time: '4:30–5:00 min',
@@ -2126,11 +2142,10 @@ function renderConfig() {
         </div>
         <p class="app-tagline">${t('tagline')}</p>
         <p class="app-version">v${APP_VERSION}</p>
+        <div class="lang-panel" id="lang-panel" hidden>
+          ${LANGS.map(l => `<button class="lang-btn ${l.id === lang ? 'selected' : ''}" data-lang="${l.id}">${l.flag} <span>${l.name}</span></button>`).join('')}
+        </div>
       </header>
-
-      <div class="lang-panel" id="lang-panel" hidden>
-        ${LANGS.map(l => `<button class="lang-btn ${l.id === lang ? 'selected' : ''}" data-lang="${l.id}">${l.flag} <span>${l.name}</span></button>`).join('')}
-      </div>
 
       ${grinderSection}
 

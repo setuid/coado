@@ -1010,6 +1010,7 @@ textarea { resize: vertical; }
   justify-content: center;
 }
 .btn-lang:active { transform: scale(0.9); }
+.lang-panel[hidden] { display: none !important; }
 .lang-panel {
   position: absolute;
   top: calc(100% + 0.5rem);
