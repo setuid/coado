@@ -2580,6 +2580,27 @@ function advanceStep(steps) {
   if (prepState.stepIndex >= steps.length) renderDone(); else renderPrep();
 }
 
+function playAlarm() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const beep = (freq, start, duration) => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = freq;
+      osc.type = 'sine';
+      gain.gain.setValueAtTime(0.4, ctx.currentTime + start);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + start + duration);
+      osc.start(ctx.currentTime + start);
+      osc.stop(ctx.currentTime + start + duration);
+    };
+    beep(880, 0,    0.18);
+    beep(880, 0.22, 0.18);
+    beep(1100, 0.5, 0.35);
+  } catch (e) { /* sem suporte a áudio */ }
+}
+
 function startCountdown(steps) {
   clearInterval(timerInterval);
   timerInterval = setInterval(() => {
@@ -2587,7 +2608,9 @@ function startCountdown(steps) {
     const el = document.getElementById('timer-value');
     if (el) el.textContent = formatTime(prepState.timeLeft);
     if (prepState.timeLeft <= 0) {
-      clearInterval(timerInterval); prepState.waiting = false; advanceStep(steps);
+      clearInterval(timerInterval); prepState.waiting = false;
+      playAlarm();
+      advanceStep(steps);
     }
   }, 1000);
 }
