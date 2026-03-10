@@ -2582,9 +2582,19 @@ function advanceStep(steps) {
   if (prepState.stepIndex >= steps.length) renderDone(); else renderPrep();
 }
 
+let _audioCtx = null;
+function getAudioCtx() {
+  if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (_audioCtx.state === 'suspended') _audioCtx.resume();
+  return _audioCtx;
+}
+// Desbloqueia o AudioContext no primeiro gesto do usuário
+document.addEventListener('click', () => { try { getAudioCtx(); } catch(e){} }, { once: true });
+document.addEventListener('touchend', () => { try { getAudioCtx(); } catch(e){} }, { once: true });
+
 function playAlarm() {
   try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const ctx = getAudioCtx();
     const beep = (freq, start, duration) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
