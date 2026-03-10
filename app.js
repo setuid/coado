@@ -2540,7 +2540,9 @@ function bindPrepEvents(steps) {
 
   if (prepState.waiting) {
     document.getElementById('btn-skip-wait').addEventListener('click', () => {
-      clearInterval(timerInterval); prepState.waiting = false; advanceStep(steps);
+      clearInterval(timerInterval); prepState.waiting = false;
+      playAlarm();
+      advanceStep(steps);
     });
     return;
   }
@@ -2583,18 +2585,29 @@ function advanceStep(steps) {
 }
 
 let _audioCtx = null;
-function getAudioCtx() {
-  if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  if (_audioCtx.state === 'suspended') _audioCtx.resume();
-  return _audioCtx;
+
+function unlockAudio() {
+  try {
+    if (!_audioCtx) _audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // Buffer silencioso obrigatório para desbloquear iOS Safari
+    const buf = _audioCtx.createBuffer(1, 1, 22050);
+    const src = _audioCtx.createBufferSource();
+    src.buffer = buf;
+    src.connect(_audioCtx.destination);
+    src.start(0);
+    if (_audioCtx.state === 'suspended') _audioCtx.resume();
+  } catch(e) {}
 }
-// Desbloqueia o AudioContext no primeiro gesto do usuário
-document.addEventListener('click', () => { try { getAudioCtx(); } catch(e){} }, { once: true });
-document.addEventListener('touchend', () => { try { getAudioCtx(); } catch(e){} }, { once: true });
+
+// Desbloqueia no primeiro gesto — deve ser síncrono dentro do handler
+document.addEventListener('touchend', unlockAudio, { once: true });
+document.addEventListener('click',    unlockAudio, { once: true });
 
 function playAlarm() {
   try {
-    const ctx = getAudioCtx();
+    if (!_audioCtx) return; // contexto não foi desbloqueado ainda
+    const ctx = _audioCtx;
+    if (ctx.state === 'suspended') ctx.resume();
     const beep = (freq, start, duration) => {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
@@ -2610,7 +2623,7 @@ function playAlarm() {
     beep(880, 0,    0.18);
     beep(880, 0.22, 0.18);
     beep(1100, 0.5, 0.35);
-  } catch (e) { /* sem suporte a áudio */ }
+  } catch(e) {}
 }
 
 function startCountdown(steps) {
