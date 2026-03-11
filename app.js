@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '3.8';
-const CACHE = 'coado-v3.8';
+const APP_VERSION = '3.7';
+const CACHE = 'coado-v3.7';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -189,43 +189,6 @@ const T = {
     'step.pano.bloom.sub': 'Umedecer o café',
     'method.pano.name': 'Coador de pano',
     'method.prensa.name': 'Prensa Francesa',
-    'egg.title': 'Ovo Cozido',
-    'egg.subtitle': 'Timer de precisão',
-    'egg.firmness': 'Escolha o ponto',
-    'egg.soft': 'Mole',
-    'egg.soft.desc': 'Gema totalmente líquida',
-    'egg.medium-soft': 'Médio-mole',
-    'egg.medium-soft.desc': 'Centro cremoso (jammy)',
-    'egg.medium': 'Médio',
-    'egg.medium.desc': 'Gema quase toda firme',
-    'egg.hard': 'Duro',
-    'egg.hard.desc': 'Gema completamente firme',
-    'egg.custom': 'Personalizado',
-    'egg.custom.desc': 'Defina os minutos',
-    'egg.qty': 'Quantidade',
-    'egg.size': 'Tamanho do ovo',
-    'egg.size.sm': 'Pequeno (P)',
-    'egg.size.md': 'Médio/Grande',
-    'egg.size.xl': 'Jumbo (XL)',
-    'egg.start': '🥚 Iniciar Timer',
-    'egg.done': 'Ovos prontos!',
-    'egg.back.coffee': '☕ Voltar ao café',
-    'egg.again': '🥚 Fazer mais ovos',
-    'egg.tip.fridge': 'Ovos direto da geladeira? Adicione +1 min ao tempo.',
-    'egg.step.place': 'Coloque {n} ovo(s) em uma panela',
-    'egg.step.water': 'Cubra com água fria (2cm acima dos ovos)',
-    'egg.step.boil': 'Leve ao fogo alto até ferver',
-    'egg.step.reduce': 'Quando ferver, reduza para fogo médio-baixo',
-    'egg.step.timer': 'Agora conte o tempo!',
-    'egg.step.ice': 'Retire e coloque em banho de gelo',
-    'egg.step.ice.wait': 'Aguarde 2 min no gelo',
-    'egg.step.serve': 'Descasque e sirva!',
-    'egg.rating': 'Como ficaram os ovos?',
-    'egg.notes.placeholder': 'Como ficaram? Algo para ajustar?',
-    'egg.min': 'min',
-    'egg.eggs': 'ovo(s)',
-    'egg.custom.label': 'Minutos:',
-    'egg.back': '← Voltar',
   },
   en: {
     'tagline': 'Your coffee, the right way.',
@@ -396,43 +359,6 @@ const T = {
     'step.pano.bloom.sub': 'Wet the coffee',
     'method.pano.name': 'Cloth Filter',
     'method.prensa.name': 'French Press',
-    'egg.title': 'Boiled Egg',
-    'egg.subtitle': 'Precision Timer',
-    'egg.firmness': 'Choose firmness',
-    'egg.soft': 'Soft',
-    'egg.soft.desc': 'Fully runny yolk',
-    'egg.medium-soft': 'Medium-soft',
-    'egg.medium-soft.desc': 'Jammy center',
-    'egg.medium': 'Medium',
-    'egg.medium.desc': 'Mostly firm yolk',
-    'egg.hard': 'Hard',
-    'egg.hard.desc': 'Fully firm yolk',
-    'egg.custom': 'Custom',
-    'egg.custom.desc': 'Set the minutes',
-    'egg.qty': 'Quantity',
-    'egg.size': 'Egg size',
-    'egg.size.sm': 'Small',
-    'egg.size.md': 'Medium/Large',
-    'egg.size.xl': 'Jumbo (XL)',
-    'egg.start': '🥚 Start Timer',
-    'egg.done': 'Eggs done!',
-    'egg.back.coffee': '☕ Back to coffee',
-    'egg.again': '🥚 Make more eggs',
-    'egg.tip.fridge': 'Eggs from the fridge? Add +1 minute.',
-    'egg.step.place': 'Place {n} egg(s) in a pot',
-    'egg.step.water': 'Cover with cold water (2cm above eggs)',
-    'egg.step.boil': 'Bring to a boil on high heat',
-    'egg.step.reduce': 'When boiling, reduce to medium-low heat',
-    'egg.step.timer': 'Now count the time!',
-    'egg.step.ice': 'Remove and place in ice bath',
-    'egg.step.ice.wait': 'Wait 2 min in ice',
-    'egg.step.serve': 'Peel and serve!',
-    'egg.rating': 'How were the eggs?',
-    'egg.notes.placeholder': 'How were they? Anything to adjust?',
-    'egg.min': 'min',
-    'egg.eggs': 'egg(s)',
-    'egg.custom.label': 'Minutes:',
-    'egg.back': '← Back',
   },
   es: {
     'tagline': 'Tu café, como debe ser.',
@@ -603,43 +529,6 @@ const T = {
     'step.pano.bloom.sub': 'Humedecer el café',
     'method.pano.name': 'Filtro de tela',
     'method.prensa.name': 'Prensa Francesa',
-    'egg.title': 'Huevo Cocido',
-    'egg.subtitle': 'Temporizador de precisión',
-    'egg.firmness': 'Elige el punto',
-    'egg.soft': 'Blando',
-    'egg.soft.desc': 'Yema totalmente líquida',
-    'egg.medium-soft': 'Medio-blando',
-    'egg.medium-soft.desc': 'Centro cremoso (jammy)',
-    'egg.medium': 'Medio',
-    'egg.medium.desc': 'Yema casi toda firme',
-    'egg.hard': 'Duro',
-    'egg.hard.desc': 'Yema completamente firme',
-    'egg.custom': 'Personalizado',
-    'egg.custom.desc': 'Define los minutos',
-    'egg.qty': 'Cantidad',
-    'egg.size': 'Tamaño del huevo',
-    'egg.size.sm': 'Pequeño',
-    'egg.size.md': 'Mediano/Grande',
-    'egg.size.xl': 'Jumbo (XL)',
-    'egg.start': '🥚 Iniciar Timer',
-    'egg.done': '¡Huevos listos!',
-    'egg.back.coffee': '☕ Volver al café',
-    'egg.again': '🥚 Hacer más huevos',
-    'egg.tip.fridge': '¿Huevos de la nevera? Añade +1 minuto.',
-    'egg.step.place': 'Coloca {n} huevo(s) en una olla',
-    'egg.step.water': 'Cubre con agua fría (2cm por encima)',
-    'egg.step.boil': 'Lleva a ebullición a fuego alto',
-    'egg.step.reduce': 'Al hervir, reduce a fuego medio-bajo',
-    'egg.step.timer': '¡Ahora cuenta el tiempo!',
-    'egg.step.ice': 'Retira y coloca en baño de hielo',
-    'egg.step.ice.wait': 'Espera 2 min en hielo',
-    'egg.step.serve': '¡Pela y sirve!',
-    'egg.rating': '¿Qué tal quedaron?',
-    'egg.notes.placeholder': '¿Cómo quedaron? ¿Algo que ajustar?',
-    'egg.min': 'min',
-    'egg.eggs': 'huevo(s)',
-    'egg.custom.label': 'Minutos:',
-    'egg.back': '← Volver',
   },
   it: {
     'tagline': 'Il tuo caffè, nel modo giusto.',
@@ -810,43 +699,6 @@ const T = {
     'step.pano.bloom.sub': 'Bagnare il caffè',
     'method.pano.name': 'Filtro di stoffa',
     'method.prensa.name': 'French Press',
-    'egg.title': 'Uovo Sodo',
-    'egg.subtitle': 'Timer di precisione',
-    'egg.firmness': 'Scegli la cottura',
-    'egg.soft': 'Morbido',
-    'egg.soft.desc': 'Tuorlo completamente liquido',
-    'egg.medium-soft': 'Medio-morbido',
-    'egg.medium-soft.desc': 'Centro cremoso',
-    'egg.medium': 'Medio',
-    'egg.medium.desc': 'Tuorlo quasi tutto sodo',
-    'egg.hard': 'Sodo',
-    'egg.hard.desc': 'Tuorlo completamente sodo',
-    'egg.custom': 'Personalizzato',
-    'egg.custom.desc': 'Imposta i minuti',
-    'egg.qty': 'Quantità',
-    'egg.size': "Dimensione dell'uovo",
-    'egg.size.sm': 'Piccolo',
-    'egg.size.md': 'Medio/Grande',
-    'egg.size.xl': 'Jumbo (XL)',
-    'egg.start': '🥚 Avvia Timer',
-    'egg.done': 'Uova pronte!',
-    'egg.back.coffee': '☕ Torna al caffè',
-    'egg.again': '🥚 Altre uova',
-    'egg.tip.fridge': 'Uova dal frigo? Aggiungi +1 minuto.',
-    'egg.step.place': 'Metti {n} uovo/a in una pentola',
-    'egg.step.water': "Copri con acqua fredda (2cm sopra le uova)",
-    'egg.step.boil': 'Porta a ebollizione a fuoco alto',
-    'egg.step.reduce': "All'ebollizione, riduci a fuoco medio-basso",
-    'egg.step.timer': 'Ora conta il tempo!',
-    'egg.step.ice': 'Togli e metti in bagno di ghiaccio',
-    'egg.step.ice.wait': 'Attendi 2 min nel ghiaccio',
-    'egg.step.serve': 'Sguscia e servi!',
-    'egg.rating': "Com'erano le uova?",
-    'egg.notes.placeholder': "Com'erano? Qualcosa da aggiustare?",
-    'egg.min': 'min',
-    'egg.eggs': 'uovo/a',
-    'egg.custom.label': 'Minuti:',
-    'egg.back': '← Indietro',
   },
   ar: {
     'tagline': 'قهوتك، على الطريقة الصحيحة.',
@@ -1017,43 +869,6 @@ const T = {
     'step.pano.bloom.sub': 'تبليل القهوة',
     'method.pano.name': 'فلتر القماش',
     'method.prensa.name': 'الضغط الفرنسي',
-    'egg.title': 'بيض مسلوق',
-    'egg.subtitle': 'مؤقت دقيق',
-    'egg.firmness': 'اختر الاستواء',
-    'egg.soft': 'طري',
-    'egg.soft.desc': 'صفار سائل بالكامل',
-    'egg.medium-soft': 'نصف طري',
-    'egg.medium-soft.desc': 'وسط كريمي',
-    'egg.medium': 'متوسط',
-    'egg.medium.desc': 'صفار شبه صلب',
-    'egg.hard': 'صلب',
-    'egg.hard.desc': 'صفار صلب بالكامل',
-    'egg.custom': 'مخصص',
-    'egg.custom.desc': 'حدد الدقائق',
-    'egg.qty': 'الكمية',
-    'egg.size': 'حجم البيضة',
-    'egg.size.sm': 'صغير',
-    'egg.size.md': 'متوسط/كبير',
-    'egg.size.xl': 'جامبو',
-    'egg.start': '🥚 ابدأ المؤقت',
-    'egg.done': '!البيض جاهز',
-    'egg.back.coffee': '☕ العودة للقهوة',
-    'egg.again': '🥚 اسلق المزيد',
-    'egg.tip.fridge': 'بيض من الثلاجة؟ أضف +1 دقيقة.',
-    'egg.step.place': 'ضع {n} بيضة في قدر',
-    'egg.step.water': 'غطّ بالماء البارد (2سم فوق البيض)',
-    'egg.step.boil': 'ارفع على نار عالية حتى الغليان',
-    'egg.step.reduce': 'عند الغليان، خفّض إلى نار متوسطة',
-    'egg.step.timer': '!الآن ابدأ العد',
-    'egg.step.ice': 'أخرج وضع في ماء مثلج',
-    'egg.step.ice.wait': 'انتظر 2 دقيقة في الثلج',
-    'egg.step.serve': '!قشّر وقدّم',
-    'egg.rating': 'كيف كان البيض؟',
-    'egg.notes.placeholder': 'كيف كان؟ شيء تعدله؟',
-    'egg.min': 'دقيقة',
-    'egg.eggs': 'بيضة',
-    'egg.custom.label': 'الدقائق:',
-    'egg.back': '→ رجوع',
   },
   ja: {
     'tagline': 'あなたのコーヒー、正しい方法で。',
@@ -1224,43 +1039,6 @@ const T = {
     'step.pano.bloom.sub': 'コーヒーを濡らす',
     'method.pano.name': 'ネルドリップ',
     'method.prensa.name': 'フレンチプレス',
-    'egg.title': 'ゆで卵',
-    'egg.subtitle': '精密タイマー',
-    'egg.firmness': '茹で加減を選択',
-    'egg.soft': '半熟',
-    'egg.soft.desc': '黄身が完全に液状',
-    'egg.medium-soft': 'やや半熟',
-    'egg.medium-soft.desc': '中心がクリーミー',
-    'egg.medium': '中間',
-    'egg.medium.desc': '黄身がほぼ固い',
-    'egg.hard': '固ゆで',
-    'egg.hard.desc': '黄身が完全に固い',
-    'egg.custom': 'カスタム',
-    'egg.custom.desc': '分数を設定',
-    'egg.qty': '個数',
-    'egg.size': '卵のサイズ',
-    'egg.size.sm': '小',
-    'egg.size.md': '中/大',
-    'egg.size.xl': 'ジャンボ',
-    'egg.start': '🥚 タイマー開始',
-    'egg.done': '卵ができました！',
-    'egg.back.coffee': '☕ コーヒーに戻る',
-    'egg.again': '🥚 もう一度作る',
-    'egg.tip.fridge': '冷蔵庫から直接？+1分追加してください。',
-    'egg.step.place': '鍋に{n}個の卵を入れる',
-    'egg.step.water': '冷水で覆う（卵の2cm上まで）',
-    'egg.step.boil': '強火で沸騰させる',
-    'egg.step.reduce': '沸騰したら中弱火にする',
-    'egg.step.timer': 'さあ時間を計りましょう！',
-    'egg.step.ice': '取り出して氷水に入れる',
-    'egg.step.ice.wait': '氷水で2分待つ',
-    'egg.step.serve': '殻をむいてどうぞ！',
-    'egg.rating': '卵はいかがでしたか？',
-    'egg.notes.placeholder': 'どうでしたか？調整点は？',
-    'egg.min': '分',
-    'egg.eggs': '個',
-    'egg.custom.label': '分数：',
-    'egg.back': '← 戻る',
   },
   zh: {
     'tagline': '您的咖啡，恰到好处。',
@@ -1431,43 +1209,6 @@ const T = {
     'step.pano.bloom.sub': '浸湿咖啡粉',
     'method.pano.name': '布滤杯',
     'method.prensa.name': '法压壶',
-    'egg.title': '水煮蛋',
-    'egg.subtitle': '精准计时器',
-    'egg.firmness': '选择熟度',
-    'egg.soft': '溏心',
-    'egg.soft.desc': '蛋黄完全流动',
-    'egg.medium-soft': '半溏心',
-    'egg.medium-soft.desc': '中心柔滑',
-    'egg.medium': '中等',
-    'egg.medium.desc': '蛋黄基本凝固',
-    'egg.hard': '全熟',
-    'egg.hard.desc': '蛋黄完全凝固',
-    'egg.custom': '自定义',
-    'egg.custom.desc': '设置分钟数',
-    'egg.qty': '数量',
-    'egg.size': '鸡蛋大小',
-    'egg.size.sm': '小',
-    'egg.size.md': '中/大',
-    'egg.size.xl': '特大',
-    'egg.start': '🥚 开始计时',
-    'egg.done': '鸡蛋好了！',
-    'egg.back.coffee': '☕ 回到咖啡',
-    'egg.again': '🥚 再煮一次',
-    'egg.tip.fridge': '冰箱里拿出的鸡蛋？加1分钟。',
-    'egg.step.place': '将{n}个鸡蛋放入锅中',
-    'egg.step.water': '加冷水没过鸡蛋2厘米',
-    'egg.step.boil': '大火烧开',
-    'egg.step.reduce': '沸腾后转中小火',
-    'egg.step.timer': '现在开始计时！',
-    'egg.step.ice': '取出放入冰水中',
-    'egg.step.ice.wait': '在冰水中等待2分钟',
-    'egg.step.serve': '剥壳享用！',
-    'egg.rating': '鸡蛋怎么样？',
-    'egg.notes.placeholder': '怎么样？需要调整什么？',
-    'egg.min': '分钟',
-    'egg.eggs': '个',
-    'egg.custom.label': '分钟数：',
-    'egg.back': '← 返回',
   },
   ru: {
     'tagline': 'Ваш кофе, правильным способом.',
@@ -1638,43 +1379,6 @@ const T = {
     'step.pano.bloom.sub': 'Смочить кофе',
     'method.pano.name': 'Тканевый фильтр',
     'method.prensa.name': 'Французский пресс',
-    'egg.title': 'Варёное яйцо',
-    'egg.subtitle': 'Точный таймер',
-    'egg.firmness': 'Выберите степень',
-    'egg.soft': 'Всмятку',
-    'egg.soft.desc': 'Желток полностью жидкий',
-    'egg.medium-soft': 'В мешочек',
-    'egg.medium-soft.desc': 'Кремовый центр',
-    'egg.medium': 'Среднее',
-    'egg.medium.desc': 'Желток почти твёрдый',
-    'egg.hard': 'Вкрутую',
-    'egg.hard.desc': 'Желток полностью твёрдый',
-    'egg.custom': 'Своё время',
-    'egg.custom.desc': 'Укажите минуты',
-    'egg.qty': 'Количество',
-    'egg.size': 'Размер яйца',
-    'egg.size.sm': 'Маленькое',
-    'egg.size.md': 'Среднее/Большое',
-    'egg.size.xl': 'Очень большое',
-    'egg.start': '🥚 Запустить таймер',
-    'egg.done': 'Яйца готовы!',
-    'egg.back.coffee': '☕ Вернуться к кофе',
-    'egg.again': '🥚 Сварить ещё',
-    'egg.tip.fridge': 'Яйца из холодильника? Добавьте +1 минуту.',
-    'egg.step.place': 'Положите {n} яйц(о/а) в кастрюлю',
-    'egg.step.water': 'Залейте холодной водой (2см выше яиц)',
-    'egg.step.boil': 'Доведите до кипения на сильном огне',
-    'egg.step.reduce': 'При кипении убавьте до среднего огня',
-    'egg.step.timer': 'Теперь отсчитывайте время!',
-    'egg.step.ice': 'Достаньте и поместите в ледяную воду',
-    'egg.step.ice.wait': 'Подождите 2 мин в ледяной воде',
-    'egg.step.serve': 'Очистите и подавайте!',
-    'egg.rating': 'Как получились яйца?',
-    'egg.notes.placeholder': 'Как получилось? Что изменить?',
-    'egg.min': 'мин',
-    'egg.eggs': 'яйц(о/а)',
-    'egg.custom.label': 'Минуты:',
-    'egg.back': '← Назад',
   },
 };
 
@@ -2434,7 +2138,6 @@ function renderConfig() {
         <div class="app-header-row">
           <button class="btn-lang" id="btn-lang" title="${currentLang.name}" aria-label="Language">${currentLang.flag}</button>
           <h1 class="app-title">☕ Coado</h1>
-          <button class="btn-egg-timer" id="btn-egg-timer" title="${t('egg.title')}" aria-label="${t('egg.title')}">🥚</button>
           <button class="btn-grinder-icon" id="btn-grinder-icon" title="Configurar moedor" aria-label="Configurar moedor">⚙️</button>
         </div>
         <p class="app-tagline">${t('tagline')}</p>
@@ -2546,8 +2249,6 @@ function deleteHistoryItem(idx) {
 
 function bindConfigEvents() {
   document.getElementById('btn-version').addEventListener('click', () => renderChangelog());
-
-  document.getElementById('btn-egg-timer').addEventListener('click', () => renderEggConfig());
 
   document.getElementById('btn-grinder-icon').addEventListener('click', () => {
     const section = document.getElementById('section-grinder');
@@ -3039,452 +2740,9 @@ function renderDone() {
   });
 }
 
-// ─── EGG TIMER ────────────────────────────────────────────────────────────────
-
-const EGG_FIRMNESS = [
-  { id: 'soft',        color: '#F9A825', baseMin: 6  },
-  { id: 'medium-soft', color: '#EF6C00', baseMin: 8  },
-  { id: 'medium',      color: '#6D4C41', baseMin: 10 },
-  { id: 'hard',        color: '#546E7A', baseMin: 12 },
-];
-
-const EGG_SIZES = [
-  { id: 'sm', adjust: -1 },
-  { id: 'md', adjust: 0  },
-  { id: 'xl', adjust: 1  },
-];
-
-const EGG_DEFAULT = { firmness: 'medium-soft', qty: 3, size: 'md', customMin: 8 };
-
-let eggState = { ...EGG_DEFAULT };
-let eggPrepState = null;
-let eggTimerInterval = null;
-let eggGlobalTimerInterval = null;
-let eggPrepStartTime = null;
-let eggWakeLock = null;
-
-function loadEggState() {
-  try {
-    const s = JSON.parse(localStorage.getItem('coado-egg-state') || 'null');
-    if (s) Object.assign(eggState, s);
-  } catch {}
-}
-function saveEggState() {
-  try { localStorage.setItem('coado-egg-state', JSON.stringify(eggState)); } catch {}
-}
-function loadEggHistory() {
-  try { return JSON.parse(localStorage.getItem('coado-egg-history') || '[]'); } catch { return []; }
-}
-function saveEggToHistory(duration, rating) {
-  const hist = loadEggHistory();
-  const mins = calcEggTime();
-  hist.unshift({
-    ts: Date.now(), firmness: eggState.firmness, minutes: mins,
-    qty: eggState.qty, size: eggState.size, duration, rating: null,
-  });
-  while (hist.length > 10) hist.pop();
-  try { localStorage.setItem('coado-egg-history', JSON.stringify(hist)); } catch {}
-}
-function saveEggRating(rating) {
-  const hist = loadEggHistory();
-  if (hist.length > 0) hist[0].rating = rating;
-  try { localStorage.setItem('coado-egg-history', JSON.stringify(hist)); } catch {}
-}
-
-function calcEggTime() {
-  if (eggState.firmness === 'custom') return Math.max(1, eggState.customMin || 8);
-  const f = EGG_FIRMNESS.find(x => x.id === eggState.firmness);
-  const s = EGG_SIZES.find(x => x.id === eggState.size);
-  return (f ? f.baseMin : 8) + (s ? s.adjust : 0);
-}
-
-function getEggSteps() {
-  const mins = calcEggTime();
-  const n = eggState.qty;
-  return [
-    { name: t('egg.step.place', { n }), checklist: true },
-    { name: t('egg.step.water'), checklist: true },
-    { name: t('egg.step.boil'), checklist: true },
-    { name: t('egg.step.reduce'), checklist: true },
-    { name: t('egg.step.timer'), wait: mins * 60, waitLabel: `${mins} ${t('egg.min')}` },
-    { name: t('egg.step.ice'), checklist: true },
-    { name: t('egg.step.ice.wait'), wait: 120, waitLabel: `2 ${t('egg.min')}` },
-    { name: t('egg.step.serve'), checklist: true },
-  ];
-}
-
-async function requestWakeLock() {
-  try {
-    if ('wakeLock' in navigator) {
-      eggWakeLock = await navigator.wakeLock.request('screen');
-    }
-  } catch {}
-}
-function releaseWakeLock() {
-  if (eggWakeLock) { eggWakeLock.release().catch(() => {}); eggWakeLock = null; }
-}
-
-function startEggGlobalTimer() {
-  eggPrepStartTime = Date.now();
-  clearInterval(eggGlobalTimerInterval);
-  eggGlobalTimerInterval = setInterval(() => {
-    const el = document.getElementById('egg-global-timer');
-    if (el) el.textContent = '⏱ ' + formatTime(Math.floor((Date.now() - eggPrepStartTime) / 1000));
-  }, 1000);
-}
-function stopEggGlobalTimer() { clearInterval(eggGlobalTimerInterval); eggGlobalTimerInterval = null; }
-function getEggElapsed() { return eggPrepStartTime ? Math.floor((Date.now() - eggPrepStartTime) / 1000) : 0; }
-
-// ─── RENDER EGG CONFIG ───────────────────────────────────────────────────────
-
-function renderEggConfig() {
-  loadEggState();
-  const mins = calcEggTime();
-  const isCustom = eggState.firmness === 'custom';
-
-  document.getElementById('app').innerHTML = `
-    <div class="config-screen egg-screen" role="main">
-      <header class="app-header egg-header">
-        <div class="app-header-row">
-          <button class="btn-back" id="btn-egg-back" aria-label="${t('egg.back')}">${t('egg.back')}</button>
-          <h1 class="app-title">🥚 ${t('egg.title')}</h1>
-          <span style="width:2.5rem"></span>
-        </div>
-        <p class="app-tagline">${t('egg.subtitle')}</p>
-      </header>
-
-      <section class="section">
-        <h2 class="section-title">${t('egg.firmness')}</h2>
-        <div class="egg-firmness-grid" role="group" aria-label="${t('egg.firmness')}" id="egg-firmness-grid">
-          ${EGG_FIRMNESS.map(f => `
-            <button class="egg-firmness-card ${f.id === eggState.firmness ? 'selected' : ''}"
-                    data-firmness="${f.id}" aria-pressed="${f.id === eggState.firmness}"
-                    style="--egg-color:${f.color}">
-              <span class="egg-firmness-dot"></span>
-              <span class="egg-firmness-name">${t('egg.' + f.id)}</span>
-              <span class="egg-firmness-time">${f.baseMin} ${t('egg.min')}</span>
-              <span class="egg-firmness-desc">${t('egg.' + f.id + '.desc')}</span>
-            </button>`).join('')}
-          <button class="egg-firmness-card egg-firmness-custom ${isCustom ? 'selected' : ''}"
-                  data-firmness="custom" aria-pressed="${isCustom}">
-            <span class="egg-firmness-name">🔢 ${t('egg.custom')}</span>
-            <span class="egg-firmness-desc">${t('egg.custom.desc')}</span>
-          </button>
-        </div>
-        ${isCustom ? `
-          <div class="custom-ml-row" style="margin-top:0.75rem">
-            <label for="egg-custom-min">${t('egg.custom.label')}</label>
-            <input type="number" id="egg-custom-min" class="custom-ml-input"
-                   value="${eggState.customMin}" min="1" max="30" step="1">
-            <span style="font-size:.85rem;color:var(--muted)">${t('egg.min')}</span>
-          </div>` : ''}
-      </section>
-
-      <section class="section">
-        <h2 class="section-title">${t('egg.qty')}</h2>
-        <div class="portion-selector">
-          <button class="btn-round" id="egg-btn-minus" aria-label="−">−</button>
-          <span class="portion-count" aria-live="polite">${eggState.qty}</span>
-          <button class="btn-round" id="egg-btn-plus" aria-label="+">+</button>
-        </div>
-      </section>
-
-      <section class="section">
-        <h2 class="section-title">${t('egg.size')}</h2>
-        <div class="egg-size-group" role="group" id="egg-size-group">
-          ${EGG_SIZES.map(s => `
-            <button class="egg-size-btn ${s.id === eggState.size ? 'selected' : ''}"
-                    data-egg-size="${s.id}" aria-pressed="${s.id === eggState.size}">
-              ${t('egg.size.' + s.id)}
-              <span class="egg-size-adjust">${s.adjust > 0 ? '+' : ''}${s.adjust} ${t('egg.min')}</span>
-            </button>`).join('')}
-        </div>
-      </section>
-
-      <section class="section">
-        <p class="egg-tip">💡 ${t('egg.tip.fridge')}</p>
-      </section>
-
-      <section class="section">
-        <div class="recipe-card">
-          <h2 class="recipe-title">🥚 ${t('egg.title')}</h2>
-          <div class="recipe-grid">
-            <div class="recipe-row">
-              <span class="recipe-icon">🔥</span>
-              <span class="recipe-label">${t('egg.firmness')}</span>
-              <span class="recipe-value">${isCustom ? t('egg.custom') : t('egg.' + eggState.firmness)}</span>
-            </div>
-            <div class="recipe-row">
-              <span class="recipe-icon">⏱</span>
-              <span class="recipe-label">${t('lbl.tempo')}</span>
-              <span class="recipe-value">${mins} ${t('egg.min')}</span>
-            </div>
-            <div class="recipe-row">
-              <span class="recipe-icon">🥚</span>
-              <span class="recipe-label">${t('egg.qty')}</span>
-              <span class="recipe-value">${eggState.qty} ${t('egg.eggs')}</span>
-            </div>
-            <div class="recipe-row">
-              <span class="recipe-icon">📏</span>
-              <span class="recipe-label">${t('egg.size')}</span>
-              <span class="recipe-value">${t('egg.size.' + eggState.size)}</span>
-            </div>
-          </div>
-          <div class="recipe-actions">
-            <button class="btn-start egg-btn-start" id="egg-btn-start">${t('egg.start')}</button>
-          </div>
-        </div>
-      </section>
-
-      <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
-    </div>`;
-
-  // Events
-  document.getElementById('btn-egg-back').addEventListener('click', () => renderConfig());
-
-  document.getElementById('egg-firmness-grid').addEventListener('click', e => {
-    const btn = e.target.closest('[data-firmness]');
-    if (!btn) return;
-    eggState.firmness = btn.dataset.firmness;
-    saveEggState(); renderEggConfig();
-  });
-
-  document.getElementById('egg-btn-minus').addEventListener('click', () => {
-    if (eggState.qty > 1) { eggState.qty--; saveEggState(); renderEggConfig(); }
-  });
-  document.getElementById('egg-btn-plus').addEventListener('click', () => {
-    if (eggState.qty < 12) { eggState.qty++; saveEggState(); renderEggConfig(); }
-  });
-
-  document.getElementById('egg-size-group').addEventListener('click', e => {
-    const btn = e.target.closest('[data-egg-size]');
-    if (!btn) return;
-    eggState.size = btn.dataset.eggSize;
-    saveEggState(); renderEggConfig();
-  });
-
-  const customInput = document.getElementById('egg-custom-min');
-  if (customInput) {
-    customInput.addEventListener('input', e => {
-      eggState.customMin = parseInt(e.target.value) || 8;
-      saveEggState(); renderEggConfig();
-    });
-  }
-
-  document.getElementById('egg-btn-start').addEventListener('click', () => {
-    eggPrepState = { stepIndex: 0, waiting: false, timeLeft: 0 };
-    startEggGlobalTimer();
-    requestWakeLock();
-    renderEggPrep();
-  });
-}
-
-// ─── RENDER EGG PREP ─────────────────────────────────────────────────────────
-
-function renderEggPrep() {
-  const steps = getEggSteps();
-  const idx = eggPrepState.stepIndex;
-  const step = steps[idx];
-  const total = steps.length;
-
-  let bodyHTML = '';
-  if (eggPrepState.waiting) {
-    const totalSec = step.wait;
-    const elapsed = totalSec - eggPrepState.timeLeft;
-    const pct = Math.min(100, (elapsed / totalSec) * 100).toFixed(1);
-    bodyHTML = `
-      <div class="timer-display">
-        <div class="timer-emoji">🥚</div>
-        <div class="timer-label">${step.waitLabel}</div>
-        <div class="timer-value" id="egg-timer-value" aria-live="polite">${formatTime(eggPrepState.timeLeft)}</div>
-        <div class="step-volume" style="margin-top:1rem">
-          <div class="volume-bar">
-            <div class="volume-bar-fill egg-bar-fill" style="width:${pct}%"></div>
-          </div>
-        </div>
-        <button class="btn-skip" id="egg-btn-skip">${t('prep.skip')}</button>
-      </div>`;
-  } else {
-    const hint = step.checklist
-      ? `<p class="step-checklist-hint">${t('prep.hint.checklist')}</p>`
-      : (step.wait ? `<p class="step-checklist-hint">${t('prep.hint.timer', { time: step.waitLabel })}</p>` : '');
-    bodyHTML = `${hint}
-      <div class="prep-actions">
-        ${idx > 0 ? `<button class="btn-back" id="egg-btn-back-step">${t('prep.back')}</button>` : '<span></span>'}
-        <button class="btn-done" id="egg-btn-done">${t('prep.confirm.checklist')}</button>
-      </div>`;
-  }
-
-  document.getElementById('app').innerHTML = `
-    <div class="prep-screen egg-prep-screen" role="main">
-      <div class="prep-header egg-prep-header">
-        <button class="btn-close" id="egg-btn-close" aria-label="${t('prep.close')}">${t('prep.close')}</button>
-        <div class="prep-progress">${idx + 1} ${t('prep.of')} ${total}</div>
-        <div class="global-timer" id="egg-global-timer">⏱ ${formatTime(getEggElapsed())}</div>
-      </div>
-      <div class="prep-step">
-        <h2 class="step-name">${step.name}</h2>
-        ${bodyHTML}
-      </div>
-      <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
-    </div>`;
-
-  // Events
-  document.getElementById('egg-btn-close').addEventListener('click', () => {
-    clearInterval(eggTimerInterval); stopEggGlobalTimer(); releaseWakeLock();
-    eggPrepState = null; eggPrepStartTime = null; renderEggConfig();
-  });
-
-  if (eggPrepState.waiting) {
-    document.getElementById('egg-btn-skip').addEventListener('click', () => {
-      clearInterval(eggTimerInterval); eggPrepState.waiting = false;
-      playAlarm();
-      eggAdvanceStep(steps);
-    });
-    return;
-  }
-
-  const btnBack = document.getElementById('egg-btn-back-step');
-  if (btnBack) btnBack.addEventListener('click', () => {
-    clearInterval(eggTimerInterval); eggPrepState.stepIndex--; eggPrepState.waiting = false; renderEggPrep();
-  });
-
-  document.getElementById('egg-btn-done').addEventListener('click', () => {
-    if (step.wait) {
-      eggPrepState.waiting = true; eggPrepState.timeLeft = step.wait;
-      renderEggPrep(); startEggCountdown(steps);
-    } else { eggAdvanceStep(steps); }
-  });
-}
-
-function eggAdvanceStep(steps) {
-  eggPrepState.stepIndex++; eggPrepState.waiting = false;
-  if (eggPrepState.stepIndex >= steps.length) renderEggDone(); else renderEggPrep();
-}
-
-function startEggCountdown(steps) {
-  clearInterval(eggTimerInterval);
-  eggTimerInterval = setInterval(() => {
-    eggPrepState.timeLeft--;
-    const el = document.getElementById('egg-timer-value');
-    if (el) el.textContent = formatTime(eggPrepState.timeLeft);
-    // Update progress bar
-    const step = steps[eggPrepState.stepIndex];
-    const totalSec = step.wait;
-    const elapsed = totalSec - eggPrepState.timeLeft;
-    const pct = Math.min(100, (elapsed / totalSec) * 100).toFixed(1);
-    const fill = document.querySelector('.egg-bar-fill');
-    if (fill) fill.style.width = pct + '%';
-
-    if (eggPrepState.timeLeft <= 0) {
-      clearInterval(eggTimerInterval); eggPrepState.waiting = false;
-      playAlarm();
-      if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 200]);
-      eggAdvanceStep(steps);
-    }
-  }, 1000);
-}
-
-// ─── RENDER EGG DONE ─────────────────────────────────────────────────────────
-
-function renderEggDone() {
-  clearInterval(eggTimerInterval);
-  const elapsed = getEggElapsed();
-  stopEggGlobalTimer();
-  releaseWakeLock();
-  saveEggToHistory(elapsed);
-
-  const mins = calcEggTime();
-  const isCustom = eggState.firmness === 'custom';
-  const firmnessLabel = isCustom ? t('egg.custom') : t('egg.' + eggState.firmness);
-
-  document.getElementById('app').innerHTML = `
-    <div class="done-screen egg-done-screen" role="main">
-      <div class="done-emoji" aria-hidden="true">🥚</div>
-      <h2 class="done-title">${t('egg.done')}</h2>
-      <p class="done-msg">Bom apetite! 😋</p>
-      ${elapsed > 0 ? `<p class="done-time">⏱ <strong>${formatTime(elapsed)}</strong></p>` : ''}
-
-      <div class="done-recipe-card">
-        <div class="done-recipe-title">🥚 ${t('egg.title')}</div>
-        <div class="done-recipe-row"><span>${t('egg.firmness')}</span><strong>${firmnessLabel}</strong></div>
-        <div class="done-recipe-row"><span>${t('egg.qty')}</span><strong>${eggState.qty} ${t('egg.eggs')}</strong></div>
-        <div class="done-recipe-row"><span>${t('egg.size')}</span><strong>${t('egg.size.' + eggState.size)}</strong></div>
-        <div class="done-recipe-row"><span>${t('lbl.tempo')}</span><strong>${mins} ${t('egg.min')}</strong></div>
-      </div>
-
-      <div class="rating-group" id="egg-rating-group">
-        <p class="rating-label">${t('egg.rating')}</p>
-        <div class="stars" id="egg-stars" role="group" aria-label="${t('egg.rating')}">
-          ${[1,2,3,4,5].map(n =>
-            `<button class="star-btn" data-star="${n}" aria-label="${n}">☆</button>`
-          ).join('')}
-        </div>
-      </div>
-
-      <div class="done-notes">
-        <label class="done-notes-label" for="egg-done-notes">${t('sec.notes')}</label>
-        <textarea class="notes-area" id="egg-done-notes"
-                  placeholder="${t('egg.notes.placeholder')}"
-                  rows="3"></textarea>
-      </div>
-
-      <button class="btn-restart egg-btn-restart" id="egg-btn-again">${t('egg.again')}</button>
-      <button class="btn-share-done" id="egg-btn-coffee">${t('egg.back.coffee')}</button>
-      <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
-    </div>`;
-
-  // Star rating
-  const starsEl = document.getElementById('egg-stars');
-  if (starsEl) {
-    starsEl.addEventListener('click', e => {
-      const btn = e.target.closest('[data-star]');
-      if (!btn) return;
-      const rating = parseInt(btn.dataset.star);
-      starsEl.querySelectorAll('.star-btn').forEach((b, i) => {
-        b.textContent = i < rating ? '⭐' : '☆';
-        b.classList.toggle('active', i < rating);
-      });
-      saveEggRating(rating);
-      showToast(`${'⭐'.repeat(rating)}`);
-    });
-  }
-
-  // Save notes to history
-  const notesArea = document.getElementById('egg-done-notes');
-  if (notesArea) {
-    let eggNoteTimer = null;
-    notesArea.addEventListener('input', e => {
-      clearTimeout(eggNoteTimer);
-      eggNoteTimer = setTimeout(() => {
-        const hist = loadEggHistory();
-        if (hist.length > 0) hist[0].notes = e.target.value.trim();
-        try { localStorage.setItem('coado-egg-history', JSON.stringify(hist)); } catch {}
-      }, 600);
-    });
-  }
-
-  document.getElementById('egg-btn-again').addEventListener('click', () => {
-    eggPrepState = null; eggPrepStartTime = null; renderEggConfig();
-  });
-  document.getElementById('egg-btn-coffee').addEventListener('click', () => {
-    eggPrepState = null; eggPrepStartTime = null; renderConfig();
-  });
-}
-
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
-  {
-    version: '3.8',
-    date: 'Mar 2026',
-    items: [
-      'Timer de ovo cozido com 4 pontos + personalizado',
-      'Botão 🥚 na home para acesso rápido',
-      'Checklist guiado com timer + banho de gelo',
-      'Avaliação e notas para ovos',
-    ],
-  },
   {
     version: '3.7',
     date: 'Mar 2026',
