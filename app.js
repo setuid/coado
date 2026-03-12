@@ -2685,6 +2685,8 @@ function bindConfigEvents() {
       if (!btn) return;
       localStorage.setItem('coado-bean-tab', btn.dataset.beanTab);
       renderConfig();
+      const acc = document.getElementById('bean-accordion');
+      if (acc) acc.open = true;
     });
   }
   const beanPresetGrid = document.getElementById('bean-preset-grid');
