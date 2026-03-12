@@ -1133,6 +1133,121 @@ textarea { resize: vertical; }
 }
 .btn-hist-delete:hover { opacity: 1; color: #B71C1C; }
 
+/* ── Bean Profile Section ── */
+.bean-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.bean-tab {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.bean-tab-active {
+  border-color: var(--accent);
+  background: #FBF5EF;
+  box-shadow: var(--shadow-sm);
+  color: var(--accent);
+}
+
+.bean-preset-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+.bean-preset-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.65rem 0.4rem;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+.bean-preset-btn.selected {
+  border-color: var(--accent);
+  background: #FBF5EF;
+  box-shadow: var(--shadow-sm);
+}
+.bean-preset-name { font-size: 0.82rem; font-weight: 600; }
+.bean-preset-roast { font-size: 0.72rem; color: var(--muted); }
+.bean-preset-popular { font-size: 0.65rem; color: var(--accent); font-weight: 700; }
+.bean-preset-none { grid-column: 1 / -1; flex-direction: row; gap: 0.5rem; min-height: 40px; background: var(--surface); justify-content: center; }
+
+.bean-custom-section { display: flex; flex-direction: column; gap: 0.3rem; }
+.bean-sub-title { font-size: 0.8rem; font-weight: 700; color: var(--muted); margin: 0.5rem 0 0.3rem; }
+.bean-btn-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.bean-btn-group-2 { grid-template-columns: repeat(2, 1fr); }
+.bean-opt-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.55rem 0.3rem;
+  background: var(--surface-2);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.bean-opt-btn.selected {
+  border-color: var(--accent);
+  background: #FBF5EF;
+  box-shadow: var(--shadow-sm);
+}
+.bean-opt-name { font-size: 0.82rem; font-weight: 600; }
+.bean-opt-info { font-size: 0.68rem; color: var(--muted); }
+
+.bean-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+  text-align: center;
+}
+.section-opt { font-weight: 400; color: var(--muted); font-size: 0.85em; }
+
+/* ── Bean Recipe Indicators ── */
+.recipe-bean-line {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: -0.3rem 0 0.5rem;
+  text-align: center;
+}
+.bean-adj-badge {
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-weight: 400;
+  font-style: italic;
+}
+.acc-bean-tip {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--accent);
+}
+.history-badge-bean {
+  background: #6D4C2E;
+}
+
 /* ── Reduce motion ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
