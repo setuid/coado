@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '3.7';
-const CACHE = 'coado-v3.7';
+const APP_VERSION = '3.8';
+const CACHE = 'coado-v3.8';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -189,6 +189,32 @@ const T = {
     'step.pano.bloom.sub': 'Umedecer o café',
     'method.pano.name': 'Coador de pano',
     'method.prensa.name': 'Prensa Francesa',
+    'bean.title': 'Meu grão',
+    'bean.optional': '· opcional',
+    'bean.tab.quick': 'Rápido',
+    'bean.tab.custom': 'Personalizado',
+    'bean.roast': 'Torra',
+    'bean.roast.light': 'Clara',
+    'bean.roast.medium': 'Média',
+    'bean.roast.dark': 'Escura',
+    'bean.process': 'Processamento',
+    'bean.process.washed': 'Lavado',
+    'bean.process.honey': 'Honey',
+    'bean.process.natural': 'Natural',
+    'bean.species': 'Espécie',
+    'bean.species.arabica': 'Arábica',
+    'bean.species.robusta': 'Robusta',
+    'bean.adjusted': 'ajustado',
+    'bean.summary': '🫘 Grão:',
+    'bean.none': 'Sem perfil',
+    'bean.note': 'Valores são ajustados automaticamente na receita.',
+    'bean.popular': 'popular',
+    'bean.baseline': 'padrão',
+    'bean.hint.light': 'Cafés de torra clara são mais ácidos — precisam de mais calor para extrair doçura. Se ficar azedo, moa mais fino.',
+    'bean.hint.dark': 'Cafés de torra escura extraem fácil — água mais fria evita amargor.',
+    'bean.hint.natural': 'Naturais são mais densos — moagem fina e bloom mais longo ajudam.',
+    'bean.hint.robusta': 'Robusta tem mais cafeína e corpo — dose levemente maior compensa.',
+    'bean.profile.applied': 'Perfil do grão aplicado',
   },
   en: {
     'tagline': 'Your coffee, the right way.',
@@ -359,6 +385,32 @@ const T = {
     'step.pano.bloom.sub': 'Wet the coffee',
     'method.pano.name': 'Cloth Filter',
     'method.prensa.name': 'French Press',
+    'bean.title': 'My bean',
+    'bean.optional': '· optional',
+    'bean.tab.quick': 'Quick',
+    'bean.tab.custom': 'Custom',
+    'bean.roast': 'Roast',
+    'bean.roast.light': 'Light',
+    'bean.roast.medium': 'Medium',
+    'bean.roast.dark': 'Dark',
+    'bean.process': 'Process',
+    'bean.process.washed': 'Washed',
+    'bean.process.honey': 'Honey',
+    'bean.process.natural': 'Natural',
+    'bean.species': 'Species',
+    'bean.species.arabica': 'Arabica',
+    'bean.species.robusta': 'Robusta',
+    'bean.adjusted': 'adjusted',
+    'bean.summary': '🫘 Bean:',
+    'bean.none': 'No profile',
+    'bean.note': 'Values are automatically adjusted in the recipe.',
+    'bean.popular': 'popular',
+    'bean.baseline': 'baseline',
+    'bean.hint.light': 'Light roasts are more acidic — they need more heat to extract sweetness. If sour, grind finer.',
+    'bean.hint.dark': 'Dark roasts extract easily — cooler water avoids bitterness.',
+    'bean.hint.natural': 'Naturals are denser — finer grind and longer bloom help.',
+    'bean.hint.robusta': 'Robusta has more caffeine and body — a slightly higher dose compensates.',
+    'bean.profile.applied': 'Bean profile applied',
   },
   es: {
     'tagline': 'Tu café, como debe ser.',
@@ -529,6 +581,32 @@ const T = {
     'step.pano.bloom.sub': 'Humedecer el café',
     'method.pano.name': 'Filtro de tela',
     'method.prensa.name': 'Prensa Francesa',
+    'bean.title': 'Mi grano',
+    'bean.optional': '· opcional',
+    'bean.tab.quick': 'Rápido',
+    'bean.tab.custom': 'Personalizado',
+    'bean.roast': 'Tueste',
+    'bean.roast.light': 'Claro',
+    'bean.roast.medium': 'Medio',
+    'bean.roast.dark': 'Oscuro',
+    'bean.process': 'Procesamiento',
+    'bean.process.washed': 'Lavado',
+    'bean.process.honey': 'Honey',
+    'bean.process.natural': 'Natural',
+    'bean.species': 'Especie',
+    'bean.species.arabica': 'Arábica',
+    'bean.species.robusta': 'Robusta',
+    'bean.adjusted': 'ajustado',
+    'bean.summary': '🫘 Grano:',
+    'bean.none': 'Sin perfil',
+    'bean.note': 'Los valores se ajustan automáticamente en la receta.',
+    'bean.popular': 'popular',
+    'bean.baseline': 'estándar',
+    'bean.hint.light': 'Tuestes claros son más ácidos — necesitan más calor para extraer dulzura.',
+    'bean.hint.dark': 'Tuestes oscuros extraen fácilmente — agua más fría evita el amargor.',
+    'bean.hint.natural': 'Naturales son más densos — molienda fina y bloom más largo ayudan.',
+    'bean.hint.robusta': 'Robusta tiene más cafeína y cuerpo — una dosis ligeramente mayor compensa.',
+    'bean.profile.applied': 'Perfil del grano aplicado',
   },
   it: {
     'tagline': 'Il tuo caffè, nel modo giusto.',
@@ -699,6 +777,32 @@ const T = {
     'step.pano.bloom.sub': 'Bagnare il caffè',
     'method.pano.name': 'Filtro di stoffa',
     'method.prensa.name': 'French Press',
+    'bean.title': 'Il mio chicco',
+    'bean.optional': '· opzionale',
+    'bean.tab.quick': 'Rapido',
+    'bean.tab.custom': 'Personalizzato',
+    'bean.roast': 'Tostatura',
+    'bean.roast.light': 'Chiara',
+    'bean.roast.medium': 'Media',
+    'bean.roast.dark': 'Scura',
+    'bean.process': 'Lavorazione',
+    'bean.process.washed': 'Lavato',
+    'bean.process.honey': 'Honey',
+    'bean.process.natural': 'Naturale',
+    'bean.species': 'Specie',
+    'bean.species.arabica': 'Arabica',
+    'bean.species.robusta': 'Robusta',
+    'bean.adjusted': 'regolato',
+    'bean.summary': '🫘 Chicco:',
+    'bean.none': 'Senza profilo',
+    'bean.note': 'I valori vengono regolati automaticamente nella ricetta.',
+    'bean.popular': 'popolare',
+    'bean.baseline': 'standard',
+    'bean.hint.light': 'Le tostature chiare sono più acide — servono temperature più alte per estrarre dolcezza.',
+    'bean.hint.dark': 'Le tostature scure estraggono facilmente — acqua più fredda evita l\'amarezza.',
+    'bean.hint.natural': 'I naturali sono più densi — macinatura fine e bloom più lungo aiutano.',
+    'bean.hint.robusta': 'Robusta ha più caffeina e corpo — una dose leggermente maggiore compensa.',
+    'bean.profile.applied': 'Profilo del chicco applicato',
   },
   ar: {
     'tagline': 'قهوتك، على الطريقة الصحيحة.',
@@ -869,6 +973,32 @@ const T = {
     'step.pano.bloom.sub': 'تبليل القهوة',
     'method.pano.name': 'فلتر القماش',
     'method.prensa.name': 'الضغط الفرنسي',
+    'bean.title': 'حبوبي',
+    'bean.optional': '· اختياري',
+    'bean.tab.quick': 'سريع',
+    'bean.tab.custom': 'مخصص',
+    'bean.roast': 'التحميص',
+    'bean.roast.light': 'فاتح',
+    'bean.roast.medium': 'متوسط',
+    'bean.roast.dark': 'داكن',
+    'bean.process': 'المعالجة',
+    'bean.process.washed': 'مغسول',
+    'bean.process.honey': 'عسلي',
+    'bean.process.natural': 'طبيعي',
+    'bean.species': 'النوع',
+    'bean.species.arabica': 'أرابيكا',
+    'bean.species.robusta': 'روبوستا',
+    'bean.adjusted': 'معدّل',
+    'bean.summary': '🫘 الحبوب:',
+    'bean.none': 'بدون ملف',
+    'bean.note': 'يتم تعديل القيم تلقائياً في الوصفة.',
+    'bean.popular': 'شائع',
+    'bean.baseline': 'قياسي',
+    'bean.hint.light': 'التحميص الفاتح أكثر حموضة — يحتاج حرارة أعلى لاستخلاص الحلاوة.',
+    'bean.hint.dark': 'التحميص الداكن يستخلص بسهولة — ماء أبرد يتجنب المرارة.',
+    'bean.hint.natural': 'الطبيعي أكثر كثافة — الطحن الناعم والبلوم الأطول يساعدان.',
+    'bean.hint.robusta': 'روبوستا أكثر كافيين وجسماً — جرعة أعلى قليلاً تعوّض.',
+    'bean.profile.applied': 'تم تطبيق ملف الحبوب',
   },
   ja: {
     'tagline': 'あなたのコーヒー、正しい方法で。',
@@ -1039,6 +1169,32 @@ const T = {
     'step.pano.bloom.sub': 'コーヒーを濡らす',
     'method.pano.name': 'ネルドリップ',
     'method.prensa.name': 'フレンチプレス',
+    'bean.title': '豆のプロフィール',
+    'bean.optional': '・任意',
+    'bean.tab.quick': 'クイック',
+    'bean.tab.custom': 'カスタム',
+    'bean.roast': '焙煎',
+    'bean.roast.light': '浅煎り',
+    'bean.roast.medium': '中煎り',
+    'bean.roast.dark': '深煎り',
+    'bean.process': '精製',
+    'bean.process.washed': 'ウォッシュド',
+    'bean.process.honey': 'ハニー',
+    'bean.process.natural': 'ナチュラル',
+    'bean.species': '品種',
+    'bean.species.arabica': 'アラビカ',
+    'bean.species.robusta': 'ロブスタ',
+    'bean.adjusted': '調整済',
+    'bean.summary': '🫘 豆:',
+    'bean.none': 'プロフィールなし',
+    'bean.note': '値はレシピに自動的に反映されます。',
+    'bean.popular': '人気',
+    'bean.baseline': '基本',
+    'bean.hint.light': '浅煎りは酸味が強い — 甘さを引き出すには高い温度が必要です。',
+    'bean.hint.dark': '深煎りは抽出しやすい — 低めの温度で苦みを避けます。',
+    'bean.hint.natural': 'ナチュラルは密度が高い — 細かい挽き目と長めのブルームが有効です。',
+    'bean.hint.robusta': 'ロブスタはカフェインとボディが多い — やや多めのドーズが適切です。',
+    'bean.profile.applied': '豆のプロフィールが適用されました',
   },
   zh: {
     'tagline': '您的咖啡，恰到好处。',
@@ -1209,6 +1365,32 @@ const T = {
     'step.pano.bloom.sub': '浸湿咖啡粉',
     'method.pano.name': '布滤杯',
     'method.prensa.name': '法压壶',
+    'bean.title': '我的豆子',
+    'bean.optional': '・可选',
+    'bean.tab.quick': '快速',
+    'bean.tab.custom': '自定义',
+    'bean.roast': '烘焙',
+    'bean.roast.light': '浅烘',
+    'bean.roast.medium': '中烘',
+    'bean.roast.dark': '深烘',
+    'bean.process': '处理方式',
+    'bean.process.washed': '水洗',
+    'bean.process.honey': '蜜处理',
+    'bean.process.natural': '日晒',
+    'bean.species': '品种',
+    'bean.species.arabica': '阿拉比卡',
+    'bean.species.robusta': '罗布斯塔',
+    'bean.adjusted': '已调整',
+    'bean.summary': '🫘 豆子:',
+    'bean.none': '无配置',
+    'bean.note': '数值会自动调整到食谱中。',
+    'bean.popular': '热门',
+    'bean.baseline': '基准',
+    'bean.hint.light': '浅烘酸度更高——需要更高水温来萃取甜感。',
+    'bean.hint.dark': '深烘容易萃取——降低水温避免苦涩。',
+    'bean.hint.natural': '日晒豆密度更大——更细研磨和更长预浸有助萃取。',
+    'bean.hint.robusta': '罗布斯塔咖啡因和醇厚度更高——稍多的用量可以补偿。',
+    'bean.profile.applied': '豆子配置已应用',
   },
   ru: {
     'tagline': 'Ваш кофе, правильным способом.',
@@ -1379,6 +1561,32 @@ const T = {
     'step.pano.bloom.sub': 'Смочить кофе',
     'method.pano.name': 'Тканевый фильтр',
     'method.prensa.name': 'Французский пресс',
+    'bean.title': 'Моё зерно',
+    'bean.optional': '· по желанию',
+    'bean.tab.quick': 'Быстро',
+    'bean.tab.custom': 'Настроить',
+    'bean.roast': 'Обжарка',
+    'bean.roast.light': 'Светлая',
+    'bean.roast.medium': 'Средняя',
+    'bean.roast.dark': 'Тёмная',
+    'bean.process': 'Обработка',
+    'bean.process.washed': 'Мытая',
+    'bean.process.honey': 'Хани',
+    'bean.process.natural': 'Натуральная',
+    'bean.species': 'Вид',
+    'bean.species.arabica': 'Арабика',
+    'bean.species.robusta': 'Робуста',
+    'bean.adjusted': 'скорр.',
+    'bean.summary': '🫘 Зерно:',
+    'bean.none': 'Без профиля',
+    'bean.note': 'Значения автоматически корректируются в рецепте.',
+    'bean.popular': 'популярно',
+    'bean.baseline': 'базовый',
+    'bean.hint.light': 'Светлая обжарка кислее — нужна более горячая вода для сладости.',
+    'bean.hint.dark': 'Тёмная обжарка легко экстрагируется — прохладная вода избежит горечи.',
+    'bean.hint.natural': 'Натуральная обработка — зёрна плотнее, помол мельче и блум дольше.',
+    'bean.hint.robusta': 'Робуста — больше кофеина и тела, чуть больше дозировка компенсирует.',
+    'bean.profile.applied': 'Профиль зерна применён',
   },
 };
 
@@ -1601,9 +1809,40 @@ const GRINDERS = {
   },
 };
 
+// ─── BEAN PROFILE ─────────────────────────────────────────────────────────────
+
+const ROASTS = [
+  { id: 'light',  tempOffset: +2, grindOffset: -2, bloomOffset: +15 },
+  { id: 'medium', tempOffset:  0, grindOffset:  0, bloomOffset:   0 },
+  { id: 'dark',   tempOffset: -2, grindOffset: +2, bloomOffset: -10 },
+];
+
+const PROCESSES = [
+  { id: 'washed',  grindOffset:  0, bloomOffset:   0, compDelta: 0    },
+  { id: 'honey',   grindOffset: -1, bloomOffset:  +5, compDelta: 0    },
+  { id: 'natural', grindOffset: -2, bloomOffset: +10, compDelta: 0.02 },
+];
+
+const SPECIES = [
+  { id: 'arabica', dosageMult: 1.0  },
+  { id: 'robusta', dosageMult: 1.08 },
+];
+
+const BEAN_PRESETS = [
+  { id: 'arabica-washed-medium',  roast: 'medium', process: 'washed',  species: 'arabica', popular: true  },
+  { id: 'arabica-natural-medium', roast: 'medium', process: 'natural', species: 'arabica', popular: true  },
+  { id: 'arabica-honey-medium',   roast: 'medium', process: 'honey',   species: 'arabica', popular: true  },
+  { id: 'robusta-natural-dark',   roast: 'dark',   process: 'natural', species: 'robusta', popular: true  },
+  { id: 'arabica-washed-light',   roast: 'light',  process: 'washed',  species: 'arabica', popular: false },
+  { id: 'arabica-natural-light',  roast: 'light',  process: 'natural', species: 'arabica', popular: false },
+  { id: 'arabica-honey-light',    roast: 'light',  process: 'honey',   species: 'arabica', popular: false },
+  { id: 'arabica-washed-dark',    roast: 'dark',   process: 'washed',  species: 'arabica', popular: false },
+  { id: 'robusta-washed-dark',    roast: 'dark',   process: 'washed',  species: 'robusta', popular: false },
+];
+
 // ─── STATE ────────────────────────────────────────────────────────────────────
 
-const DEFAULT = { portions: 3, sizeId: 'sm', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo' };
+const DEFAULT = { portions: 3, sizeId: 'sm', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo', beanRoast: null, beanProcess: null, beanSpecies: null };
 let lang = localStorage.getItem('coado-lang') || 'pt';
 let state = { ...DEFAULT };
 let prepState = null;
@@ -1646,12 +1885,67 @@ function setLang(id) {
 }
 function clamp(n, lo, hi) { return Math.min(hi, Math.max(lo, n)); }
 
+// ─── BEAN HELPERS ─────────────────────────────────────────────────────────────
+
+function getBeanRoast()   { return state.beanRoast   ? ROASTS.find(r => r.id === state.beanRoast)     : null; }
+function getBeanProcess() { return state.beanProcess  ? PROCESSES.find(p => p.id === state.beanProcess) : null; }
+function getBeanSpecies() { return state.beanSpecies  ? SPECIES.find(s => s.id === state.beanSpecies)   : null; }
+function hasBeanProfile() { return !!(state.beanRoast || state.beanProcess || state.beanSpecies); }
+
+function getBeanGrindOffset() {
+  return (getBeanRoast()?.grindOffset ?? 0) + (getBeanProcess()?.grindOffset ?? 0);
+}
+function getBeanTempOffset()  { return getBeanRoast()?.tempOffset  ?? 0; }
+function getBeanBloomOffset() {
+  return (getBeanRoast()?.bloomOffset ?? 0) + (getBeanProcess()?.bloomOffset ?? 0);
+}
+function getBeanCompDelta()   { return getBeanProcess()?.compDelta  ?? 0; }
+function getBeanDosageMult()  { return getBeanSpecies()?.dosageMult ?? 1; }
+
+function getDisplayTemp(methodTemp) {
+  const offset = getBeanTempOffset();
+  if (!offset) return methodTemp;
+  return methodTemp.replace(/(\d+)([–-])(\d+)°C/g, (_, a, sep, b) =>
+    `${+a + offset}${sep}${+b + offset}°C`
+  );
+}
+
+function applyGrindOffset(setting) {
+  const offset = getBeanGrindOffset();
+  if (!offset || !setting) return setting;
+  return setting.replace(/(\d+(?:\.\d+)?)\s*([–-])\s*(\d+(?:\.\d+)?)/g, (_, a, sep, b) => {
+    const lo = Math.max(1, +(+a + offset).toFixed(1));
+    const hi = Math.max(1, +(+b + offset).toFixed(1));
+    return `${lo}${sep}${hi}`;
+  });
+}
+
+function getBeanSummary() {
+  if (!hasBeanProfile()) return '';
+  const parts = [];
+  if (state.beanSpecies) parts.push(t('bean.species.' + state.beanSpecies));
+  if (state.beanProcess) parts.push(t('bean.process.' + state.beanProcess));
+  if (state.beanRoast)   parts.push(t('bean.roast.' + state.beanRoast));
+  return parts.join(' · ');
+}
+
+function getBeanHints() {
+  const hints = [];
+  if (state.beanRoast === 'light')  hints.push(t('bean.hint.light'));
+  if (state.beanRoast === 'dark')   hints.push(t('bean.hint.dark'));
+  if (state.beanProcess === 'natural') hints.push(t('bean.hint.natural'));
+  if (state.beanSpecies === 'robusta') hints.push(t('bean.hint.robusta'));
+  return hints;
+}
+
 function calcRecipe() {
   const method = METHODS[state.methodId];
+  const dosageMult = getBeanDosageMult();
   if (method.isEspresso) {
-    const dosePerShot = state.shotType === 'simples' ? 9 : 18;
+    const baseDose = state.shotType === 'simples' ? 9 : 18;
+    const dosePerShot = Math.round(baseDose * dosageMult * 10) / 10;
     const yieldPerShot = state.shotType === 'simples' ? 18 : 36;
-    const dose = dosePerShot * state.portions;
+    const dose = Math.round(dosePerShot * state.portions * 10) / 10;
     const yieldMl = yieldPerShot * state.portions;
     return { isEspresso: true, dose, yieldMl, dosePerShot, yieldPerShot };
   }
@@ -1659,15 +1953,28 @@ function calcRecipe() {
   const sizeMl = size.id === 'custom' ? (parseInt(state.customMl) || 200) : size.ml;
   const intensity = INTENSITIES.find(i => i.id === state.intensityId);
   const volumeTotal = state.portions * sizeMl;
-  const cafeG = Math.round((volumeTotal / 100) * intensity.gPer100 * 10) / 10;
-  const aguaTotal = Math.round(volumeTotal * (1 + method.compensation));
+  const cafeG = Math.round((volumeTotal / 100) * intensity.gPer100 * dosageMult * 10) / 10;
+  const compDelta = getBeanCompDelta();
+  const aguaTotal = Math.round(volumeTotal * (1 + method.compensation + compDelta));
   return { isEspresso: false, volumeTotal, cafeG, aguaTotal, sizeMl };
 }
 
 function calcSteps(recipe) {
   const method = METHODS[state.methodId];
-  if (method.isEspresso) return method.steps(recipe.dose, recipe.yieldMl);
-  return method.steps(recipe.aguaTotal, recipe.cafeG);
+  let steps;
+  if (method.isEspresso) steps = method.steps(recipe.dose, recipe.yieldMl);
+  else steps = method.steps(recipe.aguaTotal, recipe.cafeG);
+  // Apply bean bloom offset to first wait step
+  const bloomOffset = getBeanBloomOffset();
+  if (bloomOffset) {
+    const bloomStep = steps.find(s => s.wait && !s.checklist);
+    if (bloomStep) {
+      bloomStep.wait = Math.max(15, bloomStep.wait + bloomOffset);
+      const secs = bloomStep.wait;
+      bloomStep.waitLabel = secs >= 60 ? `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}` : `${secs}s`;
+    }
+  }
+  return steps;
 }
 
 function formatTime(s) {
@@ -1850,15 +2157,18 @@ function saveGrinder(id) { localStorage.setItem('coado-grinder', id || 'none'); 
 
 function getGrinderDisplay(grinderId, methodId) {
   const method = METHODS[methodId];
-  if (!grinderId) return { value: method.grind, sub: null, warning: null };
+  const grindOffset = getBeanGrindOffset();
+  const adjusted = grindOffset !== 0;
+  if (!grinderId) return { value: method.grind, sub: null, warning: null, adjusted: false };
   const g = GRINDERS[grinderId];
-  if (!g) return { value: method.grind, sub: null, warning: null };
+  if (!g) return { value: method.grind, sub: null, warning: null, adjusted: false };
   const setting = g.settings[methodId];
   if (!setting) {
     const warning = method.isEspresso ? g.espressoNote : null;
-    return { value: method.grind, sub: null, warning };
+    return { value: method.grind, sub: null, warning, adjusted: false };
   }
-  return { value: `${setting} ${g.unit}`, sub: `${g.name} · ${method.grind}`, warning: null };
+  const displaySetting = adjusted ? applyGrindOffset(setting) : setting;
+  return { value: `${displaySetting} ${g.unit}`, sub: `${g.name} · ${method.grind}`, warning: null, adjusted };
 }
 
 // ─── NOTES ────────────────────────────────────────────────────────────────────
@@ -1886,6 +2196,7 @@ function saveToHistory(duration) {
   const entry = {
     ts: Date.now(), portions: state.portions, methodId: state.methodId,
     intensityId: state.intensityId, duration, rating: null,
+    beanRoast: state.beanRoast, beanProcess: state.beanProcess, beanSpecies: state.beanSpecies,
   };
   if (method.isEspresso) {
     entry.shotType = state.shotType;
@@ -1923,6 +2234,83 @@ function startGlobalTimer() {
 }
 function stopGlobalTimer() { clearInterval(globalTimerInterval); globalTimerInterval = null; }
 function getElapsed() { return prepStartTime ? Math.floor((Date.now() - prepStartTime) / 1000) : 0; }
+
+// ─── BEAN SECTION ─────────────────────────────────────────────────────────────
+
+function renderBeanSection() {
+  const hasProfile = hasBeanProfile();
+  const beanTab = localStorage.getItem('coado-bean-tab') || 'quick';
+
+  const presetGrid = BEAN_PRESETS
+    .sort((a, b) => (b.popular ? 1 : 0) - (a.popular ? 1 : 0))
+    .map(p => {
+      const sel = state.beanRoast === p.roast && state.beanProcess === p.process && state.beanSpecies === p.species;
+      return `<button class="bean-preset-btn ${sel ? 'selected' : ''}" data-bean-preset="${p.id}">
+        <span class="bean-preset-name">${t('bean.species.' + p.species)} ${t('bean.process.' + p.process)}</span>
+        <span class="bean-preset-roast">${t('bean.roast.' + p.roast)}</span>
+        ${p.popular ? `<span class="bean-preset-popular">${t('bean.popular')}</span>` : ''}
+      </button>`;
+    }).join('');
+
+  const customContent = `
+    <div class="bean-custom-section">
+      <h3 class="bean-sub-title">${t('bean.roast')}</h3>
+      <div class="bean-btn-group" id="bean-roast-group">
+        ${ROASTS.map(r => `
+          <button class="bean-opt-btn ${state.beanRoast === r.id ? 'selected' : ''}"
+                  data-bean-roast="${r.id}">
+            <span class="bean-opt-name">${t('bean.roast.' + r.id)}</span>
+            <span class="bean-opt-info">${r.tempOffset > 0 ? '+' : ''}${r.tempOffset ? r.tempOffset + '°C' : t('bean.baseline')}</span>
+            ${r.grindOffset ? `<span class="bean-opt-info">${t('bean.roast')}: ${r.grindOffset > 0 ? '+' : ''}${r.grindOffset}</span>` : ''}
+          </button>`).join('')}
+      </div>
+      <h3 class="bean-sub-title">${t('bean.process')}</h3>
+      <div class="bean-btn-group" id="bean-process-group">
+        ${PROCESSES.map(p => `
+          <button class="bean-opt-btn ${state.beanProcess === p.id ? 'selected' : ''}"
+                  data-bean-process="${p.id}">
+            <span class="bean-opt-name">${t('bean.process.' + p.id)}</span>
+            <span class="bean-opt-info">${p.grindOffset ? 'moag ' + p.grindOffset : t('bean.baseline')}</span>
+          </button>`).join('')}
+      </div>
+      <h3 class="bean-sub-title">${t('bean.species')}</h3>
+      <div class="bean-btn-group bean-btn-group-2" id="bean-species-group">
+        ${SPECIES.map(s => `
+          <button class="bean-opt-btn ${state.beanSpecies === s.id ? 'selected' : ''}"
+                  data-bean-species="${s.id}">
+            <span class="bean-opt-name">${t('bean.species.' + s.id)}</span>
+            <span class="bean-opt-info">${s.dosageMult > 1 ? '+' + Math.round((s.dosageMult - 1) * 100) + '% dose' : t('bean.baseline')}</span>
+          </button>`).join('')}
+      </div>
+    </div>`;
+
+  const tabsContent = `
+    <div class="bean-tabs" id="bean-tabs">
+      <button class="bean-tab ${beanTab === 'quick' ? 'bean-tab-active' : ''}" data-bean-tab="quick">${t('bean.tab.quick')}</button>
+      <button class="bean-tab ${beanTab === 'custom' ? 'bean-tab-active' : ''}" data-bean-tab="custom">${t('bean.tab.custom')}</button>
+    </div>
+    <div class="bean-tab-content">
+      ${beanTab === 'quick'
+        ? `<div class="bean-preset-grid" id="bean-preset-grid">${presetGrid}
+            <button class="bean-preset-btn bean-preset-none ${!hasProfile ? 'selected' : ''}" data-bean-preset="none">
+              <span class="bean-preset-name">${t('bean.none')}</span>
+            </button>
+           </div>`
+        : customContent}
+    </div>
+    <p class="bean-note">💡 ${t('bean.note')}</p>`;
+
+  const summaryText = hasProfile
+    ? `${t('bean.summary')} ${getBeanSummary()}`
+    : `${t('bean.title')} <span class="section-opt">${t('bean.optional')}</span>`;
+
+  return `<section class="section" id="section-bean">
+    <details class="accordion" id="bean-accordion">
+      <summary class="accordion-summary">${summaryText}</summary>
+      <div class="accordion-body">${tabsContent}</div>
+    </details>
+  </section>`;
+}
 
 // ─── RENDER CONFIG ────────────────────────────────────────────────────────────
 
@@ -2043,9 +2431,16 @@ function renderConfig() {
         : `ℹ️ ${grinder.name} não é recomendado para espresso — moagem inconsistente nessa faixa.`}</p>`
     : '';
 
+  const beanLine = hasBeanProfile() ? `<p class="recipe-bean-line">🫘 ${getBeanSummary()}</p>` : '';
+  const adjBadge = `<span class="bean-adj-badge">(${t('bean.adjusted')})</span>`;
+  const displayTemp = fmtTemp(getDisplayTemp(method.temp));
+  const tempAdjusted = getBeanTempOffset() !== 0;
+  const grindAdjusted = grinderDisplay.adjusted;
+
   const recipeCard = isEspresso
     ? `<div class="recipe-card">
         <h2 class="recipe-title">${t('recipe.title.espresso')}</h2>
+        ${beanLine}
         <div class="recipe-grid">
           <div class="recipe-row">
             <span class="recipe-icon">🌿</span>
@@ -2060,7 +2455,7 @@ function renderConfig() {
           <div class="recipe-row">
             <span class="recipe-icon">📐</span>
             <span class="recipe-label">${t('lbl.moagem')}</span>
-            <span class="recipe-value">${grinderDisplay.value}</span>
+            <span class="recipe-value">${grinderDisplay.value} ${grindAdjusted ? adjBadge : ''}</span>
           </div>
           ${grinderDisplay.sub ? `
           <div class="recipe-row recipe-row-sub">
@@ -2076,7 +2471,7 @@ function renderConfig() {
           <div class="recipe-row">
             <span class="recipe-icon">🌡️</span>
             <span class="recipe-label">${t('lbl.temperatura')}</span>
-            <span class="recipe-value">${fmtTemp(method.temp)}</span>
+            <span class="recipe-value">${displayTemp} ${tempAdjusted ? adjBadge : ''}</span>
           </div>
         </div>
         ${espressoGrinderWarning}
@@ -2087,6 +2482,7 @@ function renderConfig() {
       </div>`
     : `<div class="recipe-card">
         <h2 class="recipe-title">${t('recipe.title.filter')}</h2>
+        ${beanLine}
         <div class="recipe-grid">
           <div class="recipe-row">
             <span class="recipe-icon">💧</span>
@@ -2106,7 +2502,7 @@ function renderConfig() {
           <div class="recipe-row">
             <span class="recipe-icon">📐</span>
             <span class="recipe-label">${t('lbl.moagem')}</span>
-            <span class="recipe-value">${grinderDisplay.value}</span>
+            <span class="recipe-value">${grinderDisplay.value} ${grindAdjusted ? adjBadge : ''}</span>
           </div>
           ${grinderDisplay.sub ? `
           <div class="recipe-row recipe-row-sub">
@@ -2114,6 +2510,11 @@ function renderConfig() {
             <span class="recipe-label"></span>
             <span class="recipe-value-sub">${grinderDisplay.sub}</span>
           </div>` : ''}
+          <div class="recipe-row">
+            <span class="recipe-icon">🌡️</span>
+            <span class="recipe-label">${t('lbl.temperatura')}</span>
+            <span class="recipe-value">${displayTemp} ${tempAdjusted ? adjBadge : ''}</span>
+          </div>
         </div>
         <div class="recipe-actions">
           <button class="btn-start" id="btn-start">${t('btn.start')}</button>
@@ -2129,6 +2530,21 @@ function renderConfig() {
   const calibrationTip = grinder
     ? `<p class="acc-calibration">🔧 <strong>${grinder.name}:</strong> ${method.calibration} Configuração para ${method.name}: <strong>${grinder.settings[state.methodId] || '—'} ${grinder.unit}</strong>.</p>`
     : '';
+
+  const beanTip = hasBeanProfile() ? (() => {
+    const summary = getBeanSummary();
+    const hints = getBeanHints();
+    const grindOff = getBeanGrindOffset();
+    const tempOff = getBeanTempOffset();
+    const bloomOff = getBeanBloomOffset();
+    const adjustments = [];
+    if (grindOff !== 0) adjustments.push(`${t('bean.grind.offset')} ${grindOff > 0 ? '+' : ''}${grindOff}`);
+    if (tempOff !== 0) adjustments.push(`${t('lbl.temperatura')} ${tempOff > 0 ? '+' : ''}${tempOff}°C`);
+    if (bloomOff !== 0) adjustments.push(`Bloom ${bloomOff > 0 ? '+' : ''}${bloomOff}s`);
+    const adjText = adjustments.length > 0 ? `<br>→ ${adjustments.join(', ')}` : '';
+    const hintText = hints.length > 0 ? `<br>${hints.map(h => `→ ${h}`).join('<br>')}` : '';
+    return `<p class="acc-bean-tip">🫘 <strong>${t('bean.summary')} ${summary}</strong>${adjText}${hintText}</p>`;
+  })() : '';
 
   const currentLang = LANGS.find(l => l.id === lang) || LANGS[0];
   document.getElementById('app').innerHTML = `
@@ -2148,6 +2564,8 @@ function renderConfig() {
       </header>
 
       ${grinderSection}
+
+      ${renderBeanSection()}
 
       <section class="section">
         <h2 class="section-title">${isEspresso ? t('sec.portions.espresso') : t('sec.portions.filter')}</h2>
@@ -2194,6 +2612,7 @@ function renderConfig() {
               ${method.details.map(d => `<li>${d}</li>`).join('')}
             </ol>
             ${espressoTips}
+            ${beanTip}
             <p class="acc-organic">🌱 ${method.organic}</p>
             ${calibrationTip}
           </div>
@@ -2218,6 +2637,7 @@ function renderConfig() {
                         <span class="history-badge">${hM ? hM.name : h.methodId}</span>
                         ${h.methodId !== 'espresso' && hI ? `<span class="history-badge history-badge-intensity" style="--color:${hI.color}">${t('intensity.' + hI.id)}</span>` : ''}
                         ${h.methodId === 'espresso' ? `<span class="history-badge" style="background:#4A2512">${h.shotType === 'simples' ? t('shot.simples') : t('shot.duplo')}</span>` : ''}
+                        ${h.beanRoast || h.beanProcess ? `<span class="history-badge history-badge-bean">${[h.beanRoast ? t('bean.roast.' + h.beanRoast) : '', h.beanProcess ? t('bean.process.' + h.beanProcess) : ''].filter(Boolean).join(' · ')}</span>` : ''}
                         ${stars ? `<span class="history-stars">${stars}</span>` : ''}
                         <span class="history-date">${formatDate(h.ts)}</span>
                         <button class="btn-hist-delete" data-delete-hist="${i}" aria-label="${t('hist.delete.aria')}">🗑</button>
@@ -2256,6 +2676,60 @@ function bindConfigEvents() {
     if (accordion && !accordion.open) accordion.open = true;
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+
+  // ── Bean profile events ──
+  const beanTabs = document.getElementById('bean-tabs');
+  if (beanTabs) {
+    beanTabs.addEventListener('click', e => {
+      const btn = e.target.closest('[data-bean-tab]');
+      if (!btn) return;
+      localStorage.setItem('coado-bean-tab', btn.dataset.beanTab);
+      renderConfig();
+    });
+  }
+  const beanPresetGrid = document.getElementById('bean-preset-grid');
+  if (beanPresetGrid) {
+    beanPresetGrid.addEventListener('click', e => {
+      const btn = e.target.closest('[data-bean-preset]');
+      if (!btn) return;
+      const id = btn.dataset.beanPreset;
+      if (id === 'none') {
+        state.beanRoast = null; state.beanProcess = null; state.beanSpecies = null;
+      } else {
+        const preset = BEAN_PRESETS.find(p => p.id === id);
+        if (preset) { state.beanRoast = preset.roast; state.beanProcess = preset.process; state.beanSpecies = preset.species; }
+      }
+      saveState(); renderConfig();
+      if (id !== 'none') showToast(t('bean.profile.applied'));
+    });
+  }
+  const beanRoastGroup = document.getElementById('bean-roast-group');
+  if (beanRoastGroup) {
+    beanRoastGroup.addEventListener('click', e => {
+      const btn = e.target.closest('[data-bean-roast]');
+      if (!btn) return;
+      state.beanRoast = state.beanRoast === btn.dataset.beanRoast ? null : btn.dataset.beanRoast;
+      saveState(); renderConfig();
+    });
+  }
+  const beanProcessGroup = document.getElementById('bean-process-group');
+  if (beanProcessGroup) {
+    beanProcessGroup.addEventListener('click', e => {
+      const btn = e.target.closest('[data-bean-process]');
+      if (!btn) return;
+      state.beanProcess = state.beanProcess === btn.dataset.beanProcess ? null : btn.dataset.beanProcess;
+      saveState(); renderConfig();
+    });
+  }
+  const beanSpeciesGroup = document.getElementById('bean-species-group');
+  if (beanSpeciesGroup) {
+    beanSpeciesGroup.addEventListener('click', e => {
+      const btn = e.target.closest('[data-bean-species]');
+      if (!btn) return;
+      state.beanSpecies = state.beanSpecies === btn.dataset.beanSpecies ? null : btn.dataset.beanSpecies;
+      saveState(); renderConfig();
+    });
+  }
 
   const btnLang = document.getElementById('btn-lang');
   if (btnLang) {
@@ -2743,6 +3217,17 @@ function renderDone() {
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
+  {
+    version: '3.8',
+    date: 'Mar 2026',
+    items: [
+      'Perfil do grão: selecione torra, processamento e espécie do café',
+      'Ajustes automáticos de moagem, temperatura, bloom e dosagem conforme o grão',
+      'Presets rápidos e modo personalizado com tabs',
+      'Indicadores visuais "(ajustado)" na receita quando perfil ativo',
+      'Dicas contextuais no "Saiba mais" baseadas no perfil do grão',
+    ],
+  },
   {
     version: '3.7',
     date: 'Mar 2026',
