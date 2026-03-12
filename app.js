@@ -66,6 +66,7 @@ const T = {
     'prep.confirm.checklist': '✓ Feito',
     'prep.confirm.espresso': '✓ Pronto',
     'prep.confirm.pour': '✓ Despejei',
+    'prep.confirm.lastpour': '✓ Fazer último despejo',
     'prep.hint.checklist': 'Confirme quando finalizado',
     'prep.hint.timer': '⏳ Timer de {time} será iniciado ao confirmar',
     'prep.back': '← Voltar',
@@ -148,7 +149,7 @@ const T = {
     'step.chemex.pour1.sub': 'Extração inicial, doçura',
     'step.chemex.pour2': 'Segundo Despeje',
     'step.chemex.pour2.sub': 'Corpo e acidez balanceada',
-    'step.chemex.pour3': 'Terceiro Despeje',
+    'step.chemex.pour3': 'Despeje Final',
     'step.chemex.pour3.sub': 'Finalização e ajuste de volume',
     'step.v60.pour1': 'Primeiro Despeje',
     'step.v60.pour1.sub': 'Doçura e corpo',
@@ -262,6 +263,7 @@ const T = {
     'prep.confirm.checklist': '✓ Done',
     'prep.confirm.espresso': '✓ Ready',
     'prep.confirm.pour': '✓ Poured',
+    'prep.confirm.lastpour': '✓ Final pour',
     'prep.hint.checklist': 'Confirm when done',
     'prep.hint.timer': '⏳ {time} timer will start on confirm',
     'prep.back': '← Back',
@@ -344,7 +346,7 @@ const T = {
     'step.chemex.pour1.sub': 'Initial extraction, sweetness',
     'step.chemex.pour2': 'Second Pour',
     'step.chemex.pour2.sub': 'Body and balanced acidity',
-    'step.chemex.pour3': 'Third Pour',
+    'step.chemex.pour3': 'Final Pour',
     'step.chemex.pour3.sub': 'Finish and volume adjustment',
     'step.v60.pour1': 'First Pour',
     'step.v60.pour1.sub': 'Sweetness and body',
@@ -458,6 +460,7 @@ const T = {
     'prep.confirm.checklist': '✓ Hecho',
     'prep.confirm.espresso': '✓ Listo',
     'prep.confirm.pour': '✓ Vertí',
+    'prep.confirm.lastpour': '✓ Última vertida',
     'prep.hint.checklist': 'Confirma cuando termine',
     'prep.hint.timer': '⏳ El temporizador de {time} iniciará al confirmar',
     'prep.back': '← Volver',
@@ -540,7 +543,7 @@ const T = {
     'step.chemex.pour1.sub': 'Extracción inicial, dulzura',
     'step.chemex.pour2': 'Segunda Vertida',
     'step.chemex.pour2.sub': 'Cuerpo y acidez equilibrada',
-    'step.chemex.pour3': 'Tercera Vertida',
+    'step.chemex.pour3': 'Vertida Final',
     'step.chemex.pour3.sub': 'Finalización y ajuste de volumen',
     'step.v60.pour1': 'Primera Vertida',
     'step.v60.pour1.sub': 'Dulzura y cuerpo',
@@ -654,6 +657,7 @@ const T = {
     'prep.confirm.checklist': '✓ Fatto',
     'prep.confirm.espresso': '✓ Pronto',
     'prep.confirm.pour': '✓ Versato',
+    'prep.confirm.lastpour': '✓ Ultimo versamento',
     'prep.hint.checklist': 'Conferma quando finito',
     'prep.hint.timer': '⏳ Timer di {time} partirà alla conferma',
     'prep.back': '← Indietro',
@@ -736,7 +740,7 @@ const T = {
     'step.chemex.pour1.sub': 'Estrazione iniziale, dolcezza',
     'step.chemex.pour2': 'Secondo Versamento',
     'step.chemex.pour2.sub': 'Corpo e acidità equilibrata',
-    'step.chemex.pour3': 'Terzo Versamento',
+    'step.chemex.pour3': 'Versamento Finale',
     'step.chemex.pour3.sub': 'Finalizzazione e aggiustamento del volume',
     'step.v60.pour1': 'Primo Versamento',
     'step.v60.pour1.sub': 'Dolcezza e corpo',
@@ -850,6 +854,7 @@ const T = {
     'prep.confirm.checklist': '✓ تم',
     'prep.confirm.espresso': '✓ جاهز',
     'prep.confirm.pour': '✓ صببت',
+    'prep.confirm.lastpour': '✓ الصب الأخير',
     'prep.hint.checklist': 'أكد عند الانتهاء',
     'prep.hint.timer': '⏳ سيبدأ مؤقت {time} عند التأكيد',
     'prep.back': '→ رجوع',
@@ -932,7 +937,7 @@ const T = {
     'step.chemex.pour1.sub': 'الاستخلاص الأولي، الحلاوة',
     'step.chemex.pour2': 'الصب الثاني',
     'step.chemex.pour2.sub': 'الجسم والحموضة المتوازنة',
-    'step.chemex.pour3': 'الصب الثالث',
+    'step.chemex.pour3': 'الصب الأخير',
     'step.chemex.pour3.sub': 'الإنهاء وضبط الحجم',
     'step.v60.pour1': 'الصب الأول',
     'step.v60.pour1.sub': 'الحلاوة والجسم',
@@ -1046,6 +1051,7 @@ const T = {
     'prep.confirm.checklist': '✓ 完了',
     'prep.confirm.espresso': '✓ 完了',
     'prep.confirm.pour': '✓ 注いだ',
+    'prep.confirm.lastpour': '✓ 最後の注湯',
     'prep.hint.checklist': '完了したら確認',
     'prep.hint.timer': '⏳ 確認で{time}タイマー開始',
     'prep.back': '← 戻る',
@@ -1128,7 +1134,7 @@ const T = {
     'step.chemex.pour1.sub': '初期抽出、甘み',
     'step.chemex.pour2': '2回目の注湯',
     'step.chemex.pour2.sub': 'ボディと酸味のバランス',
-    'step.chemex.pour3': '3回目の注湯',
+    'step.chemex.pour3': '最後の注湯',
     'step.chemex.pour3.sub': '仕上げと量の調整',
     'step.v60.pour1': '1回目の注湯',
     'step.v60.pour1.sub': '甘みとコク',
@@ -1242,6 +1248,7 @@ const T = {
     'prep.confirm.checklist': '✓ 完成',
     'prep.confirm.espresso': '✓ 就绪',
     'prep.confirm.pour': '✓ 已注水',
+    'prep.confirm.lastpour': '✓ 最后注水',
     'prep.hint.checklist': '完成后确认',
     'prep.hint.timer': '⏳ 确认后将启动{time}计时器',
     'prep.back': '← 返回',
@@ -1324,7 +1331,7 @@ const T = {
     'step.chemex.pour1.sub': '初始萃取，甜感',
     'step.chemex.pour2': '第二次注水',
     'step.chemex.pour2.sub': '醇厚度与平衡酸度',
-    'step.chemex.pour3': '第三次注水',
+    'step.chemex.pour3': '最后注水',
     'step.chemex.pour3.sub': '完成冲泡，调整水量',
     'step.v60.pour1': '第一次注水',
     'step.v60.pour1.sub': '甜感与醇厚',
@@ -1438,6 +1445,7 @@ const T = {
     'prep.confirm.checklist': '✓ Готово',
     'prep.confirm.espresso': '✓ Готово',
     'prep.confirm.pour': '✓ Залил',
+    'prep.confirm.lastpour': '✓ Последняя заливка',
     'prep.hint.checklist': 'Подтвердите когда готово',
     'prep.hint.timer': '⏳ Таймер {time} запустится при подтверждении',
     'prep.back': '← Назад',
@@ -1520,7 +1528,7 @@ const T = {
     'step.chemex.pour1.sub': 'Начальная экстракция, сладость',
     'step.chemex.pour2': 'Вторая заливка',
     'step.chemex.pour2.sub': 'Тело и сбалансированная кислотность',
-    'step.chemex.pour3': 'Третья заливка',
+    'step.chemex.pour3': 'Финальная заливка',
     'step.chemex.pour3.sub': 'Финиш и коррекция объёма',
     'step.v60.pour1': 'Первая заливка',
     'step.v60.pour1.sub': 'Сладость и тело',
@@ -1630,7 +1638,7 @@ const METHODS = {
         { name: t('step.bloom'),          sub: t('step.bloom.sub.co2'),      vol: bloom, wait: 45, waitLabel: '45s' },
         { name: t('step.chemex.pour1'),   sub: t('step.chemex.pour1.sub'),   vol: d1,    wait: 30, waitLabel: '30s' },
         { name: t('step.chemex.pour2'),   sub: t('step.chemex.pour2.sub'),   vol: d2,    wait: 20, waitLabel: '20s' },
-        { name: t('step.chemex.pour3'),   sub: t('step.chemex.pour3.sub'),   vol: d3 },
+        { name: t('step.chemex.pour3'),   sub: t('step.chemex.pour3.sub'),   vol: d3, wait: 20, waitLabel: '20s' },
       ];
     },
   },
@@ -2939,7 +2947,10 @@ function renderPrep() {
         <div class="timer-emoji">⏳</div>
         <div class="timer-label">${t('prep.waiting')}</div>
         <div class="timer-value" id="timer-value" aria-live="polite">${formatTime(prepState.timeLeft)}</div>
-        <button class="btn-skip" id="btn-skip-wait">${t('prep.skip')}</button>
+        <div class="prep-actions">
+          ${idx > 0 ? `<button class="btn-back" id="btn-back">${t('prep.back')}</button>` : '<span></span>'}
+          <button class="btn-skip" id="btn-skip-wait">${t('prep.skip')}</button>
+        </div>
       </div>`;
   } else {
     const cumulativePoured = pouredBefore + currentVol;
@@ -2986,7 +2997,7 @@ function renderPrep() {
     bodyHTML = `${volBar}${hint}
       <div class="prep-actions">
         ${idx > 0 ? `<button class="btn-back" id="btn-back">${t('prep.back')}</button>` : '<span></span>'}
-        <button class="btn-done" id="btn-done">${step.checklist ? t('prep.confirm.checklist') : (isEspresso ? t('prep.confirm.espresso') : t('prep.confirm.pour'))}</button>
+        <button class="btn-done" id="btn-done">${step.checklist ? t('prep.confirm.checklist') : (isEspresso ? t('prep.confirm.espresso') : (idx === total - 1 ? t('prep.confirm.lastpour') : t('prep.confirm.pour')))}</button>
       </div>`;
   }
 
@@ -3014,6 +3025,11 @@ function bindPrepEvents(steps) {
     prepState = null; prepStartTime = null; renderConfig();
   });
 
+  const btnBack = document.getElementById('btn-back');
+  if (btnBack) btnBack.addEventListener('click', () => {
+    clearInterval(timerInterval); prepState.stepIndex--; prepState.waiting = false; renderPrep();
+  });
+
   if (prepState.waiting) {
     document.getElementById('btn-skip-wait').addEventListener('click', () => {
       clearInterval(timerInterval); prepState.waiting = false;
@@ -3022,11 +3038,6 @@ function bindPrepEvents(steps) {
     });
     return;
   }
-
-  const btnBack = document.getElementById('btn-back');
-  if (btnBack) btnBack.addEventListener('click', () => {
-    clearInterval(timerInterval); prepState.stepIndex--; prepState.waiting = false; renderPrep();
-  });
 
   const btnPourMinus = document.getElementById('btn-pour-minus');
   if (btnPourMinus) btnPourMinus.addEventListener('click', () => {
