@@ -1660,9 +1660,9 @@ const METHODS = {
       const d3 = agua - bloom - d1 - d2;
       return [
         { name: t('step.bloom'),        sub: t('step.bloom.sub.wake'),   vol: bloom, wait: 38, waitLabel: '~35–45s' },
-        { name: t('step.v60.pour1'),    sub: t('step.v60.pour1.sub'),    vol: d1 },
-        { name: t('step.v60.pour2'),    sub: t('step.v60.pour2.sub'),    vol: d2 },
-        { name: t('step.v60.pour3'),    sub: t('step.v60.pour3.sub'),    vol: d3 },
+        { name: t('step.v60.pour1'),    sub: t('step.v60.pour1.sub'),    vol: d1, wait: 30, waitLabel: '30s' },
+        { name: t('step.v60.pour2'),    sub: t('step.v60.pour2.sub'),    vol: d2, wait: 25, waitLabel: '25s' },
+        { name: t('step.v60.pour3'),    sub: t('step.v60.pour3.sub'),    vol: d3, wait: 20, waitLabel: '20s' },
       ];
     },
   },
@@ -1683,8 +1683,8 @@ const METHODS = {
       const d2 = agua - bloom - d1;
       return [
         { name: t('step.bloom'),        sub: t('step.pano.bloom.sub'),   vol: bloom, wait: 30, waitLabel: '30s' },
-        { name: t('step.pano.main'),    sub: t('step.pano.main.sub'),    vol: d1 },
-        { name: t('step.pano.final'),   sub: t('step.pano.final.sub'),   vol: d2 },
+        { name: t('step.pano.main'),    sub: t('step.pano.main.sub'),    vol: d1, wait: 25, waitLabel: '25s' },
+        { name: t('step.pano.final'),   sub: t('step.pano.final.sub'),   vol: d2, wait: 20, waitLabel: '20s' },
       ];
     },
   },
