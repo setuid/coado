@@ -1,6 +1,6 @@
 'use strict';
 
-const APP_VERSION = '3.8';
+const APP_VERSION = '3.9';
 const CACHE = 'coado-v3.8';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
@@ -2957,11 +2957,18 @@ function renderPrep() {
     const hasOverride = prepState.stepOverride[idx] !== undefined;
     const pctPoured = Math.min(100, (pouredBefore / recipe.aguaTotal) * 100).toFixed(1);
     const pctCurrent = Math.min(100 - parseFloat(pctPoured), (currentVol / recipe.aguaTotal) * 100).toFixed(1);
+    const pctCumulative = (parseFloat(pctPoured) + parseFloat(pctCurrent)).toFixed(1);
     const volBar = step.vol && !isEspresso ? `
       <div class="step-volume">
-        <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
-          <div class="volume-bar-fill volume-bar-poured" style="width:${pctPoured}%"></div>
-          <div class="volume-bar-fill volume-bar-current" style="width:${pctCurrent}%"></div>
+        <div class="volume-bar-wrapper">
+          <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
+            <div class="volume-bar-fill volume-bar-poured" style="width:${pctPoured}%"></div>
+            <div class="volume-bar-fill volume-bar-current" style="width:${pctCurrent}%"></div>
+          </div>
+          <div class="volume-bar-marker" style="left:${pctCumulative}%">
+            <span class="volume-bar-marker-line"></span>
+            <span class="volume-bar-marker-label">${fmtVol(cumulativePoured)}</span>
+          </div>
         </div>
         <div class="volume-bar-labels">
           <span>${fmtVol(0)}</span>
@@ -3250,6 +3257,16 @@ function renderDone() {
 
 const CHANGELOG = [
   {
+    version: '3.9',
+    date: 'Mar 2026',
+    items: [
+      'Renomeado "Ataque" para "Etapa" em todos os idiomas',
+      'Barra de volume segmentada: zona sólida (já despejado) + hachurada (despejo atual) com marcador de ml',
+      'Stepper visual nas etapas de checklist (Prensa Francesa, Espresso)',
+      'Textos de preparo mais claros e contextuais',
+    ],
+  },
+  {
     version: '3.8',
     date: 'Mar 2026',
     items: [
@@ -3281,7 +3298,7 @@ const CHANGELOG = [
     version: '3.5',
     date: 'Fev 2026',
     items: [
-      'Modo de preparo passo a passo ("Ataque")',
+      'Modo de preparo passo a passo',
       'Timer de espera por etapa com contagem regressiva',
       'Xícara média como padrão ao abrir o app',
     ],
