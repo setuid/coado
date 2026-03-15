@@ -2955,11 +2955,22 @@ function renderPrep() {
   } else {
     const cumulativePoured = pouredBefore + currentVol;
     const hasOverride = prepState.stepOverride[idx] !== undefined;
+    const pctPoured = Math.min(100, (pouredBefore / recipe.aguaTotal) * 100).toFixed(1);
+    const pctCurrent = Math.min(100 - parseFloat(pctPoured), (currentVol / recipe.aguaTotal) * 100).toFixed(1);
     const volBar = step.vol && !isEspresso ? `
       <div class="step-volume">
         <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
-          <div class="volume-bar-fill" style="width:${Math.min(100, (cumulativePoured / recipe.aguaTotal) * 100).toFixed(1)}%"></div>
+          <div class="volume-bar-fill volume-bar-poured" style="width:${pctPoured}%"></div>
+          <div class="volume-bar-fill volume-bar-current" style="width:${pctCurrent}%"></div>
         </div>
+        <div class="volume-bar-labels">
+          <span>${fmtVol(0)}</span>
+          <span>${fmtVol(recipe.aguaTotal)}</span>
+        </div>
+      </div>
+      <div class="volume-bar-legend">
+        <span class="legend-item"><span class="legend-swatch legend-poured"></span>${t('pour.stats.poured')}: ${fmtVol(pouredBefore)}</span>
+        <span class="legend-item"><span class="legend-swatch legend-current"></span>${t('pour.neste')}: ${fmtVol(currentVol)}</span>
       </div>
       <div class="pour-current">
         <span class="pour-current-value">${fmtVol(currentVol)}</span>
