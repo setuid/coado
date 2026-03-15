@@ -59,7 +59,7 @@ const T = {
     'btn.share': '🔗 Compartilhar esta receita',
     'btn.restart': 'Fazer outro café',
     'prep.close': '✕ Encerrar',
-    'prep.attack': 'ATAQUE',
+    'prep.step': 'ETAPA',
     'prep.of': 'de',
     'prep.waiting': 'Aguarde',
     'prep.skip': 'pular espera',
@@ -67,14 +67,14 @@ const T = {
     'prep.confirm.espresso': '✓ Pronto',
     'prep.confirm.pour': '✓ Despejei',
     'prep.confirm.lastpour': '✓ Fazer último despejo',
-    'prep.hint.checklist': 'Confirme quando finalizado',
+    'prep.hint.checklist': 'Confirme ao concluir esta etapa',
     'prep.hint.timer': '⏳ Timer de {time} será iniciado ao confirmar',
     'prep.back': '← Voltar',
-    'pour.neste': 'neste ataque',
+    'pour.neste': 'neste despejo',
     'pour.adjusted': 'ajustado',
     'pour.adjust.label': 'Ajustar volume real',
     'pour.stats.poured': 'Já despejado',
-    'pour.stats.after': 'Após este ataque',
+    'pour.stats.after': 'Após este despejo',
     'pour.stats.remaining': 'Ainda falta',
     'pour.stats.total': 'Total',
     'done.title': 'Café pronto!',
@@ -256,7 +256,7 @@ const T = {
     'btn.share': '🔗 Share this recipe',
     'btn.restart': 'Brew another',
     'prep.close': '✕ Stop',
-    'prep.attack': 'POUR',
+    'prep.step': 'STEP',
     'prep.of': 'of',
     'prep.waiting': 'Wait',
     'prep.skip': 'skip wait',
@@ -264,7 +264,7 @@ const T = {
     'prep.confirm.espresso': '✓ Ready',
     'prep.confirm.pour': '✓ Poured',
     'prep.confirm.lastpour': '✓ Final pour',
-    'prep.hint.checklist': 'Confirm when done',
+    'prep.hint.checklist': 'Confirm when this step is done',
     'prep.hint.timer': '⏳ {time} timer will start on confirm',
     'prep.back': '← Back',
     'pour.neste': 'this pour',
@@ -453,7 +453,7 @@ const T = {
     'btn.share': '🔗 Compartir receta',
     'btn.restart': 'Hacer otro café',
     'prep.close': '✕ Detener',
-    'prep.attack': 'VERTIDA',
+    'prep.step': 'PASO',
     'prep.of': 'de',
     'prep.waiting': 'Espera',
     'prep.skip': 'omitir espera',
@@ -461,7 +461,7 @@ const T = {
     'prep.confirm.espresso': '✓ Listo',
     'prep.confirm.pour': '✓ Vertí',
     'prep.confirm.lastpour': '✓ Última vertida',
-    'prep.hint.checklist': 'Confirma cuando termine',
+    'prep.hint.checklist': 'Confirma al completar este paso',
     'prep.hint.timer': '⏳ El temporizador de {time} iniciará al confirmar',
     'prep.back': '← Volver',
     'pour.neste': 'en esta vertida',
@@ -650,7 +650,7 @@ const T = {
     'btn.share': '🔗 Condividi ricetta',
     'btn.restart': 'Altro caffè',
     'prep.close': '✕ Ferma',
-    'prep.attack': 'VERSAMENTO',
+    'prep.step': 'PASSO',
     'prep.of': 'di',
     'prep.waiting': 'Attendi',
     'prep.skip': 'salta attesa',
@@ -658,7 +658,7 @@ const T = {
     'prep.confirm.espresso': '✓ Pronto',
     'prep.confirm.pour': '✓ Versato',
     'prep.confirm.lastpour': '✓ Ultimo versamento',
-    'prep.hint.checklist': 'Conferma quando finito',
+    'prep.hint.checklist': 'Conferma al completamento di questo passaggio',
     'prep.hint.timer': '⏳ Timer di {time} partirà alla conferma',
     'prep.back': '← Indietro',
     'pour.neste': 'in questo versamento',
@@ -847,7 +847,7 @@ const T = {
     'btn.share': '🔗 مشاركة الوصفة',
     'btn.restart': 'تحضير قهوة أخرى',
     'prep.close': '✕ إيقاف',
-    'prep.attack': 'الصب',
+    'prep.step': 'الخطوة',
     'prep.of': 'من',
     'prep.waiting': 'انتظر',
     'prep.skip': 'تخطي الانتظار',
@@ -855,7 +855,7 @@ const T = {
     'prep.confirm.espresso': '✓ جاهز',
     'prep.confirm.pour': '✓ صببت',
     'prep.confirm.lastpour': '✓ الصب الأخير',
-    'prep.hint.checklist': 'أكد عند الانتهاء',
+    'prep.hint.checklist': 'أكد عند إتمام هذه الخطوة',
     'prep.hint.timer': '⏳ سيبدأ مؤقت {time} عند التأكيد',
     'prep.back': '→ رجوع',
     'pour.neste': 'في هذا الصب',
@@ -1044,7 +1044,7 @@ const T = {
     'btn.share': '🔗 レシピをシェア',
     'btn.restart': 'もう一杯',
     'prep.close': '✕ 終了',
-    'prep.attack': '注湯',
+    'prep.step': 'ステップ',
     'prep.of': '／',
     'prep.waiting': '待機中',
     'prep.skip': 'スキップ',
@@ -1052,7 +1052,7 @@ const T = {
     'prep.confirm.espresso': '✓ 完了',
     'prep.confirm.pour': '✓ 注いだ',
     'prep.confirm.lastpour': '✓ 最後の注湯',
-    'prep.hint.checklist': '完了したら確認',
+    'prep.hint.checklist': 'このステップが完了したら確認',
     'prep.hint.timer': '⏳ 確認で{time}タイマー開始',
     'prep.back': '← 戻る',
     'pour.neste': 'この注湯',
@@ -1241,7 +1241,7 @@ const T = {
     'btn.share': '🔗 分享食谱',
     'btn.restart': '再来一杯',
     'prep.close': '✕ 停止',
-    'prep.attack': '注水',
+    'prep.step': '步骤',
     'prep.of': '／',
     'prep.waiting': '请稍等',
     'prep.skip': '跳过等待',
@@ -1249,7 +1249,7 @@ const T = {
     'prep.confirm.espresso': '✓ 就绪',
     'prep.confirm.pour': '✓ 已注水',
     'prep.confirm.lastpour': '✓ 最后注水',
-    'prep.hint.checklist': '完成后确认',
+    'prep.hint.checklist': '完成此步骤后确认',
     'prep.hint.timer': '⏳ 确认后将启动{time}计时器',
     'prep.back': '← 返回',
     'pour.neste': '本次注水',
@@ -1438,7 +1438,7 @@ const T = {
     'btn.share': '🔗 Поделиться рецептом',
     'btn.restart': 'Ещё кофе',
     'prep.close': '✕ Стоп',
-    'prep.attack': 'ЗАЛИВКА',
+    'prep.step': 'ШАГ',
     'prep.of': 'из',
     'prep.waiting': 'Ожидание',
     'prep.skip': 'пропустить',
@@ -1446,7 +1446,7 @@ const T = {
     'prep.confirm.espresso': '✓ Готово',
     'prep.confirm.pour': '✓ Залил',
     'prep.confirm.lastpour': '✓ Последняя заливка',
-    'prep.hint.checklist': 'Подтвердите когда готово',
+    'prep.hint.checklist': 'Подтвердите по завершении этого шага',
     'prep.hint.timer': '⏳ Таймер {time} запустится при подтверждении',
     'prep.back': '← Назад',
     'pour.neste': 'эта заливка',
@@ -2955,11 +2955,22 @@ function renderPrep() {
   } else {
     const cumulativePoured = pouredBefore + currentVol;
     const hasOverride = prepState.stepOverride[idx] !== undefined;
+    const pctPoured = Math.min(100, (pouredBefore / recipe.aguaTotal) * 100).toFixed(1);
+    const pctCurrent = Math.min(100 - parseFloat(pctPoured), (currentVol / recipe.aguaTotal) * 100).toFixed(1);
     const volBar = step.vol && !isEspresso ? `
       <div class="step-volume">
         <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
-          <div class="volume-bar-fill" style="width:${Math.min(100, (cumulativePoured / recipe.aguaTotal) * 100).toFixed(1)}%"></div>
+          <div class="volume-bar-fill volume-bar-poured" style="width:${pctPoured}%"></div>
+          <div class="volume-bar-fill volume-bar-current" style="width:${pctCurrent}%"></div>
         </div>
+        <div class="volume-bar-labels">
+          <span>${fmtVol(0)}</span>
+          <span>${fmtVol(recipe.aguaTotal)}</span>
+        </div>
+      </div>
+      <div class="volume-bar-legend">
+        <span class="legend-item"><span class="legend-swatch legend-poured"></span>${t('pour.stats.poured')}: ${fmtVol(pouredBefore)}</span>
+        <span class="legend-item"><span class="legend-swatch legend-current"></span>${t('pour.neste')}: ${fmtVol(currentVol)}</span>
       </div>
       <div class="pour-current">
         <span class="pour-current-value">${fmtVol(currentVol)}</span>
@@ -2994,7 +3005,15 @@ function renderPrep() {
       ? `<p class="step-checklist-hint">${t('prep.hint.checklist')}</p>`
       : (step.wait && !step.vol ? `<p class="step-checklist-hint">${t('prep.hint.timer', { time: step.waitLabel })}</p>` : '');
 
-    bodyHTML = `${volBar}${hint}
+    // Stepper visual for checklist-heavy methods (prensa, espresso)
+    const hasChecklist = steps.filter(s => s.checklist).length >= 3;
+    const stepper = hasChecklist ? `<div class="prep-stepper">${steps.map((s, i) => {
+      const state = i < idx ? 'done' : i === idx ? 'active' : 'pending';
+      const icon = i < idx ? '✓' : s.wait && !s.checklist ? '⏱' : (i + 1);
+      return `<div class="stepper-item stepper-${state}"><span class="stepper-num">${icon}</span><span class="stepper-label">${s.name}</span></div>`;
+    }).join('')}</div>` : '';
+
+    bodyHTML = `${volBar}${stepper}${hint}
       <div class="prep-actions">
         ${idx > 0 ? `<button class="btn-back" id="btn-back">${t('prep.back')}</button>` : '<span></span>'}
         <button class="btn-done" id="btn-done">${step.checklist ? t('prep.confirm.checklist') : (isEspresso ? t('prep.confirm.espresso') : (idx === total - 1 ? t('prep.confirm.lastpour') : t('prep.confirm.pour')))}</button>
@@ -3005,7 +3024,7 @@ function renderPrep() {
     <div class="prep-screen" role="main">
       <div class="prep-header">
         <button class="btn-close" id="btn-close" aria-label="${t('prep.close')}">${t('prep.close')}</button>
-        <div class="prep-progress">${t('prep.attack')} ${idx + 1} ${t('prep.of')} ${total}</div>
+        <div class="prep-progress">${t('prep.step')} ${idx + 1} ${t('prep.of')} ${total}</div>
         <div class="global-timer" id="global-timer">⏱ ${formatTime(getElapsed())}</div>
       </div>
       <div class="prep-step">
