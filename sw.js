@@ -1,4 +1,4 @@
-const CACHE = 'coado-v3.9';
+const CACHE = 'coado-v4.0';
 const ASSETS = [
   '/coado/',
   '/coado/index.html',
