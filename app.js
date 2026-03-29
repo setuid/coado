@@ -1,6 +1,6 @@
 'use strict';
 
-const APP_VERSION = '3.8';
+const APP_VERSION = '4.0';
 const CACHE = 'coado-v3.8';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
@@ -2232,15 +2232,26 @@ function saveRatingToHistory(rating) {
 
 // ─── GLOBAL TIMER ─────────────────────────────────────────────────────────────
 
+let _wakeLock = null;
+async function requestWakeLock() {
+  try {
+    if ('wakeLock' in navigator) _wakeLock = await navigator.wakeLock.request('screen');
+  } catch {}
+}
+async function releaseWakeLock() {
+  try { if (_wakeLock) { await _wakeLock.release(); _wakeLock = null; } } catch {}
+}
+
 function startGlobalTimer() {
   prepStartTime = Date.now();
   clearInterval(globalTimerInterval);
+  requestWakeLock();
   globalTimerInterval = setInterval(() => {
     const el = document.getElementById('global-timer');
     if (el) el.textContent = '⏱ ' + formatTime(getElapsed());
   }, 1000);
 }
-function stopGlobalTimer() { clearInterval(globalTimerInterval); globalTimerInterval = null; }
+function stopGlobalTimer() { clearInterval(globalTimerInterval); globalTimerInterval = null; releaseWakeLock(); }
 function getElapsed() { return prepStartTime ? Math.floor((Date.now() - prepStartTime) / 1000) : 0; }
 
 // ─── BEAN SECTION ─────────────────────────────────────────────────────────────
@@ -2942,11 +2953,25 @@ function renderPrep() {
 
   let bodyHTML = '';
   if (prepState.waiting) {
+    const totalWait = prepState.totalWait || prepState.timeLeft;
+    const fraction = prepState.timeLeft / totalWait;
+    const R = 72, C = 2 * Math.PI * R;
+    const dashOffset = C * (1 - fraction);
     bodyHTML = `
       <div class="timer-display">
-        <div class="timer-emoji">⏳</div>
-        <div class="timer-label">${t('prep.waiting')}</div>
-        <div class="timer-value" id="timer-value" aria-live="polite">${formatTime(prepState.timeLeft)}</div>
+        <div class="timer-ring-wrapper">
+          <svg class="timer-ring" viewBox="0 0 160 160" width="160" height="160">
+            <circle class="timer-ring-bg" cx="80" cy="80" r="${R}" />
+            <circle class="timer-ring-fg" id="timer-ring-fg" cx="80" cy="80" r="${R}"
+              stroke-dasharray="${C.toFixed(2)}"
+              stroke-dashoffset="${dashOffset.toFixed(2)}"
+              transform="rotate(-90 80 80)" />
+          </svg>
+          <div class="timer-ring-text">
+            <div class="timer-value" id="timer-value" aria-live="polite">${formatTime(prepState.timeLeft)}</div>
+            <div class="timer-label">${t('prep.waiting')}</div>
+          </div>
+        </div>
         <div class="prep-actions">
           ${idx > 0 ? `<button class="btn-back" id="btn-back">${t('prep.back')}</button>` : '<span></span>'}
           <button class="btn-skip" id="btn-skip-wait">${t('prep.skip')}</button>
@@ -2957,11 +2982,18 @@ function renderPrep() {
     const hasOverride = prepState.stepOverride[idx] !== undefined;
     const pctPoured = Math.min(100, (pouredBefore / recipe.aguaTotal) * 100).toFixed(1);
     const pctCurrent = Math.min(100 - parseFloat(pctPoured), (currentVol / recipe.aguaTotal) * 100).toFixed(1);
+    const pctCumulative = (parseFloat(pctPoured) + parseFloat(pctCurrent)).toFixed(1);
     const volBar = step.vol && !isEspresso ? `
       <div class="step-volume">
-        <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
-          <div class="volume-bar-fill volume-bar-poured" style="width:${pctPoured}%"></div>
-          <div class="volume-bar-fill volume-bar-current" style="width:${pctCurrent}%"></div>
+        <div class="volume-bar-wrapper">
+          <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
+            <div class="volume-bar-fill volume-bar-poured" style="width:${pctPoured}%"></div>
+            <div class="volume-bar-fill volume-bar-current" style="width:${pctCurrent}%"></div>
+          </div>
+          <div class="volume-bar-marker" style="left:${pctCumulative}%">
+            <span class="volume-bar-marker-line"></span>
+            <span class="volume-bar-marker-label">${fmtVol(cumulativePoured)}</span>
+          </div>
         </div>
         <div class="volume-bar-labels">
           <span>${fmtVol(0)}</span>
@@ -3079,7 +3111,7 @@ function bindPrepEvents(steps) {
   document.getElementById('btn-done').addEventListener('click', () => {
     const step = steps[prepState.stepIndex];
     if (step.wait) {
-      prepState.waiting = true; prepState.timeLeft = step.wait;
+      prepState.waiting = true; prepState.timeLeft = step.wait; prepState.totalWait = step.wait;
       renderPrep(); startCountdown(steps);
     } else { advanceStep(steps); }
   });
@@ -3134,10 +3166,16 @@ function playAlarm() {
 
 function startCountdown(steps) {
   clearInterval(timerInterval);
+  const R = 72, C = 2 * Math.PI * R;
   timerInterval = setInterval(() => {
     prepState.timeLeft--;
     const el = document.getElementById('timer-value');
     if (el) el.textContent = formatTime(prepState.timeLeft);
+    const ring = document.getElementById('timer-ring-fg');
+    if (ring && prepState.totalWait) {
+      const fraction = Math.max(0, prepState.timeLeft / prepState.totalWait);
+      ring.setAttribute('stroke-dashoffset', (C * (1 - fraction)).toFixed(2));
+    }
     if (prepState.timeLeft <= 0) {
       clearInterval(timerInterval); prepState.waiting = false;
       playAlarm();
@@ -3250,6 +3288,18 @@ function renderDone() {
 
 const CHANGELOG = [
   {
+    version: '4.0',
+    date: 'Mar 2026',
+    items: [
+      'Temporizador visual circular (anel SVG animado) nas etapas de espera',
+      'Tela sempre ligada durante o preparo (Wake Lock)',
+      'Renomeado "Ataque" para "Etapa" em todos os idiomas',
+      'Barra de volume segmentada: zona sólida (já despejado) + hachurada (despejo atual) com marcador de ml',
+      'Stepper visual nas etapas de checklist (Prensa Francesa, Espresso)',
+      'Textos de preparo mais claros e contextuais',
+    ],
+  },
+  {
     version: '3.8',
     date: 'Mar 2026',
     items: [
@@ -3281,7 +3331,7 @@ const CHANGELOG = [
     version: '3.5',
     date: 'Fev 2026',
     items: [
-      'Modo de preparo passo a passo ("Ataque")',
+      'Modo de preparo passo a passo',
       'Timer de espera por etapa com contagem regressiva',
       'Xícara média como padrão ao abrir o app',
     ],
@@ -3390,7 +3440,10 @@ if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(reg => {
       // Verifica update ao app retornar ao foco (garante versão nova sem fechar o app)
       document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') reg.update();
+        if (document.visibilityState === 'visible') {
+          reg.update();
+          if (prepState) requestWakeLock();
+        }
       });
     }).catch(() => {});
 
