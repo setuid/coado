@@ -2941,18 +2941,7 @@ function bindConfigEvents() {
     clearInterval(timerInterval);
     prepState = { stepIndex: 0, waiting: false, timeLeft: 0, stepOverride: {} };
     startGlobalTimer();
-    // Auto-start timer if first step is a cooling wait
-    const recipe = calcRecipe();
-    const steps = calcSteps(recipe);
-    if (steps[0] && steps[0].isCooling) {
-      prepState.waiting = true;
-      prepState.timeLeft = steps[0].wait;
-      prepState.totalWait = steps[0].wait;
-      renderPrep();
-      startCountdown(steps);
-    } else {
-      renderPrep();
-    }
+    renderPrep();
   });
 
   document.getElementById('btn-share').addEventListener('click', () => {
@@ -3017,6 +3006,12 @@ function renderPrep() {
   const step = steps[idx];
   const total = steps.length;
   const isEspresso = METHODS[state.methodId].isEspresso;
+  // Auto-start cooling step timer
+  if (step.isCooling && !prepState.waiting) {
+    prepState.waiting = true;
+    prepState.timeLeft = step.wait;
+    prepState.totalWait = step.wait;
+  }
   // Usa override se o usuário ajustou o volume real despejado em ataques anteriores
   const pouredBefore = steps.slice(0, idx).reduce((s, st, i) => {
     const vol = prepState.stepOverride[i] !== undefined ? prepState.stepOverride[i] : (st.vol || 0);
@@ -3142,6 +3137,8 @@ function renderPrep() {
     </div>`;
 
   bindPrepEvents(steps);
+  // Start countdown for auto-started cooling step
+  if (step.isCooling && prepState.waiting) startCountdown(steps);
 }
 
 function bindPrepEvents(steps) {
