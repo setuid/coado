@@ -1,6 +1,6 @@
 'use strict';
 
-const APP_VERSION = '4.0';
+const APP_VERSION = '4.1';
 const CACHE = 'coado-v3.8';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
@@ -52,6 +52,7 @@ const T = {
     'lbl.yield': 'Yield',
     'lbl.extracao': 'Extração',
     'lbl.temperatura': 'Temperatura',
+    'temp.cooling.hint': '~{time} após fervura',
     'lbl.intensidade': 'Intensidade',
     'lbl.porcoes': 'porç.',
     'lbl.volume': 'Volume:',
@@ -249,6 +250,7 @@ const T = {
     'lbl.yield': 'Yield',
     'lbl.extracao': 'Extraction',
     'lbl.temperatura': 'Temperature',
+    'temp.cooling.hint': '~{time} after boiling',
     'lbl.intensidade': 'Intensity',
     'lbl.porcoes': 'serv.',
     'lbl.volume': 'Volume:',
@@ -446,6 +448,7 @@ const T = {
     'lbl.yield': 'Rendimiento',
     'lbl.extracao': 'Extracción',
     'lbl.temperatura': 'Temperatura',
+    'temp.cooling.hint': '~{time} tras hervir',
     'lbl.intensidade': 'Intensidad',
     'lbl.porcoes': 'porc.',
     'lbl.volume': 'Volumen:',
@@ -643,6 +646,7 @@ const T = {
     'lbl.yield': 'Resa',
     'lbl.extracao': 'Estrazione',
     'lbl.temperatura': 'Temperatura',
+    'temp.cooling.hint': '~{time} dopo ebollizione',
     'lbl.intensidade': 'Intensità',
     'lbl.porcoes': 'porz.',
     'lbl.volume': 'Volume:',
@@ -840,6 +844,7 @@ const T = {
     'lbl.yield': 'المحصول',
     'lbl.extracao': 'الاستخلاص',
     'lbl.temperatura': 'درجة الحرارة',
+    'temp.cooling.hint': '~{time} بعد الغليان',
     'lbl.intensidade': 'الشدة',
     'lbl.porcoes': 'حصة',
     'lbl.volume': 'الحجم:',
@@ -1037,6 +1042,7 @@ const T = {
     'lbl.yield': 'イールド',
     'lbl.extracao': '抽出',
     'lbl.temperatura': '温度',
+    'temp.cooling.hint': '沸騰後 ~{time}',
     'lbl.intensidade': '濃さ',
     'lbl.porcoes': '人前',
     'lbl.volume': '容量：',
@@ -1234,6 +1240,7 @@ const T = {
     'lbl.yield': '产量',
     'lbl.extracao': '萃取',
     'lbl.temperatura': '温度',
+    'temp.cooling.hint': '沸腾后 ~{time}',
     'lbl.intensidade': '浓度',
     'lbl.porcoes': '份',
     'lbl.volume': '容量：',
@@ -1431,6 +1438,7 @@ const T = {
     'lbl.yield': 'Выход',
     'lbl.extracao': 'Экстракция',
     'lbl.temperatura': 'Температура',
+    'temp.cooling.hint': '~{time} после кипения',
     'lbl.intensidade': 'Крепость',
     'lbl.porcoes': 'пор.',
     'lbl.volume': 'Объём:',
@@ -1916,6 +1924,22 @@ function getDisplayTemp(methodTemp) {
   return methodTemp.replace(/(\d+)([–-])(\d+)°C/g, (_, a, sep, b) =>
     `${+a + offset}${sep}${+b + offset}°C`
   );
+}
+
+function getCoolingWaitSecs(tempStr) {
+  const m = tempStr.match(/(\d+)[–-](\d+)°[CF]/);
+  if (!m) return 0;
+  const target = +m[2]; // higher value of range (in °C — tempStr is pre-offset but always °C)
+  if (target >= 98) return 0;
+  const T_boil = 100, T_room = 22, k = 0.0007;
+  const secs = -Math.log((target - T_room) / (T_boil - T_room)) / k;
+  return Math.max(0, Math.round(secs));
+}
+
+function fmtCoolingTime(secs) {
+  if (secs < 60) return `${secs}s`;
+  if (secs < 120) return '1 min';
+  return `${Math.round(secs / 60)} min`;
 }
 
 function applyGrindOffset(setting) {
@@ -2453,6 +2477,9 @@ function renderConfig() {
   const beanLine = hasBeanProfile() ? `<p class="recipe-bean-line">🫘 ${getBeanSummary()}</p>` : '';
   const adjBadge = `<span class="bean-adj-badge">(${t('bean.adjusted')})</span>`;
   const displayTemp = fmtTemp(getDisplayTemp(method.temp));
+  const coolingTempC = getDisplayTemp(method.temp);
+  const coolingSecs = getCoolingWaitSecs(coolingTempC);
+  const coolingHint = coolingSecs > 0 ? t('temp.cooling.hint', { time: fmtCoolingTime(coolingSecs) }) : '';
   const tempAdjusted = getBeanTempOffset() !== 0;
   const grindAdjusted = grinderDisplay.adjusted;
 
@@ -2534,6 +2561,11 @@ function renderConfig() {
             <span class="recipe-label">${t('lbl.temperatura')}</span>
             <span class="recipe-value">${displayTemp} ${tempAdjusted ? adjBadge : ''}</span>
           </div>
+          ${coolingHint ? `<div class="recipe-row recipe-row-sub">
+            <span class="recipe-icon"></span>
+            <span class="recipe-label"></span>
+            <span class="recipe-value-sub">⏳ ${coolingHint}</span>
+          </div>` : ''}
         </div>
         <div class="recipe-actions">
           <button class="btn-start" id="btn-start">${t('btn.start')}</button>
@@ -3287,6 +3319,13 @@ function renderDone() {
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
+  {
+    version: '4.1',
+    date: 'Abr 2026',
+    items: [
+      'Dica de tempo de resfriamento da água após fervura na receita (Lei de Newton)',
+    ],
+  },
   {
     version: '4.0',
     date: 'Mar 2026',
