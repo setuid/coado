@@ -53,6 +53,8 @@ const T = {
     'lbl.extracao': 'Extração',
     'lbl.temperatura': 'Temperatura',
     'temp.cooling.hint': '~{time} após fervura',
+    'temp.cooling.step': 'Resfriar Água',
+    'temp.cooling.sub': 'Aguarde após ferver para atingir {temp}',
     'lbl.intensidade': 'Intensidade',
     'lbl.porcoes': 'porç.',
     'lbl.volume': 'Volume:',
@@ -251,6 +253,8 @@ const T = {
     'lbl.extracao': 'Extraction',
     'lbl.temperatura': 'Temperature',
     'temp.cooling.hint': '~{time} after boiling',
+    'temp.cooling.step': 'Cool Water',
+    'temp.cooling.sub': 'Wait after boiling to reach {temp}',
     'lbl.intensidade': 'Intensity',
     'lbl.porcoes': 'serv.',
     'lbl.volume': 'Volume:',
@@ -449,6 +453,8 @@ const T = {
     'lbl.extracao': 'Extracción',
     'lbl.temperatura': 'Temperatura',
     'temp.cooling.hint': '~{time} tras hervir',
+    'temp.cooling.step': 'Enfriar Agua',
+    'temp.cooling.sub': 'Espere tras hervir para alcanzar {temp}',
     'lbl.intensidade': 'Intensidad',
     'lbl.porcoes': 'porc.',
     'lbl.volume': 'Volumen:',
@@ -647,6 +653,8 @@ const T = {
     'lbl.extracao': 'Estrazione',
     'lbl.temperatura': 'Temperatura',
     'temp.cooling.hint': '~{time} dopo ebollizione',
+    'temp.cooling.step': 'Raffreddare Acqua',
+    'temp.cooling.sub': 'Attendi dopo ebollizione per raggiungere {temp}',
     'lbl.intensidade': 'Intensità',
     'lbl.porcoes': 'porz.',
     'lbl.volume': 'Volume:',
@@ -845,6 +853,8 @@ const T = {
     'lbl.extracao': 'الاستخلاص',
     'lbl.temperatura': 'درجة الحرارة',
     'temp.cooling.hint': '~{time} بعد الغليان',
+    'temp.cooling.step': 'تبريد الماء',
+    'temp.cooling.sub': 'انتظر بعد الغليان للوصول إلى {temp}',
     'lbl.intensidade': 'الشدة',
     'lbl.porcoes': 'حصة',
     'lbl.volume': 'الحجم:',
@@ -1043,6 +1053,8 @@ const T = {
     'lbl.extracao': '抽出',
     'lbl.temperatura': '温度',
     'temp.cooling.hint': '沸騰後 ~{time}',
+    'temp.cooling.step': 'お湯を冷ます',
+    'temp.cooling.sub': '沸騰後、{temp}になるまでお待ちください',
     'lbl.intensidade': '濃さ',
     'lbl.porcoes': '人前',
     'lbl.volume': '容量：',
@@ -1241,6 +1253,8 @@ const T = {
     'lbl.extracao': '萃取',
     'lbl.temperatura': '温度',
     'temp.cooling.hint': '沸腾后 ~{time}',
+    'temp.cooling.step': '冷却水温',
+    'temp.cooling.sub': '沸腾后等待至 {temp}',
     'lbl.intensidade': '浓度',
     'lbl.porcoes': '份',
     'lbl.volume': '容量：',
@@ -1439,6 +1453,8 @@ const T = {
     'lbl.extracao': 'Экстракция',
     'lbl.temperatura': 'Температура',
     'temp.cooling.hint': '~{time} после кипения',
+    'temp.cooling.step': 'Охладить воду',
+    'temp.cooling.sub': 'Подождите после кипения до {temp}',
     'lbl.intensidade': 'Крепость',
     'lbl.porcoes': 'пор.',
     'lbl.volume': 'Объём:',
@@ -2004,6 +2020,21 @@ function calcSteps(recipe) {
       bloomStep.wait = Math.max(15, bloomStep.wait + bloomOffset);
       const secs = bloomStep.wait;
       bloomStep.waitLabel = secs >= 60 ? `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}` : `${secs}s`;
+    }
+  }
+  // Prepend cooling wait step for non-espresso methods
+  if (!method.isEspresso) {
+    const tempC = getDisplayTemp(method.temp);
+    const coolSecs = getCoolingWaitSecs(tempC);
+    if (coolSecs > 0) {
+      const displayT = fmtTemp(tempC);
+      steps.unshift({
+        name: t('temp.cooling.step'),
+        sub: t('temp.cooling.sub', { temp: displayT }),
+        wait: coolSecs,
+        waitLabel: fmtCoolingTime(coolSecs),
+        isCooling: true,
+      });
     }
   }
   return steps;
@@ -2910,7 +2941,18 @@ function bindConfigEvents() {
     clearInterval(timerInterval);
     prepState = { stepIndex: 0, waiting: false, timeLeft: 0, stepOverride: {} };
     startGlobalTimer();
-    renderPrep();
+    // Auto-start timer if first step is a cooling wait
+    const recipe = calcRecipe();
+    const steps = calcSteps(recipe);
+    if (steps[0] && steps[0].isCooling) {
+      prepState.waiting = true;
+      prepState.timeLeft = steps[0].wait;
+      prepState.totalWait = steps[0].wait;
+      renderPrep();
+      startCountdown(steps);
+    } else {
+      renderPrep();
+    }
   });
 
   document.getElementById('btn-share').addEventListener('click', () => {
@@ -3323,7 +3365,7 @@ const CHANGELOG = [
     version: '4.1',
     date: 'Abr 2026',
     items: [
-      'Dica de tempo de resfriamento da água após fervura na receita (Lei de Newton)',
+      'Dica de resfriamento na receita e timer automático antes do bloom',
     ],
   },
   {
