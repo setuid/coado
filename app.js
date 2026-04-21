@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '4.2';
-const CACHE = 'coado-v4.2';
+const APP_VERSION = '4.3';
+const CACHE = 'coado-v4.3';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -52,9 +52,7 @@ const T = {
     'lbl.yield': 'Yield',
     'lbl.extracao': 'Extração',
     'lbl.temperatura': 'Temperatura',
-    'temp.cooling.hint': '~{time} após fervura',
-    'temp.cooling.step': 'Resfriar Água',
-    'temp.cooling.sub': 'Aguarde após ferver para atingir {temp}',
+    'temp.heating.hint': '~{time} no fogo para atingir {temp}',
     'lbl.intensidade': 'Intensidade',
     'lbl.porcoes': 'porç.',
     'lbl.volume': 'Volume:',
@@ -274,9 +272,7 @@ const T = {
     'lbl.yield': 'Yield',
     'lbl.extracao': 'Extraction',
     'lbl.temperatura': 'Temperature',
-    'temp.cooling.hint': '~{time} after boiling',
-    'temp.cooling.step': 'Cool Water',
-    'temp.cooling.sub': 'Wait after boiling to reach {temp}',
+    'temp.heating.hint': '~{time} on the stove to reach {temp}',
     'lbl.intensidade': 'Intensity',
     'lbl.porcoes': 'serv.',
     'lbl.volume': 'Volume:',
@@ -496,9 +492,7 @@ const T = {
     'lbl.yield': 'Rendimiento',
     'lbl.extracao': 'Extracción',
     'lbl.temperatura': 'Temperatura',
-    'temp.cooling.hint': '~{time} tras hervir',
-    'temp.cooling.step': 'Enfriar Agua',
-    'temp.cooling.sub': 'Espere tras hervir para alcanzar {temp}',
+    'temp.heating.hint': '~{time} en el fuego para llegar a {temp}',
     'lbl.intensidade': 'Intensidad',
     'lbl.porcoes': 'porc.',
     'lbl.volume': 'Volumen:',
@@ -718,9 +712,7 @@ const T = {
     'lbl.yield': 'Resa',
     'lbl.extracao': 'Estrazione',
     'lbl.temperatura': 'Temperatura',
-    'temp.cooling.hint': '~{time} dopo ebollizione',
-    'temp.cooling.step': 'Raffreddare Acqua',
-    'temp.cooling.sub': 'Attendi dopo ebollizione per raggiungere {temp}',
+    'temp.heating.hint': '~{time} sul fuoco per raggiungere {temp}',
     'lbl.intensidade': 'Intensità',
     'lbl.porcoes': 'porz.',
     'lbl.volume': 'Volume:',
@@ -940,9 +932,7 @@ const T = {
     'lbl.yield': 'المحصول',
     'lbl.extracao': 'الاستخلاص',
     'lbl.temperatura': 'درجة الحرارة',
-    'temp.cooling.hint': '~{time} بعد الغليان',
-    'temp.cooling.step': 'تبريد الماء',
-    'temp.cooling.sub': 'انتظر بعد الغليان للوصول إلى {temp}',
+    'temp.heating.hint': '~{time} على النار للوصول إلى {temp}',
     'lbl.intensidade': 'الشدة',
     'lbl.porcoes': 'حصة',
     'lbl.volume': 'الحجم:',
@@ -1162,9 +1152,7 @@ const T = {
     'lbl.yield': 'イールド',
     'lbl.extracao': '抽出',
     'lbl.temperatura': '温度',
-    'temp.cooling.hint': '沸騰後 ~{time}',
-    'temp.cooling.step': 'お湯を冷ます',
-    'temp.cooling.sub': '沸騰後、{temp}になるまでお待ちください',
+    'temp.heating.hint': '火にかけて{temp}まで約{time}',
     'lbl.intensidade': '濃さ',
     'lbl.porcoes': '人前',
     'lbl.volume': '容量：',
@@ -1384,9 +1372,7 @@ const T = {
     'lbl.yield': '产量',
     'lbl.extracao': '萃取',
     'lbl.temperatura': '温度',
-    'temp.cooling.hint': '沸腾后 ~{time}',
-    'temp.cooling.step': '冷却水温',
-    'temp.cooling.sub': '沸腾后等待至 {temp}',
+    'temp.heating.hint': '炉上加热约{time}达到{temp}',
     'lbl.intensidade': '浓度',
     'lbl.porcoes': '份',
     'lbl.volume': '容量：',
@@ -1606,9 +1592,7 @@ const T = {
     'lbl.yield': 'Выход',
     'lbl.extracao': 'Экстракция',
     'lbl.temperatura': 'Температура',
-    'temp.cooling.hint': '~{time} после кипения',
-    'temp.cooling.step': 'Охладить воду',
-    'temp.cooling.sub': 'Подождите после кипения до {temp}',
+    'temp.heating.hint': '~{time} на плите до {temp}',
     'lbl.intensidade': 'Крепость',
     'lbl.porcoes': 'пор.',
     'lbl.volume': 'Объём:',
@@ -2142,20 +2126,20 @@ function getDisplayTemp(methodTemp) {
   );
 }
 
-function getCoolingWaitSecs(tempStr) {
+function getHeatingTimeSecs(tempStr, volumeMl) {
   const m = tempStr.match(/(\d+)[–-](\d+)°[CF]/);
   if (!m) return 0;
-  const target = +m[2]; // higher value of range (in °C — tempStr is pre-offset but always °C)
-  if (target >= 98) return 0;
-  const T_boil = 100, T_room = 22, k = 0.0007;
-  const secs = -Math.log((target - T_room) / (T_boil - T_room)) / k;
-  return Math.max(0, Math.round(secs));
+  const target = +m[2];
+  const T_room = 22;
+  if (target <= T_room) return 0;
+  const specificHeat = 4.186, effectivePower = 1300;
+  return Math.max(0, Math.round((volumeMl * specificHeat * (target - T_room)) / effectivePower));
 }
 
-function fmtCoolingTime(secs) {
-  if (secs < 60) return `${secs}s`;
-  if (secs < 120) return '1 min';
-  return `${Math.round(secs / 60)} min`;
+function fmtHeatingTime(secs) {
+  const min = Math.round(secs / 60);
+  if (min < 1) return '< 1 min';
+  return `${min} min`;
 }
 
 function applyGrindOffset(setting) {
@@ -2220,21 +2204,6 @@ function calcSteps(recipe) {
       bloomStep.wait = Math.max(15, bloomStep.wait + bloomOffset);
       const secs = bloomStep.wait;
       bloomStep.waitLabel = secs >= 60 ? `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}` : `${secs}s`;
-    }
-  }
-  // Prepend cooling wait step for non-espresso methods
-  if (!method.isEspresso) {
-    const tempC = getDisplayTemp(method.temp);
-    const coolSecs = getCoolingWaitSecs(tempC);
-    if (coolSecs > 0) {
-      const displayT = fmtTemp(tempC);
-      steps.unshift({
-        name: t('temp.cooling.step'),
-        sub: t('temp.cooling.sub', { temp: displayT }),
-        wait: coolSecs,
-        waitLabel: fmtCoolingTime(coolSecs),
-        isCooling: true,
-      });
     }
   }
   return steps;
@@ -2715,9 +2684,9 @@ function renderConfig() {
   const beanLine = hasBeanProfile() ? `<p class="recipe-bean-line">🫘 ${getBeanSummary()}</p>` : '';
   const adjBadge = `<span class="bean-adj-badge">(${t('bean.adjusted')})</span>`;
   const displayTemp = fmtTemp(getDisplayTemp(method.temp));
-  const coolingTempC = getDisplayTemp(method.temp);
-  const coolingSecs = getCoolingWaitSecs(coolingTempC);
-  const coolingHint = coolingSecs > 0 ? t('temp.cooling.hint', { time: fmtCoolingTime(coolingSecs) }) : '';
+  const heatingTempC = getDisplayTemp(method.temp);
+  const heatingSecs = !isEspresso ? getHeatingTimeSecs(heatingTempC, recipe.aguaTotal) : 0;
+  const heatingHint = heatingSecs > 0 ? t('temp.heating.hint', { time: fmtHeatingTime(heatingSecs), temp: displayTemp }) : '';
   const tempAdjusted = getBeanTempOffset() !== 0;
   const grindAdjusted = grinderDisplay.adjusted;
 
@@ -2799,10 +2768,10 @@ function renderConfig() {
             <span class="recipe-label">${t('lbl.temperatura')}</span>
             <span class="recipe-value">${displayTemp} ${tempAdjusted ? adjBadge : ''}</span>
           </div>
-          ${coolingHint ? `<div class="recipe-row recipe-row-sub">
+          ${heatingHint ? `<div class="recipe-row recipe-row-sub">
             <span class="recipe-icon"></span>
             <span class="recipe-label"></span>
-            <span class="recipe-value-sub">⏳ ${coolingHint}</span>
+            <span class="recipe-value-sub">🔥 ${heatingHint}</span>
           </div>` : ''}
         </div>
         <div class="recipe-actions">
@@ -3213,12 +3182,6 @@ function renderPrep() {
   const step = steps[idx];
   const total = steps.length;
   const isEspresso = METHODS[state.methodId].isEspresso;
-  // Auto-start cooling step timer
-  if (step.isCooling && !prepState.waiting) {
-    prepState.waiting = true;
-    prepState.timeLeft = step.wait;
-    prepState.totalWait = step.wait;
-  }
   // Usa override se o usuário ajustou o volume real despejado em ataques anteriores
   const pouredBefore = steps.slice(0, idx).reduce((s, st, i) => {
     const vol = prepState.stepOverride[i] !== undefined ? prepState.stepOverride[i] : (st.vol || 0);
@@ -3344,8 +3307,6 @@ function renderPrep() {
     </div>`;
 
   bindPrepEvents(steps);
-  // Start countdown for auto-started cooling step
-  if (step.isCooling && prepState.waiting) startCountdown(steps);
 }
 
 function bindPrepEvents(steps) {
@@ -3565,6 +3526,14 @@ function renderDone() {
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
+  {
+    version: '4.3',
+    date: 'Abr 2026',
+    items: [
+      'Dica de aquecimento na receita: tempo estimado no fogão para atingir a temperatura ideal',
+      'Removido timer de resfriamento pós-fervura do fluxo de preparo',
+    ],
+  },
   {
     version: '4.2',
     date: 'Abr 2026',
