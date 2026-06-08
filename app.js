@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '4.4';
-const CACHE = 'coado-v4.4';
+const APP_VERSION = '5.0';
+const CACHE = 'coado-v5.0';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -3723,35 +3723,15 @@ function renderDone() {
 
 const CHANGELOG = [
   {
-    version: '4.4',
-    date: 'Abr 2026',
+    version: '5.0',
+    date: 'Jun 2026',
     items: [
-      'Novo método: Moka (cafeteira italiana) com receita completa de 6 passos',
-      'Configuração de moagem da Moka para todos os 9 moedores cadastrados',
-    ],
-  },
-  {
-    version: '4.3',
-    date: 'Abr 2026',
-    items: [
-      'Dica de aquecimento na receita: tempo estimado no fogão para atingir a temperatura ideal',
-      'Removido timer de resfriamento pós-fervura do fluxo de preparo',
-    ],
-  },
-  {
-    version: '4.2',
-    date: 'Abr 2026',
-    items: [
-      'Novo método: AeroPress (padrão, não-invertido) com receita completa de 6 passos',
+      'Novo método: AeroPress (padrão, não-invertido) com receita de 6 passos',
+      'Novo método: Moka (cafeteira italiana) com receita de 6 passos',
       'Nova variedade de grão: Gueisha (Geisha) — arábica premium',
-      'Configuração de moagem do AeroPress para todos os 9 moedores cadastrados',
-    ],
-  },
-  {
-    version: '4.1',
-    date: 'Abr 2026',
-    items: [
-      'Dica de resfriamento na receita e timer automático antes do bloom',
+      'Dica de aquecimento na receita: tempo estimado no fogão para atingir a temperatura ideal',
+      'Configuração de moagem do AeroPress e Moka para todos os 9 moedores',
+      'Botão de encerrar e timer global maiores na tela de preparo',
     ],
   },
   {
