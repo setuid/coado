@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '5.0';
-const CACHE = 'coado-v5.0';
+const APP_VERSION = '6.0';
+const CACHE = 'coado-v6.0';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -56,20 +56,20 @@ const T = {
     'lbl.intensidade': 'Intensidade',
     'lbl.porcoes': 'porç.',
     'lbl.volume': 'Volume:',
-    'btn.start': '▶ Iniciar Preparo',
-    'btn.share': '🔗 Compartilhar esta receita',
+    'btn.start': 'Iniciar Preparo',
+    'btn.share': 'Compartilhar esta receita',
     'btn.restart': 'Fazer outro café',
-    'prep.close': '✕ Encerrar',
+    'prep.close': 'Encerrar',
     'prep.step': 'ETAPA',
     'prep.of': 'de',
     'prep.waiting': 'Aguarde',
     'prep.skip': 'pular espera',
-    'prep.confirm.checklist': '✓ Feito',
-    'prep.confirm.espresso': '✓ Pronto',
-    'prep.confirm.pour': '✓ Despejei',
-    'prep.confirm.lastpour': '✓ Fazer último despejo',
+    'prep.confirm.checklist': 'Feito',
+    'prep.confirm.espresso': 'Pronto',
+    'prep.confirm.pour': 'Despejei',
+    'prep.confirm.lastpour': 'Fazer último despejo',
     'prep.hint.checklist': 'Confirme ao concluir esta etapa',
-    'prep.hint.timer': '⏳ Timer de {time} será iniciado ao confirmar',
+    'prep.hint.timer': 'Timer de {time} será iniciado ao confirmar',
     'prep.back': '← Voltar',
     'pour.neste': 'neste despejo',
     'pour.adjusted': 'ajustado',
@@ -80,7 +80,7 @@ const T = {
     'pour.stats.total': 'Total',
     'done.title': 'Café pronto!',
     'done.msg': 'Bom proveito. 😊',
-    'done.time.label': '⏱ Preparo em:',
+    'done.time.label': 'Preparo em:',
     'done.rating.q': 'Como ficou este café?',
     'done.notes.placeholder': 'Como ficou? Algo para ajustar na próxima vez...',
     'hist.empty': 'Nenhum preparo registrado ainda.\nComplete seu primeiro preparo para ver o histórico aqui.',
@@ -89,13 +89,13 @@ const T = {
     'hist.delete.aria': 'Excluir este preparo',
     'grinder.title': 'Meu moedor',
     'grinder.optional': '· opcional',
-    'grinder.search': '🔍  Buscar moedor...',
+    'grinder.search': 'Buscar moedor...',
     'grinder.none': 'Sem moedor específico',
     'grinder.none.unit': 'descrição genérica',
-    'grinder.note': '⚠️ Valores são pontos de partida — ajuste ±2–3 conforme o resultado na xícara.',
+    'grinder.note': 'Valores são pontos de partida — ajuste ±2–3 conforme o resultado na xícara.',
     'grinder.no.results': 'Nenhum moedor encontrado — use "Sem moedor específico"',
-    'grinder.summary': '⚙️ Moedor:',
-    'warn.prensa': '⚠️ Para Prensa Francesa, recomendamos no máximo <strong>Forte (1:12)</strong> para evitar amargor excessivo.',
+    'grinder.summary': 'Moedor:',
+    'warn.prensa': 'Para Prensa Francesa, recomendamos no máximo <strong>Forte (1:12)</strong> para evitar amargor excessivo.',
     'method.chemex.tip': 'Moagem média-grossa. Despeje lentamente. ~4 min',
     'method.v60.tip': 'Moagem média-fina. Despeje em espiral. ~3 min',
     'method.pano.tip': 'Moagem média. Tradicional e ideal para café orgânico',
@@ -249,8 +249,8 @@ const T = {
     'step.moka.wait.sub': 'O café começará a subir em ~2–3 min',
     'step.moka.remove': 'Retirar do fogo',
     'step.moka.remove.sub': 'Retire ao ouvir o chiado e sirva imediatamente',
-    'recipe.title.filter': '☕ Sua receita',
-    'recipe.title.espresso': '☕ Sua receita — Espresso',
+    'recipe.title.filter': 'Sua receita',
+    'recipe.title.espresso': 'Sua receita — Espresso',
     'step.pano.bloom.sub': 'Umedecer o café',
     'method.pano.name': 'Coador de pano',
     'method.prensa.name': 'Prensa Francesa',
@@ -271,7 +271,7 @@ const T = {
     'bean.species.robusta': 'Robusta',
     'bean.species.geisha': 'Gueisha',
     'bean.adjusted': 'ajustado',
-    'bean.summary': '🫘 Grão:',
+    'bean.summary': 'Grão:',
     'bean.none': 'Sem perfil',
     'bean.note': 'Valores são ajustados automaticamente na receita.',
     'bean.popular': 'popular',
@@ -318,20 +318,20 @@ const T = {
     'lbl.intensidade': 'Intensity',
     'lbl.porcoes': 'serv.',
     'lbl.volume': 'Volume:',
-    'btn.start': '▶ Start Brewing',
-    'btn.share': '🔗 Share this recipe',
+    'btn.start': 'Start Brewing',
+    'btn.share': 'Share this recipe',
     'btn.restart': 'Brew another',
-    'prep.close': '✕ Stop',
+    'prep.close': 'Stop',
     'prep.step': 'STEP',
     'prep.of': 'of',
     'prep.waiting': 'Wait',
     'prep.skip': 'skip wait',
-    'prep.confirm.checklist': '✓ Done',
-    'prep.confirm.espresso': '✓ Ready',
-    'prep.confirm.pour': '✓ Poured',
-    'prep.confirm.lastpour': '✓ Final pour',
+    'prep.confirm.checklist': 'Done',
+    'prep.confirm.espresso': 'Ready',
+    'prep.confirm.pour': 'Poured',
+    'prep.confirm.lastpour': 'Final pour',
     'prep.hint.checklist': 'Confirm when this step is done',
-    'prep.hint.timer': '⏳ {time} timer will start on confirm',
+    'prep.hint.timer': '{time} timer will start on confirm',
     'prep.back': '← Back',
     'pour.neste': 'this pour',
     'pour.adjusted': 'adjusted',
@@ -342,7 +342,7 @@ const T = {
     'pour.stats.total': 'Total',
     'done.title': 'Coffee ready!',
     'done.msg': 'Enjoy! 😊',
-    'done.time.label': '⏱ Brewed in:',
+    'done.time.label': 'Brewed in:',
     'done.rating.q': 'How was this coffee?',
     'done.notes.placeholder': 'How was it? Anything to adjust next time...',
     'hist.empty': 'No brews recorded yet.\nComplete your first brew to see history here.',
@@ -351,13 +351,13 @@ const T = {
     'hist.delete.aria': 'Delete this brew',
     'grinder.title': 'My grinder',
     'grinder.optional': '· optional',
-    'grinder.search': '🔍  Search grinder...',
+    'grinder.search': 'Search grinder...',
     'grinder.none': 'No specific grinder',
     'grinder.none.unit': 'generic description',
-    'grinder.note': '⚠️ Values are starting points — adjust ±2–3 based on your cup.',
+    'grinder.note': 'Values are starting points — adjust ±2–3 based on your cup.',
     'grinder.no.results': 'No grinder found — use "No specific grinder"',
-    'grinder.summary': '⚙️ Grinder:',
-    'warn.prensa': '⚠️ For French Press, we recommend max <strong>Strong (1:12)</strong> to avoid excessive bitterness.',
+    'grinder.summary': 'Grinder:',
+    'warn.prensa': 'For French Press, we recommend max <strong>Strong (1:12)</strong> to avoid excessive bitterness.',
     'method.chemex.tip': 'Medium-coarse grind. Pour slowly. ~4 min',
     'method.v60.tip': 'Medium-fine grind. Pour in spirals. ~3 min',
     'method.pano.tip': 'Medium grind. Traditional and ideal for organic coffee',
@@ -511,8 +511,8 @@ const T = {
     'step.moka.wait.sub': 'Coffee will start rising in ~2–3 min',
     'step.moka.remove': 'Remove from heat',
     'step.moka.remove.sub': 'Remove when you hear hissing and serve immediately',
-    'recipe.title.filter': '☕ Your recipe',
-    'recipe.title.espresso': '☕ Your recipe — Espresso',
+    'recipe.title.filter': 'Your recipe',
+    'recipe.title.espresso': 'Your recipe — Espresso',
     'step.pano.bloom.sub': 'Wet the coffee',
     'method.pano.name': 'Cloth Filter',
     'method.prensa.name': 'French Press',
@@ -533,7 +533,7 @@ const T = {
     'bean.species.robusta': 'Robusta',
     'bean.species.geisha': 'Geisha',
     'bean.adjusted': 'adjusted',
-    'bean.summary': '🫘 Bean:',
+    'bean.summary': 'Bean:',
     'bean.none': 'No profile',
     'bean.note': 'Values are automatically adjusted in the recipe.',
     'bean.popular': 'popular',
@@ -580,20 +580,20 @@ const T = {
     'lbl.intensidade': 'Intensidad',
     'lbl.porcoes': 'porc.',
     'lbl.volume': 'Volumen:',
-    'btn.start': '▶ Iniciar',
-    'btn.share': '🔗 Compartir receta',
+    'btn.start': 'Iniciar',
+    'btn.share': 'Compartir receta',
     'btn.restart': 'Hacer otro café',
-    'prep.close': '✕ Detener',
+    'prep.close': 'Detener',
     'prep.step': 'PASO',
     'prep.of': 'de',
     'prep.waiting': 'Espera',
     'prep.skip': 'omitir espera',
-    'prep.confirm.checklist': '✓ Hecho',
-    'prep.confirm.espresso': '✓ Listo',
-    'prep.confirm.pour': '✓ Vertí',
-    'prep.confirm.lastpour': '✓ Última vertida',
+    'prep.confirm.checklist': 'Hecho',
+    'prep.confirm.espresso': 'Listo',
+    'prep.confirm.pour': 'Vertí',
+    'prep.confirm.lastpour': 'Última vertida',
     'prep.hint.checklist': 'Confirma al completar este paso',
-    'prep.hint.timer': '⏳ El temporizador de {time} iniciará al confirmar',
+    'prep.hint.timer': 'El temporizador de {time} iniciará al confirmar',
     'prep.back': '← Volver',
     'pour.neste': 'en esta vertida',
     'pour.adjusted': 'ajustado',
@@ -604,7 +604,7 @@ const T = {
     'pour.stats.total': 'Total',
     'done.title': '¡Café listo!',
     'done.msg': '¡Que aproveche! 😊',
-    'done.time.label': '⏱ Preparado en:',
+    'done.time.label': 'Preparado en:',
     'done.rating.q': '¿Qué tal este café?',
     'done.notes.placeholder': '¿Qué tal? ¿Algo que ajustar?',
     'hist.empty': 'Ningún preparo registrado aún.\nCompleta tu primer café para ver el historial.',
@@ -613,13 +613,13 @@ const T = {
     'hist.delete.aria': 'Eliminar este preparo',
     'grinder.title': 'Mi molinillo',
     'grinder.optional': '· opcional',
-    'grinder.search': '🔍  Buscar molinillo...',
+    'grinder.search': 'Buscar molinillo...',
     'grinder.none': 'Sin molinillo específico',
     'grinder.none.unit': 'descripción genérica',
-    'grinder.note': '⚠️ Los valores son puntos de partida — ajusta ±2–3 según el resultado.',
+    'grinder.note': 'Los valores son puntos de partida — ajusta ±2–3 según el resultado.',
     'grinder.no.results': 'Sin resultados — usa "Sin molinillo específico"',
-    'grinder.summary': '⚙️ Molinillo:',
-    'warn.prensa': '⚠️ Para prensa francesa, recomendamos máximo <strong>Fuerte (1:12)</strong> para evitar amargura excesiva.',
+    'grinder.summary': 'Molinillo:',
+    'warn.prensa': 'Para prensa francesa, recomendamos máximo <strong>Fuerte (1:12)</strong> para evitar amargura excesiva.',
     'method.chemex.tip': 'Molido medio-grueso. Vierte despacio. ~4 min',
     'method.v60.tip': 'Molido medio-fino. Vierte en espiral. ~3 min',
     'method.pano.tip': 'Molido medio. Tradicional e ideal para café orgánico',
@@ -773,8 +773,8 @@ const T = {
     'step.moka.wait.sub': 'El café empezará a subir en ~2–3 min',
     'step.moka.remove': 'Retirar del fuego',
     'step.moka.remove.sub': 'Retira al escuchar el silbido y sirve inmediatamente',
-    'recipe.title.filter': '☕ Tu receta',
-    'recipe.title.espresso': '☕ Tu receta — Espresso',
+    'recipe.title.filter': 'Tu receta',
+    'recipe.title.espresso': 'Tu receta — Espresso',
     'step.pano.bloom.sub': 'Humedecer el café',
     'method.pano.name': 'Filtro de tela',
     'method.prensa.name': 'Prensa Francesa',
@@ -795,7 +795,7 @@ const T = {
     'bean.species.robusta': 'Robusta',
     'bean.species.geisha': 'Geisha',
     'bean.adjusted': 'ajustado',
-    'bean.summary': '🫘 Grano:',
+    'bean.summary': 'Grano:',
     'bean.none': 'Sin perfil',
     'bean.note': 'Los valores se ajustan automáticamente en la receta.',
     'bean.popular': 'popular',
@@ -842,20 +842,20 @@ const T = {
     'lbl.intensidade': 'Intensità',
     'lbl.porcoes': 'porz.',
     'lbl.volume': 'Volume:',
-    'btn.start': '▶ Inizia',
-    'btn.share': '🔗 Condividi ricetta',
+    'btn.start': 'Inizia',
+    'btn.share': 'Condividi ricetta',
     'btn.restart': 'Altro caffè',
-    'prep.close': '✕ Ferma',
+    'prep.close': 'Ferma',
     'prep.step': 'PASSO',
     'prep.of': 'di',
     'prep.waiting': 'Attendi',
     'prep.skip': 'salta attesa',
-    'prep.confirm.checklist': '✓ Fatto',
-    'prep.confirm.espresso': '✓ Pronto',
-    'prep.confirm.pour': '✓ Versato',
-    'prep.confirm.lastpour': '✓ Ultimo versamento',
+    'prep.confirm.checklist': 'Fatto',
+    'prep.confirm.espresso': 'Pronto',
+    'prep.confirm.pour': 'Versato',
+    'prep.confirm.lastpour': 'Ultimo versamento',
     'prep.hint.checklist': 'Conferma al completamento di questo passaggio',
-    'prep.hint.timer': '⏳ Timer di {time} partirà alla conferma',
+    'prep.hint.timer': 'Timer di {time} partirà alla conferma',
     'prep.back': '← Indietro',
     'pour.neste': 'in questo versamento',
     'pour.adjusted': 'aggiustato',
@@ -866,7 +866,7 @@ const T = {
     'pour.stats.total': 'Totale',
     'done.title': 'Caffè pronto!',
     'done.msg': 'Buon caffè! 😊',
-    'done.time.label': '⏱ Preparato in:',
+    'done.time.label': 'Preparato in:',
     'done.rating.q': "Com'era questo caffè?",
     'done.notes.placeholder': "Com'è andata? Qualcosa da aggiustare?",
     'hist.empty': 'Nessuna preparazione registrata.\nCompleta la prima per vedere lo storico.',
@@ -875,13 +875,13 @@ const T = {
     'hist.delete.aria': 'Elimina questa preparazione',
     'grinder.title': 'Il mio macinacaffè',
     'grinder.optional': '· opzionale',
-    'grinder.search': '🔍  Cerca macinacaffè...',
+    'grinder.search': 'Cerca macinacaffè...',
     'grinder.none': 'Senza macinacaffè specifico',
     'grinder.none.unit': 'descrizione generica',
-    'grinder.note': '⚠️ I valori sono punti di partenza — aggiusta ±2–3 in base al risultato.',
+    'grinder.note': 'I valori sono punti di partenza — aggiusta ±2–3 in base al risultato.',
     'grinder.no.results': 'Nessun risultato — usa "Senza macinacaffè specifico"',
-    'grinder.summary': '⚙️ Macinacaffè:',
-    'warn.prensa': '⚠️ Per la pressa francese, consigliamo massimo <strong>Forte (1:12)</strong> per evitare eccessiva amarezza.',
+    'grinder.summary': 'Macinacaffè:',
+    'warn.prensa': 'Per la pressa francese, consigliamo massimo <strong>Forte (1:12)</strong> per evitare eccessiva amarezza.',
     'method.chemex.tip': 'Macinatura medio-grossa. Versare lentamente. ~4 min',
     'method.v60.tip': 'Macinatura medio-fine. Versare a spirale. ~3 min',
     'method.pano.tip': 'Macinatura media. Tradizionale, ideale per caffè biologico',
@@ -1035,8 +1035,8 @@ const T = {
     'step.moka.wait.sub': 'Il caffè inizierà a salire in ~2–3 min',
     'step.moka.remove': 'Togliere dal fuoco',
     'step.moka.remove.sub': 'Togli quando senti il sibilo e servi subito',
-    'recipe.title.filter': '☕ La tua ricetta',
-    'recipe.title.espresso': '☕ La tua ricetta — Espresso',
+    'recipe.title.filter': 'La tua ricetta',
+    'recipe.title.espresso': 'La tua ricetta — Espresso',
     'step.pano.bloom.sub': 'Bagnare il caffè',
     'method.pano.name': 'Filtro di stoffa',
     'method.prensa.name': 'French Press',
@@ -1057,7 +1057,7 @@ const T = {
     'bean.species.robusta': 'Robusta',
     'bean.species.geisha': 'Geisha',
     'bean.adjusted': 'regolato',
-    'bean.summary': '🫘 Chicco:',
+    'bean.summary': 'Chicco:',
     'bean.none': 'Senza profilo',
     'bean.note': 'I valori vengono regolati automaticamente nella ricetta.',
     'bean.popular': 'popolare',
@@ -1104,20 +1104,20 @@ const T = {
     'lbl.intensidade': 'الشدة',
     'lbl.porcoes': 'حصة',
     'lbl.volume': 'الحجم:',
-    'btn.start': '▶ ابدأ التحضير',
-    'btn.share': '🔗 مشاركة الوصفة',
+    'btn.start': 'ابدأ التحضير',
+    'btn.share': 'مشاركة الوصفة',
     'btn.restart': 'تحضير قهوة أخرى',
-    'prep.close': '✕ إيقاف',
+    'prep.close': 'إيقاف',
     'prep.step': 'الخطوة',
     'prep.of': 'من',
     'prep.waiting': 'انتظر',
     'prep.skip': 'تخطي الانتظار',
-    'prep.confirm.checklist': '✓ تم',
-    'prep.confirm.espresso': '✓ جاهز',
-    'prep.confirm.pour': '✓ صببت',
-    'prep.confirm.lastpour': '✓ الصب الأخير',
+    'prep.confirm.checklist': 'تم',
+    'prep.confirm.espresso': 'جاهز',
+    'prep.confirm.pour': 'صببت',
+    'prep.confirm.lastpour': 'الصب الأخير',
     'prep.hint.checklist': 'أكد عند إتمام هذه الخطوة',
-    'prep.hint.timer': '⏳ سيبدأ مؤقت {time} عند التأكيد',
+    'prep.hint.timer': 'سيبدأ مؤقت {time} عند التأكيد',
     'prep.back': '→ رجوع',
     'pour.neste': 'في هذا الصب',
     'pour.adjusted': 'معدّل',
@@ -1128,7 +1128,7 @@ const T = {
     'pour.stats.total': 'المجموع',
     'done.title': '!القهوة جاهزة',
     'done.msg': '!بالصحة والهنا 😊',
-    'done.time.label': '⏱ :تم التحضير في',
+    'done.time.label': ':تم التحضير في',
     'done.rating.q': 'كيف كانت هذه القهوة؟',
     'done.notes.placeholder': 'كيف كانت؟ شيء تعدله في المرة القادمة؟',
     'hist.empty': 'لا توجد تحضيرات مسجلة بعد.\nأتمم أول تحضير لرؤية السجل هنا.',
@@ -1137,13 +1137,13 @@ const T = {
     'hist.delete.aria': 'حذف هذا التحضير',
     'grinder.title': 'مطحنتي',
     'grinder.optional': '· اختياري',
-    'grinder.search': '🔍  ابحث عن مطحنة...',
+    'grinder.search': 'ابحث عن مطحنة...',
     'grinder.none': 'بدون مطحنة محددة',
     'grinder.none.unit': 'وصف عام',
-    'grinder.note': '⚠️ القيم نقاط بداية — اضبط ±2–3 حسب النتيجة في الكوب.',
+    'grinder.note': 'القيم نقاط بداية — اضبط ±2–3 حسب النتيجة في الكوب.',
     'grinder.no.results': 'لا توجد نتائج — استخدم "بدون مطحنة محددة"',
-    'grinder.summary': '⚙️ المطحنة:',
-    'warn.prensa': '⚠️ للبريس الفرنسي، نوصي بحد أقصى <strong>قوي (1:12)</strong> لتجنب المرارة الزائدة.',
+    'grinder.summary': 'المطحنة:',
+    'warn.prensa': 'للبريس الفرنسي، نوصي بحد أقصى <strong>قوي (1:12)</strong> لتجنب المرارة الزائدة.',
     'method.chemex.tip': 'طحن متوسط-خشن. اسكب ببطء. ~٤ دقائق',
     'method.v60.tip': 'طحن متوسط-ناعم. اسكب بشكل لولبي. ~٣ دقائق',
     'method.pano.tip': 'طحن متوسط. تقليدي ومثالي للقهوة العضوية',
@@ -1297,8 +1297,8 @@ const T = {
     'step.moka.wait.sub': 'سيبدأ القهوة بالصعود خلال ~2–3 دقائق',
     'step.moka.remove': 'إزالة عن النار',
     'step.moka.remove.sub': 'أزلها عند سماع الفحيح وقدّمها فوراً',
-    'recipe.title.filter': '☕ وصفتك',
-    'recipe.title.espresso': '☕ وصفتك — إسبريسو',
+    'recipe.title.filter': 'وصفتك',
+    'recipe.title.espresso': 'وصفتك — إسبريسو',
     'step.pano.bloom.sub': 'تبليل القهوة',
     'method.pano.name': 'فلتر القماش',
     'method.prensa.name': 'الضغط الفرنسي',
@@ -1319,7 +1319,7 @@ const T = {
     'bean.species.robusta': 'روبوستا',
     'bean.species.geisha': 'جيشا',
     'bean.adjusted': 'معدّل',
-    'bean.summary': '🫘 الحبوب:',
+    'bean.summary': 'الحبوب:',
     'bean.none': 'بدون ملف',
     'bean.note': 'يتم تعديل القيم تلقائياً في الوصفة.',
     'bean.popular': 'شائع',
@@ -1366,20 +1366,20 @@ const T = {
     'lbl.intensidade': '濃さ',
     'lbl.porcoes': '人前',
     'lbl.volume': '容量：',
-    'btn.start': '▶ 抽出開始',
-    'btn.share': '🔗 レシピをシェア',
+    'btn.start': '抽出開始',
+    'btn.share': 'レシピをシェア',
     'btn.restart': 'もう一杯',
-    'prep.close': '✕ 終了',
+    'prep.close': '終了',
     'prep.step': 'ステップ',
     'prep.of': '／',
     'prep.waiting': '待機中',
     'prep.skip': 'スキップ',
-    'prep.confirm.checklist': '✓ 完了',
-    'prep.confirm.espresso': '✓ 完了',
-    'prep.confirm.pour': '✓ 注いだ',
-    'prep.confirm.lastpour': '✓ 最後の注湯',
+    'prep.confirm.checklist': '完了',
+    'prep.confirm.espresso': '完了',
+    'prep.confirm.pour': '注いだ',
+    'prep.confirm.lastpour': '最後の注湯',
     'prep.hint.checklist': 'このステップが完了したら確認',
-    'prep.hint.timer': '⏳ 確認で{time}タイマー開始',
+    'prep.hint.timer': '確認で{time}タイマー開始',
     'prep.back': '← 戻る',
     'pour.neste': 'この注湯',
     'pour.adjusted': '調整済',
@@ -1390,7 +1390,7 @@ const T = {
     'pour.stats.total': '合計',
     'done.title': 'コーヒーができました！',
     'done.msg': 'どうぞ。😊',
-    'done.time.label': '⏱ 抽出時間：',
+    'done.time.label': '抽出時間：',
     'done.rating.q': 'このコーヒーはいかがでしたか？',
     'done.notes.placeholder': 'どうでしたか？次回の調整点は？',
     'hist.empty': 'まだ記録がありません。\n最初のコーヒーを完成させて履歴を見ましょう。',
@@ -1399,13 +1399,13 @@ const T = {
     'hist.delete.aria': 'この記録を削除',
     'grinder.title': 'グラインダー',
     'grinder.optional': '・任意',
-    'grinder.search': '🔍  グラインダーを検索...',
+    'grinder.search': 'グラインダーを検索...',
     'grinder.none': '特定のグラインダーなし',
     'grinder.none.unit': '一般的な説明',
-    'grinder.note': '⚠️ 値は目安です — カップの結果に応じて±2–3調整してください。',
+    'grinder.note': '値は目安です — カップの結果に応じて±2–3調整してください。',
     'grinder.no.results': '見つかりません — 「特定のグラインダーなし」を使用してください',
-    'grinder.summary': '⚙️ グラインダー：',
-    'warn.prensa': '⚠️ フレンチプレスには最大<strong>ストロング(1:12)</strong>を推奨します。苦みが強くなります。',
+    'grinder.summary': 'グラインダー：',
+    'warn.prensa': 'フレンチプレスには最大<strong>ストロング(1:12)</strong>を推奨します。苦みが強くなります。',
     'method.chemex.tip': '中粗挽き。ゆっくり注ぐ。~4分',
     'method.v60.tip': '中細挽き。スパイラル注ぎ。~3分',
     'method.pano.tip': '中挽き。伝統的でオーガニックコーヒーに最適',
@@ -1559,8 +1559,8 @@ const T = {
     'step.moka.wait.sub': '約2〜3分でコーヒーが上がり始めます',
     'step.moka.remove': '火から下ろす',
     'step.moka.remove.sub': 'シューと音がしたら下ろしてすぐにサーブ',
-    'recipe.title.filter': '☕ あなたのレシピ',
-    'recipe.title.espresso': '☕ あなたのレシピ — エスプレッソ',
+    'recipe.title.filter': 'あなたのレシピ',
+    'recipe.title.espresso': 'あなたのレシピ — エスプレッソ',
     'step.pano.bloom.sub': 'コーヒーを濡らす',
     'method.pano.name': 'ネルドリップ',
     'method.prensa.name': 'フレンチプレス',
@@ -1581,7 +1581,7 @@ const T = {
     'bean.species.robusta': 'ロブスタ',
     'bean.species.geisha': 'ゲイシャ',
     'bean.adjusted': '調整済',
-    'bean.summary': '🫘 豆:',
+    'bean.summary': '豆:',
     'bean.none': 'プロフィールなし',
     'bean.note': '値はレシピに自動的に反映されます。',
     'bean.popular': '人気',
@@ -1628,20 +1628,20 @@ const T = {
     'lbl.intensidade': '浓度',
     'lbl.porcoes': '份',
     'lbl.volume': '容量：',
-    'btn.start': '▶ 开始冲泡',
-    'btn.share': '🔗 分享食谱',
+    'btn.start': '开始冲泡',
+    'btn.share': '分享食谱',
     'btn.restart': '再来一杯',
-    'prep.close': '✕ 停止',
+    'prep.close': '停止',
     'prep.step': '步骤',
     'prep.of': '／',
     'prep.waiting': '请稍等',
     'prep.skip': '跳过等待',
-    'prep.confirm.checklist': '✓ 完成',
-    'prep.confirm.espresso': '✓ 就绪',
-    'prep.confirm.pour': '✓ 已注水',
-    'prep.confirm.lastpour': '✓ 最后注水',
+    'prep.confirm.checklist': '完成',
+    'prep.confirm.espresso': '就绪',
+    'prep.confirm.pour': '已注水',
+    'prep.confirm.lastpour': '最后注水',
     'prep.hint.checklist': '完成此步骤后确认',
-    'prep.hint.timer': '⏳ 确认后将启动{time}计时器',
+    'prep.hint.timer': '确认后将启动{time}计时器',
     'prep.back': '← 返回',
     'pour.neste': '本次注水',
     'pour.adjusted': '已调整',
@@ -1652,7 +1652,7 @@ const T = {
     'pour.stats.total': '总量',
     'done.title': '咖啡好了！',
     'done.msg': '请享用。😊',
-    'done.time.label': '⏱ 冲泡用时：',
+    'done.time.label': '冲泡用时：',
     'done.rating.q': '这杯咖啡怎么样？',
     'done.notes.placeholder': '感觉如何？下次需要调整什么？',
     'hist.empty': '尚无记录。\n完成第一次冲泡即可查看历史。',
@@ -1661,13 +1661,13 @@ const T = {
     'hist.delete.aria': '删除此记录',
     'grinder.title': '我的磨豆机',
     'grinder.optional': '・可选',
-    'grinder.search': '🔍  搜索磨豆机...',
+    'grinder.search': '搜索磨豆机...',
     'grinder.none': '无特定磨豆机',
     'grinder.none.unit': '通用描述',
-    'grinder.note': '⚠️ 数值仅供参考，请根据实际效果调整±2–3。',
+    'grinder.note': '数值仅供参考，请根据实际效果调整±2–3。',
     'grinder.no.results': '未找到 — 请使用「无特定磨豆机」',
-    'grinder.summary': '⚙️ 磨豆机：',
-    'warn.prensa': '⚠️ 法压壶建议最多使用<strong>浓(1:12)</strong>以避免过度苦涩。',
+    'grinder.summary': '磨豆机：',
+    'warn.prensa': '法压壶建议最多使用<strong>浓(1:12)</strong>以避免过度苦涩。',
     'method.chemex.tip': '中粗研磨。缓慢注水。约4分钟',
     'method.v60.tip': '中细研磨。螺旋注水。约3分钟',
     'method.pano.tip': '中研磨。传统方式，适合有机咖啡',
@@ -1821,8 +1821,8 @@ const T = {
     'step.moka.wait.sub': '约2-3分钟后咖啡开始上升',
     'step.moka.remove': '离火',
     'step.moka.remove.sub': '听到嘶嘶声时离火并立即上杯',
-    'recipe.title.filter': '☕ 您的食谱',
-    'recipe.title.espresso': '☕ 您的食谱 — 浓缩咖啡',
+    'recipe.title.filter': '您的食谱',
+    'recipe.title.espresso': '您的食谱 — 浓缩咖啡',
     'step.pano.bloom.sub': '浸湿咖啡粉',
     'method.pano.name': '布滤杯',
     'method.prensa.name': '法压壶',
@@ -1843,7 +1843,7 @@ const T = {
     'bean.species.robusta': '罗布斯塔',
     'bean.species.geisha': '瑰夏',
     'bean.adjusted': '已调整',
-    'bean.summary': '🫘 豆子:',
+    'bean.summary': '豆子:',
     'bean.none': '无配置',
     'bean.note': '数值会自动调整到食谱中。',
     'bean.popular': '热门',
@@ -1890,20 +1890,20 @@ const T = {
     'lbl.intensidade': 'Крепость',
     'lbl.porcoes': 'пор.',
     'lbl.volume': 'Объём:',
-    'btn.start': '▶ Начать',
-    'btn.share': '🔗 Поделиться рецептом',
+    'btn.start': 'Начать',
+    'btn.share': 'Поделиться рецептом',
     'btn.restart': 'Ещё кофе',
-    'prep.close': '✕ Стоп',
+    'prep.close': 'Стоп',
     'prep.step': 'ШАГ',
     'prep.of': 'из',
     'prep.waiting': 'Ожидание',
     'prep.skip': 'пропустить',
-    'prep.confirm.checklist': '✓ Готово',
-    'prep.confirm.espresso': '✓ Готово',
-    'prep.confirm.pour': '✓ Залил',
-    'prep.confirm.lastpour': '✓ Последняя заливка',
+    'prep.confirm.checklist': 'Готово',
+    'prep.confirm.espresso': 'Готово',
+    'prep.confirm.pour': 'Залил',
+    'prep.confirm.lastpour': 'Последняя заливка',
     'prep.hint.checklist': 'Подтвердите по завершении этого шага',
-    'prep.hint.timer': '⏳ Таймер {time} запустится при подтверждении',
+    'prep.hint.timer': 'Таймер {time} запустится при подтверждении',
     'prep.back': '← Назад',
     'pour.neste': 'эта заливка',
     'pour.adjusted': 'скорр.',
@@ -1914,7 +1914,7 @@ const T = {
     'pour.stats.total': 'Итого',
     'done.title': 'Кофе готов!',
     'done.msg': 'Приятного! 😊',
-    'done.time.label': '⏱ Готовилось:',
+    'done.time.label': 'Готовилось:',
     'done.rating.q': 'Как вам этот кофе?',
     'done.notes.placeholder': 'Как получилось? Что изменить в следующий раз?',
     'hist.empty': 'Нет записей.\nЗавершите первое приготовление чтобы увидеть историю.',
@@ -1923,13 +1923,13 @@ const T = {
     'hist.delete.aria': 'Удалить запись',
     'grinder.title': 'Моя кофемолка',
     'grinder.optional': '· по желанию',
-    'grinder.search': '🔍  Найти кофемолку...',
+    'grinder.search': 'Найти кофемолку...',
     'grinder.none': 'Без конкретной кофемолки',
     'grinder.none.unit': 'общее описание',
-    'grinder.note': '⚠️ Значения — отправная точка. Корректируйте ±2–3 по результату.',
+    'grinder.note': 'Значения — отправная точка. Корректируйте ±2–3 по результату.',
     'grinder.no.results': 'Не найдено — используйте «Без конкретной кофемолки»',
-    'grinder.summary': '⚙️ Кофемолка:',
-    'warn.prensa': '⚠️ Для французского пресса рекомендуем максимум <strong>Крепкий (1:12)</strong> во избежание горечи.',
+    'grinder.summary': 'Кофемолка:',
+    'warn.prensa': 'Для французского пресса рекомендуем максимум <strong>Крепкий (1:12)</strong> во избежание горечи.',
     'method.chemex.tip': 'Помол средне-крупный. Лейте медленно. ~4 мин',
     'method.v60.tip': 'Помол средне-мелкий. Лейте по спирали. ~3 мин',
     'method.pano.tip': 'Помол средний. Традиционный, идеален для органического кофе',
@@ -2083,8 +2083,8 @@ const T = {
     'step.moka.wait.sub': 'Кофе начнёт подниматься через ~2–3 мин',
     'step.moka.remove': 'Снять с огня',
     'step.moka.remove.sub': 'Снимите при шипении и сразу подайте',
-    'recipe.title.filter': '☕ Ваш рецепт',
-    'recipe.title.espresso': '☕ Ваш рецепт — Эспрессо',
+    'recipe.title.filter': 'Ваш рецепт',
+    'recipe.title.espresso': 'Ваш рецепт — Эспрессо',
     'step.pano.bloom.sub': 'Смочить кофе',
     'method.pano.name': 'Тканевый фильтр',
     'method.prensa.name': 'Французский пресс',
@@ -2105,7 +2105,7 @@ const T = {
     'bean.species.robusta': 'Робуста',
     'bean.species.geisha': 'Гейша',
     'bean.adjusted': 'скорр.',
-    'bean.summary': '🫘 Зерно:',
+    'bean.summary': 'Зерно:',
     'bean.none': 'Без профиля',
     'bean.note': 'Значения автоматически корректируются в рецепте.',
     'bean.popular': 'популярно',
@@ -2695,6 +2695,38 @@ function methodSVG(id) {
   return icons[id] || '';
 }
 
+// Ícones de linha (estilo Lucide) — usados nos dados/receita no lugar de emojis
+function icon(name, size = 20) {
+  const paths = {
+    water: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
+    bean: '<ellipse cx="12" cy="12" rx="5.5" ry="8.5" transform="rotate(45 12 12)"/><path d="M8 8c2.5 1.5 5.5 6.5 8 8"/>',
+    timer: '<line x1="10" y1="2" x2="14" y2="2"/><line x1="12" y1="14" x2="15" y2="11"/><circle cx="12" cy="14" r="8"/>',
+    thermometer: '<path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>',
+    sliders: '<line x1="21" y1="4" x2="14" y2="4"/><line x1="10" y1="4" x2="3" y2="4"/><line x1="21" y1="12" x2="12" y2="12"/><line x1="8" y1="12" x2="3" y2="12"/><line x1="21" y1="20" x2="16" y2="20"/><line x1="12" y1="20" x2="3" y2="20"/><line x1="14" y1="2" x2="14" y2="6"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="16" y1="18" x2="16" y2="22"/>',
+    settings: '<path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/>',
+    share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>',
+    flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>',
+    bulb: '<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>',
+    history: '<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
+    trash: '<path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+    star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+    x: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>',
+    chevron: '<path d="m6 9 6 6 6-6"/>',
+    arrowLeft: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>',
+    file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+    alert: '<path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/>',
+    info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>',
+    sprout: '<path d="M7 20h10"/><path d="M12 20c0-4.5 1.5-8 6-9-4.5-1-6-4.5-6-9 0 4.5-1.5 8-6 9 4.5 1 6 4.5 6 9z"/>',
+    wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+    cup: '<path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>',
+    edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+  };
+  const fill = name === 'starFill';
+  const body = fill ? paths.star : (paths[name] || '');
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${fill ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="${fill ? 0 : 1.75}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${body}</svg>`;
+}
+
 // ─── URL / SHARE ──────────────────────────────────────────────────────────────
 
 function buildShareURL() {
@@ -2871,7 +2903,7 @@ function startGlobalTimer() {
   requestWakeLock();
   globalTimerInterval = setInterval(() => {
     const el = document.getElementById('global-timer');
-    if (el) el.textContent = '⏱ ' + formatTime(getElapsed());
+    if (el) el.textContent = formatTime(getElapsed());
   }, 1000);
 }
 function stopGlobalTimer() { clearInterval(globalTimerInterval); globalTimerInterval = null; releaseWakeLock(); }
@@ -2940,7 +2972,7 @@ function renderBeanSection() {
            </div>`
         : customContent}
     </div>
-    <p class="bean-note">💡 ${t('bean.note')}</p>`;
+    <p class="bean-note">${icon('bulb', 14)} ${t('bean.note')}</p>`;
 
   const summaryText = hasProfile
     ? `${t('bean.summary')} ${getBeanSummary()}`
@@ -2979,7 +3011,7 @@ function renderConfig() {
           <span class="grinder-name">${g.name}</span>
           <span class="grinder-unit">${g.unit}</span>
           ${g.manualUrl ? `<span class="grinder-manual-icon" data-manual-url="${escapeHtml(g.manualUrl)}"
-                title="Ver manual" role="button" tabindex="0" aria-label="Manual ${g.name}">📄</span>` : ''}
+                title="Ver manual" role="button" tabindex="0" aria-label="Manual ${g.name}">${icon('file', 14)}</span>` : ''}
         </button>`).join('')}
       <button class="grinder-btn grinder-btn-none ${!grinderId && !firstTime ? 'selected' : ''}"
               data-grinder="none" aria-pressed="${!grinderId && !firstTime}">
@@ -3000,7 +3032,7 @@ function renderConfig() {
     : `<section class="section" id="section-grinder">
         <details class="accordion" id="grinder-accordion">
           <summary class="accordion-summary">
-            ${t('grinder.summary')} ${grinder ? grinder.name : t('grinder.none')}
+            ${icon('settings', 18)} ${t('grinder.summary')} ${grinder ? grinder.name : t('grinder.none')}
           </summary>
           <div class="accordion-body">${grinderGrid}</div>
         </details>
@@ -3069,11 +3101,11 @@ function renderConfig() {
   // ── Recipe card ──
   const espressoGrinderWarning = isEspresso && grinder && !grinder.settings.espresso
     ? `<p class="espresso-grinder-warning">${grinder.espressoCapable === 'limited'
-        ? `⚠️ ${grinder.name} pode fazer espresso apenas com cesta pressurizada. Resultado varia.`
-        : `ℹ️ ${grinder.name} não é recomendado para espresso — moagem inconsistente nessa faixa.`}</p>`
+        ? `${grinder.name} pode fazer espresso apenas com cesta pressurizada. Resultado varia.`
+        : `${grinder.name} não é recomendado para espresso — moagem inconsistente nessa faixa.`}</p>`
     : '';
 
-  const beanLine = hasBeanProfile() ? `<p class="recipe-bean-line">🫘 ${getBeanSummary()}</p>` : '';
+  const beanLine = hasBeanProfile() ? `<p class="recipe-bean-line">${icon('bean', 14)} ${getBeanSummary()}</p>` : '';
   const adjBadge = `<span class="bean-adj-badge">(${t('bean.adjusted')})</span>`;
   const displayTemp = fmtTemp(getDisplayTemp(method.temp));
   const heatingTempC = getDisplayTemp(method.temp);
@@ -3084,21 +3116,21 @@ function renderConfig() {
 
   const recipeCard = isEspresso
     ? `<div class="recipe-card">
-        <h2 class="recipe-title">${t('recipe.title.espresso')}</h2>
+        <h2 class="recipe-title">${icon('cup', 22)} ${t('recipe.title.espresso')}</h2>
         ${beanLine}
         <div class="recipe-grid">
           <div class="recipe-row">
-            <span class="recipe-icon">🌿</span>
+            <span class="recipe-icon">${icon('bean')}</span>
             <span class="recipe-label">${t('lbl.dose')}</span>
             <span class="recipe-value" id="val-dose">${fmtWeight(recipe.dosePerShot)} × ${state.portions} = ${fmtWeight(recipe.dose)}</span>
           </div>
           <div class="recipe-row">
-            <span class="recipe-icon">💧</span>
+            <span class="recipe-icon">${icon('water')}</span>
             <span class="recipe-label">${t('lbl.yield')}</span>
             <span class="recipe-value" id="val-yield">${fmtVol(recipe.yieldPerShot)}–${fmtVol(recipe.yieldPerShot + 4)} × ${state.portions}</span>
           </div>
           <div class="recipe-row">
-            <span class="recipe-icon">📐</span>
+            <span class="recipe-icon">${icon('sliders')}</span>
             <span class="recipe-label">${t('lbl.moagem')}</span>
             <span class="recipe-value">${grinderDisplay.value} ${grindAdjusted ? adjBadge : ''}</span>
           </div>
@@ -3109,12 +3141,12 @@ function renderConfig() {
             <span class="recipe-value-sub">${grinderDisplay.sub}</span>
           </div>` : ''}
           <div class="recipe-row">
-            <span class="recipe-icon">⏱</span>
+            <span class="recipe-icon">${icon('timer')}</span>
             <span class="recipe-label">${t('lbl.extracao')}</span>
             <span class="recipe-value">25–30s</span>
           </div>
           <div class="recipe-row">
-            <span class="recipe-icon">🌡️</span>
+            <span class="recipe-icon">${icon('thermometer')}</span>
             <span class="recipe-label">${t('lbl.temperatura')}</span>
             <span class="recipe-value">${displayTemp} ${tempAdjusted ? adjBadge : ''}</span>
           </div>
@@ -3122,30 +3154,30 @@ function renderConfig() {
         ${espressoGrinderWarning}
         <div class="recipe-actions">
           <button class="btn-start" id="btn-start">${t('btn.start')}</button>
-          <button class="btn-share" id="btn-share" aria-label="${t('btn.share')}">🔗</button>
+          <button class="btn-share" id="btn-share" aria-label="${t('btn.share')}">${icon('share')}</button>
         </div>
       </div>`
     : `<div class="recipe-card">
-        <h2 class="recipe-title">${t('recipe.title.filter')}</h2>
+        <h2 class="recipe-title">${icon('cup', 22)} ${t('recipe.title.filter')}</h2>
         ${beanLine}
         <div class="recipe-grid">
           <div class="recipe-row">
-            <span class="recipe-icon">💧</span>
+            <span class="recipe-icon">${icon('water')}</span>
             <span class="recipe-label">${t('lbl.agua')}</span>
             <span class="recipe-value" id="val-agua">${fmtVol(recipe.aguaTotal)}</span>
           </div>
           <div class="recipe-row">
-            <span class="recipe-icon">🌿</span>
+            <span class="recipe-icon">${icon('bean')}</span>
             <span class="recipe-label">${t('lbl.cafe')}</span>
             <span class="recipe-value" id="val-cafe">${fmtWeight(recipe.cafeG)}</span>
           </div>
           <div class="recipe-row">
-            <span class="recipe-icon">⏱</span>
+            <span class="recipe-icon">${icon('timer')}</span>
             <span class="recipe-label">${t('lbl.tempo')}</span>
             <span class="recipe-value">${method.time}</span>
           </div>
           <div class="recipe-row">
-            <span class="recipe-icon">📐</span>
+            <span class="recipe-icon">${icon('sliders')}</span>
             <span class="recipe-label">${t('lbl.moagem')}</span>
             <span class="recipe-value">${grinderDisplay.value} ${grindAdjusted ? adjBadge : ''}</span>
           </div>
@@ -3156,29 +3188,29 @@ function renderConfig() {
             <span class="recipe-value-sub">${grinderDisplay.sub}</span>
           </div>` : ''}
           <div class="recipe-row">
-            <span class="recipe-icon">🌡️</span>
+            <span class="recipe-icon">${icon('thermometer')}</span>
             <span class="recipe-label">${t('lbl.temperatura')}</span>
             <span class="recipe-value">${displayTemp} ${tempAdjusted ? adjBadge : ''}</span>
           </div>
           ${heatingHint ? `<div class="recipe-row recipe-row-sub">
             <span class="recipe-icon"></span>
             <span class="recipe-label"></span>
-            <span class="recipe-value-sub">🔥 ${heatingHint}</span>
+            <span class="recipe-value-sub">${icon('flame', 14)} ${heatingHint}</span>
           </div>` : ''}
         </div>
         <div class="recipe-actions">
           <button class="btn-start" id="btn-start">${t('btn.start')}</button>
-          <button class="btn-share" id="btn-share" aria-label="${t('btn.share')}">🔗</button>
+          <button class="btn-share" id="btn-share" aria-label="${t('btn.share')}">${icon('share')}</button>
         </div>
       </div>`;
 
   // ── Saiba mais (accordion) ──
   const espressoTips = isEspresso ? `
-    <p class="acc-espresso-tip">⏱ <strong>25s = subextraído (azedo)</strong> · <strong>30s = ideal</strong> · <strong>>35s = sobrextraído (amargo)</strong></p>
-    <p class="acc-espresso-tip">🔩 9 bar é o padrão. Máquinas domésticas de 15 bar devem usar menos café para compensar.</p>` : '';
+    <p class="acc-espresso-tip">${icon('timer', 14)} <strong>25s = subextraído (azedo)</strong> · <strong>30s = ideal</strong> · <strong>>35s = sobrextraído (amargo)</strong></p>
+    <p class="acc-espresso-tip">${icon('wrench', 14)} 9 bar é o padrão. Máquinas domésticas de 15 bar devem usar menos café para compensar.</p>` : '';
 
   const calibrationTip = grinder
-    ? `<p class="acc-calibration">🔧 <strong>${grinder.name}:</strong> ${method.calibration} Configuração para ${method.name}: <strong>${grinder.settings[state.methodId] || '—'} ${grinder.unit}</strong>.</p>`
+    ? `<p class="acc-calibration">${icon('wrench', 14)} <strong>${grinder.name}:</strong> ${method.calibration} Configuração para ${method.name}: <strong>${grinder.settings[state.methodId] || '—'} ${grinder.unit}</strong>.</p>`
     : '';
 
   const beanTip = hasBeanProfile() ? (() => {
@@ -3193,7 +3225,7 @@ function renderConfig() {
     if (bloomOff !== 0) adjustments.push(`Bloom ${bloomOff > 0 ? '+' : ''}${bloomOff}s`);
     const adjText = adjustments.length > 0 ? `<br>→ ${adjustments.join(', ')}` : '';
     const hintText = hints.length > 0 ? `<br>${hints.map(h => `→ ${h}`).join('<br>')}` : '';
-    return `<p class="acc-bean-tip">🫘 <strong>${t('bean.summary')} ${summary}</strong>${adjText}${hintText}</p>`;
+    return `<p class="acc-bean-tip">${icon('bean', 14)} <strong>${t('bean.summary')} ${summary}</strong>${adjText}${hintText}</p>`;
   })() : '';
 
   const currentLang = LANGS.find(l => l.id === lang) || LANGS[0];
@@ -3203,8 +3235,8 @@ function renderConfig() {
       <header class="app-header">
         <div class="app-header-row">
           <button class="btn-lang" id="btn-lang" title="${currentLang.name}" aria-label="Language">${currentLang.flag}</button>
-          <h1 class="app-title">☕ Coado</h1>
-          <button class="btn-grinder-icon" id="btn-grinder-icon" title="Configurar moedor" aria-label="Configurar moedor">⚙️</button>
+          <h1 class="app-title">Coado</h1>
+          <button class="btn-grinder-icon" id="btn-grinder-icon" title="Configurar moedor" aria-label="Configurar moedor">${icon('settings')}</button>
         </div>
         <p class="app-tagline">${t('tagline')}</p>
         <button class="app-version" id="btn-version" aria-label="Ver histórico de versões">v${APP_VERSION}</button>
@@ -3212,22 +3244,6 @@ function renderConfig() {
           ${LANGS.map(l => `<button class="lang-btn ${l.id === lang ? 'selected' : ''}" data-lang="${l.id}">${l.flag} <span>${l.name}</span></button>`).join('')}
         </div>
       </header>
-
-      ${grinderSection}
-
-      ${renderBeanSection()}
-
-      <section class="section">
-        <h2 class="section-title">${isEspresso ? t('sec.portions.espresso') : t('sec.portions.filter')}</h2>
-        <div class="portion-selector">
-          <button class="btn-round" id="btn-minus" aria-label="Diminuir">−</button>
-          <span class="portion-count" aria-live="polite">${state.portions}</span>
-          <button class="btn-round" id="btn-plus" aria-label="Aumentar">+</button>
-        </div>
-      </section>
-
-      ${secao1}
-      ${secao2}
 
       <section class="section">
         <h2 class="section-title">${t('sec.method')}</h2>
@@ -3242,28 +3258,48 @@ function renderConfig() {
         <div class="method-tip" role="status">${method.tip}</div>
       </section>
 
+      <section class="section">
+        <h2 class="section-title">${isEspresso ? t('sec.portions.espresso') : t('sec.portions.filter')}</h2>
+        <div class="portion-selector">
+          <button class="btn-round" id="btn-minus" aria-label="Diminuir">−</button>
+          <span class="portion-count" aria-live="polite">${state.portions}</span>
+          <button class="btn-round" id="btn-plus" aria-label="Aumentar">+</button>
+        </div>
+      </section>
+
+      ${secao1}
+      ${secao2}
+
       <section class="section" aria-label="${t('recipe.title.filter')}">
         ${recipeCard}
       </section>
 
+      ${grinderSection}
+
+      ${renderBeanSection()}
+
       <section class="section">
-        <h2 class="section-title">${t('sec.notes')} — ${method.name}${isEspresso ? ' · ' + (state.shotType === 'duplo' ? t('shot.duplo') : t('shot.simples')) : ' · ' + t('intensity.' + state.intensityId)}</h2>
-        <textarea class="notes-area" id="notes-area"
-                  placeholder="${t('done.notes.placeholder')}"
-                  rows="3">${escapeHtml(note)}</textarea>
+        <details class="accordion">
+          <summary class="accordion-summary">${icon('edit', 18)} ${t('sec.notes')} — ${method.name}${isEspresso ? ' · ' + (state.shotType === 'duplo' ? t('shot.duplo') : t('shot.simples')) : ' · ' + t('intensity.' + state.intensityId)}</summary>
+          <div class="accordion-body">
+            <textarea class="notes-area" id="notes-area"
+                      placeholder="${t('done.notes.placeholder')}"
+                      rows="3">${escapeHtml(note)}</textarea>
+          </div>
+        </details>
       </section>
 
       <section class="section">
         <details class="accordion">
-          <summary class="accordion-summary">💡 ${t('sec.learn')} — ${method.name}</summary>
+          <summary class="accordion-summary">${icon('bulb', 18)} ${t('sec.learn')} — ${method.name}</summary>
           <div class="accordion-body">
-            <p class="acc-temp">🌡️ ${t('lbl.temperatura')}: <strong>${fmtTemp(method.temp)}</strong></p>
+            <p class="acc-temp">${icon('thermometer', 16)} ${t('lbl.temperatura')}: <strong>${fmtTemp(method.temp)}</strong></p>
             <ol class="acc-steps">
               ${method.details.map(d => `<li>${d}</li>`).join('')}
             </ol>
             ${espressoTips}
             ${beanTip}
-            <p class="acc-organic">🌱 ${method.organic}</p>
+            <p class="acc-organic">${icon('sprout', 16)} ${method.organic}</p>
             ${calibrationTip}
           </div>
         </details>
@@ -3272,7 +3308,7 @@ function renderConfig() {
       <section class="section">
         <details class="accordion">
           <summary class="accordion-summary">
-            📋 ${t('sec.history')}${hist.length > 0 ? ` (${hist.length})` : ''}
+            ${icon('history', 18)} ${t('sec.history')}${hist.length > 0 ? ` (${hist.length})` : ''}
           </summary>
           <div class="accordion-body">
             ${hist.length === 0
@@ -3281,20 +3317,20 @@ function renderConfig() {
                   ${hist.map((h, i) => {
                     const hI = INTENSITIES.find(x => x.id === h.intensityId);
                     const hM = METHODS[h.methodId];
-                    const stars = h.rating ? ('⭐'.repeat(h.rating) + '☆'.repeat(5 - h.rating)) : '';
+                    const stars = h.rating ? ('★'.repeat(h.rating) + '☆'.repeat(5 - h.rating)) : '';
                     return `<div class="history-item" data-hist="${i}" role="button" tabindex="0">
                       <div class="history-item-top">
                         <span class="history-badge">${hM ? hM.name : h.methodId}</span>
                         ${h.methodId !== 'espresso' && hI ? `<span class="history-badge history-badge-intensity" style="--color:${hI.color}">${t('intensity.' + hI.id)}</span>` : ''}
-                        ${h.methodId === 'espresso' ? `<span class="history-badge" style="background:#4A2512">${h.shotType === 'simples' ? t('shot.simples') : t('shot.duplo')}</span>` : ''}
+                        ${h.methodId === 'espresso' ? `<span class="history-badge" style="background:var(--accent-deep)">${h.shotType === 'simples' ? t('shot.simples') : t('shot.duplo')}</span>` : ''}
                         ${h.beanRoast || h.beanProcess ? `<span class="history-badge history-badge-bean">${[h.beanRoast ? t('bean.roast.' + h.beanRoast) : '', h.beanProcess ? t('bean.process.' + h.beanProcess) : ''].filter(Boolean).join(' · ')}</span>` : ''}
                         ${stars ? `<span class="history-stars">${stars}</span>` : ''}
                         <span class="history-date">${formatDate(h.ts)}</span>
-                        <button class="btn-hist-delete" data-delete-hist="${i}" aria-label="${t('hist.delete.aria')}">🗑</button>
+                        <button class="btn-hist-delete" data-delete-hist="${i}" aria-label="${t('hist.delete.aria')}">${icon('trash', 15)}</button>
                       </div>
                       <div class="history-item-info">
                         ${h.portions}× ${h.sizeName} · ${fmtVol(h.aguaTotal)} · ${fmtWeight(h.cafeG)}
-                        ${h.duration ? `· ⏱ ${formatTime(h.duration)}` : ''}
+                        ${h.duration ? `· ${formatTime(h.duration)}` : ''}
                       </div>
                     </div>`;
                   }).join('')}
@@ -3514,7 +3550,7 @@ function bindConfigEvents() {
 
   document.getElementById('btn-share').addEventListener('click', () => {
     const url = buildShareURL();
-    copyToClipboard(url).then(ok => showToast(ok ? '🔗 Link copiado!' : 'Link: ' + url));
+    copyToClipboard(url).then(ok => showToast(ok ? 'Link copiado!' : 'Link: ' + url));
   });
 
   const notesArea = document.getElementById('notes-area');
@@ -3591,7 +3627,7 @@ function renderPrep() {
     bodyHTML = `
       <div class="timer-display">
         <div class="timer-ring-wrapper">
-          <svg class="timer-ring" viewBox="0 0 160 160" width="160" height="160">
+          <svg class="timer-ring" viewBox="0 0 160 160">
             <circle class="timer-ring-bg" cx="80" cy="80" r="${R}" />
             <circle class="timer-ring-fg" id="timer-ring-fg" cx="80" cy="80" r="${R}"
               stroke-dasharray="${C.toFixed(2)}"
@@ -3615,13 +3651,21 @@ function renderPrep() {
     const pctCurrent = Math.min(100 - parseFloat(pctPoured), (currentVol / recipe.aguaTotal) * 100).toFixed(1);
     const pctCumulative = (parseFloat(pctPoured) + parseFloat(pctCurrent)).toFixed(1);
     const volBar = step.vol && !isEspresso ? `
+      <div class="pour-current">
+        <button class="btn-pour-adj" id="btn-pour-minus" aria-label="${t('pour.adjust.label')} −5ml">−5</button>
+        <span class="pour-current-value">${fmtVol(currentVol)}</span>
+        <button class="btn-pour-adj" id="btn-pour-plus" aria-label="${t('pour.adjust.label')} +5ml">+5</button>
+      </div>
+      <div class="pour-adjust">
+        <span class="pour-adjust-label">${t('pour.neste')}${hasOverride ? ` <span class="vol-adjusted">${t('pour.adjusted')}</span>` : ''}</span>
+      </div>
       <div class="step-volume">
         <div class="volume-bar-wrapper">
           <div class="volume-bar" role="progressbar" aria-valuenow="${cumulativePoured}" aria-valuemax="${recipe.aguaTotal}">
             <div class="volume-bar-fill volume-bar-poured" style="width:${pctPoured}%"></div>
             <div class="volume-bar-fill volume-bar-current" style="width:${pctCurrent}%"></div>
           </div>
-          <div class="volume-bar-marker" style="left:${pctCumulative}%">
+          <div class="volume-bar-marker" style="inset-inline-start:${pctCumulative}%">
             <span class="volume-bar-marker-line"></span>
             <span class="volume-bar-marker-label">${fmtVol(cumulativePoured)}</span>
           </div>
@@ -3634,16 +3678,6 @@ function renderPrep() {
       <div class="volume-bar-legend">
         <span class="legend-item"><span class="legend-swatch legend-poured"></span>${t('pour.stats.poured')}: ${fmtVol(pouredBefore)}</span>
         <span class="legend-item"><span class="legend-swatch legend-current"></span>${t('pour.neste')}: ${fmtVol(currentVol)}</span>
-      </div>
-      <div class="pour-current">
-        <span class="pour-current-value">${fmtVol(currentVol)}</span>
-        ${hasOverride ? `<span class="vol-adjusted">${t('pour.adjusted')}</span>` : ''}
-        <span class="pour-current-label">${t('pour.neste')}</span>
-      </div>
-      <div class="pour-adjust">
-        <button class="btn-pour-adj" id="btn-pour-minus" aria-label="Diminuir 5ml">−5 ml</button>
-        <span class="pour-adjust-label">${t('pour.adjust.label')}</span>
-        <button class="btn-pour-adj" id="btn-pour-plus" aria-label="Aumentar 5ml">+5 ml</button>
       </div>
       <div class="pour-stats-grid">
         <div class="pour-stat">
@@ -3672,8 +3706,8 @@ function renderPrep() {
     const hasChecklist = steps.filter(s => s.checklist).length >= 3;
     const stepper = hasChecklist ? `<div class="prep-stepper">${steps.map((s, i) => {
       const state = i < idx ? 'done' : i === idx ? 'active' : 'pending';
-      const icon = i < idx ? '✓' : s.wait && !s.checklist ? '⏱' : (i + 1);
-      return `<div class="stepper-item stepper-${state}"><span class="stepper-num">${icon}</span><span class="stepper-label">${s.name}</span></div>`;
+      const mark = i < idx ? icon('check', 12) : s.wait && !s.checklist ? icon('timer', 12) : (i + 1);
+      return `<div class="stepper-item stepper-${state}"><span class="stepper-num">${mark}</span><span class="stepper-label">${s.name}</span></div>`;
     }).join('')}</div>` : '';
 
     bodyHTML = `${volBar}${stepper}${hint}
@@ -3683,19 +3717,24 @@ function renderPrep() {
       </div>`;
   }
 
+  const progressSegs = steps.map((_, i) =>
+    `<span class="prep-progress-seg ${i <= idx ? 'done' : ''}"></span>`).join('');
+
   document.getElementById('app').innerHTML = `
     <div class="prep-screen" role="main">
       <div class="prep-header">
-        <button class="btn-close" id="btn-close" aria-label="${t('prep.close')}">${t('prep.close')}</button>
-        <div class="prep-progress">${t('prep.step')} ${idx + 1} ${t('prep.of')} ${total}</div>
-        <div class="global-timer" id="global-timer">⏱ ${formatTime(getElapsed())}</div>
+        <button class="btn-close" id="btn-close" aria-label="${t('prep.close')}" title="${t('prep.close')}">${icon('x', 18)}</button>
+        <div class="prep-topcenter">
+          <div class="prep-progress">${t('prep.step')} ${idx + 1} ${t('prep.of')} ${total}</div>
+          <div class="prep-progress-track" aria-hidden="true">${progressSegs}</div>
+        </div>
+        <div class="prep-clock">${icon('timer', 15)}<span class="global-timer" id="global-timer">${formatTime(getElapsed())}</span></div>
       </div>
       <div class="prep-step">
         <h2 class="step-name">${step.name}</h2>
         <p class="step-sub">${step.sub}</p>
         ${bodyHTML}
       </div>
-      <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
     </div>`;
 
   bindPrepEvents(steps);
@@ -3855,7 +3894,7 @@ function renderDone() {
       <div class="done-emoji" aria-hidden="true">☕</div>
       <h2 class="done-title">${t('done.title')}</h2>
       <p class="done-msg">${t('done.msg')}</p>
-      ${elapsed > 0 ? `<p class="done-time">${t('done.time.label')} <strong>${formatTime(elapsed)}</strong></p>` : ''}
+      ${elapsed > 0 ? `<p class="done-time">${icon('timer', 15)} ${t('done.time.label')} <strong>${formatTime(elapsed)}</strong></p>` : ''}
 
       <div class="done-recipe-card">
         <div class="done-recipe-title">${method.name}${!isEspresso ? ' · ' + t('intensity.' + state.intensityId) : ' · ' + (state.shotType === 'duplo' ? t('shot.duplo') : t('shot.simples'))} · ${state.portions} ${t('lbl.porcoes')}</div>
@@ -3866,7 +3905,7 @@ function renderDone() {
         <p class="rating-label">${t('done.rating.q')}</p>
         <div class="stars" id="stars" role="group" aria-label="${t('done.rating.q')}">
           ${[1,2,3,4,5].map(n =>
-            `<button class="star-btn" data-star="${n}" aria-label="${n} estrela${n > 1 ? 's' : ''}">☆</button>`
+            `<button class="star-btn" data-star="${n}" aria-label="${n} estrela${n > 1 ? 's' : ''}">${icon('star', 30)}</button>`
           ).join('')}
         </div>
       </div>
@@ -3878,7 +3917,7 @@ function renderDone() {
                   rows="3">${escapeHtml(note)}</textarea>
       </div>
 
-      <button class="btn-share-done" id="btn-share-done">${t('btn.share')}</button>
+      <button class="btn-share-done" id="btn-share-done">${icon('share', 16)} ${t('btn.share')}</button>
       <button class="btn-restart" id="btn-restart">${t('btn.restart')}</button>
       <footer class="app-footer-version">Coado v${APP_VERSION}</footer>
     </div>`;
@@ -3891,7 +3930,7 @@ function renderDone() {
       if (!btn) return;
       const rating = parseInt(btn.dataset.star);
       starsEl.querySelectorAll('.star-btn').forEach((b, i) => {
-        b.textContent = i < rating ? '⭐' : '☆';
+        b.innerHTML = i < rating ? icon('starFill', 30) : icon('star', 30);
         b.classList.toggle('active', i < rating);
       });
       saveRatingToHistory(rating);
@@ -3907,7 +3946,7 @@ function renderDone() {
 
   document.getElementById('btn-share-done').addEventListener('click', () => {
     const url = buildShareURL();
-    copyToClipboard(url).then(ok => showToast(ok ? '🔗 Link copiado!' : 'Link: ' + url));
+    copyToClipboard(url).then(ok => showToast(ok ? 'Link copiado!' : 'Link: ' + url));
   });
 
   document.getElementById('btn-restart').addEventListener('click', () => {
@@ -3918,6 +3957,18 @@ function renderDone() {
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
+  {
+    version: '6.0',
+    date: 'Jul 2026',
+    items: [
+      'Redesign completo "Ritual de Preparo": visual mais clean, claro e calmo',
+      'Preparo imersivo em tela cheia com timer gigante e barra de progresso por etapas',
+      'Volume da despejada em destaque com ajuste ±5ml ao lado',
+      'Configuração enxuta: método primeiro, ajustes secundários recolhidos',
+      'Ícones de linha no lugar de emojis nos dados da receita',
+      'Sem gradientes escuros — nova paleta caramelo sobre papel quente',
+    ],
+  },
   {
     version: '5.0',
     date: 'Jun 2026',
@@ -4043,9 +4094,8 @@ function renderChangelog() {
     <div class="changelog-screen" role="main">
       <header class="app-header">
         <div class="app-header-row">
-          <button class="btn-back" id="btn-changelog-back" aria-label="Voltar">←</button>
+          <button class="btn-nav-back" id="btn-changelog-back" aria-label="Voltar" style="position:absolute;left:0">${icon('arrowLeft', 18)}</button>
           <h1 class="app-title">Novidades</h1>
-          <span style="width:2.5rem"></span>
         </div>
       </header>
 
