@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '6.1';
-const CACHE = 'coado-v6.1';
+const APP_VERSION = '6.2';
+const CACHE = 'coado-v6.2';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -2700,7 +2700,17 @@ const BEAN_PRESETS = [
 // ─── STATE ────────────────────────────────────────────────────────────────────
 
 const DEFAULT = { portions: 3, sizeId: 'sm', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo', beanRoast: null, beanProcess: null, beanSpecies: null };
-let lang = localStorage.getItem('coado-lang') || 'pt';
+// Idioma: escolha explícita salva > idioma do navegador > português
+function detectLang() {
+  const stored = localStorage.getItem('coado-lang');
+  if (stored && LANGS.some(l => l.id === stored)) return stored;
+  for (const cand of (navigator.languages || [navigator.language || ''])) {
+    const primary = String(cand).toLowerCase().split('-')[0];
+    if (LANGS.some(l => l.id === primary)) return primary;
+  }
+  return 'pt';
+}
+let lang = detectLang();
 let state = { ...DEFAULT };
 let prepState = null;
 let timerInterval = null;
@@ -4220,6 +4230,13 @@ function renderDone() {
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
+  {
+    version: '6.2',
+    date: 'Jul 2026',
+    items: [
+      'Detecção automática do idioma do navegador no primeiro acesso',
+    ],
+  },
   {
     version: '6.1',
     date: 'Jul 2026',
