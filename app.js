@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '6.3';
-const CACHE = 'coado-v6.3';
+const APP_VERSION = '6.4';
+const CACHE = 'coado-v6.4';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -3410,7 +3410,7 @@ function renderConfig() {
         ${state.sizeId === 'custom' ? `
           <div class="custom-ml-row">
             <label for="custom-ml">${t('lbl.volume')}</label>
-            <input type="number" id="custom-ml" class="custom-ml-input"
+            <input type="number" inputmode="numeric" pattern="[0-9]*" id="custom-ml" class="custom-ml-input"
                    value="${state.customMl}" min="50" max="1000" step="10" aria-label="Volume em ml">
             <span style="font-size:.85rem;color:var(--muted)">ml</span>
           </div>` : ''}
@@ -3625,7 +3625,7 @@ function renderConfig() {
         <h2 class="section-title">${t('sec.coffee.amount')}</h2>
         <div class="custom-ml-row">
           <label for="coffee-g">${t('lbl.coffee.amount')}</label>
-          <input type="number" id="coffee-g" class="custom-ml-input"
+          <input type="number" inputmode="numeric" pattern="[0-9]*" id="coffee-g" class="custom-ml-input"
                  value="${clamp(parseInt(state.coffeeG) || 20, 5, 100)}" min="5" max="100" step="1"
                  aria-label="${t('lbl.coffee.amount')}">
           <span style="font-size:.85rem;color:var(--muted)">g</span>
@@ -4344,6 +4344,13 @@ function renderDone() {
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
+  {
+    version: '6.4',
+    date: 'Set 2026',
+    items: [
+      'Teclado numérico nos campos de gramas e ml (iOS)',
+    ],
+  },
   {
     version: '6.3',
     date: 'Set 2026',
