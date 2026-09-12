@@ -1,7 +1,7 @@
 'use strict';
 
-const APP_VERSION = '6.2';
-const CACHE = 'coado-v6.2';
+const APP_VERSION = '6.3';
+const CACHE = 'coado-v6.3';
 
 // ─── LANGUAGES ────────────────────────────────────────────────────────────────
 
@@ -22,6 +22,11 @@ const LANGS = [
 
 const T = {
   pt: {
+    'mode.cup': 'Por xícaras',
+    'mode.coffee': 'Pelo café que tenho',
+    'sec.coffee.amount': 'Quanto café moído você tem?',
+    'lbl.coffee.amount': 'Café moído:',
+    'lbl.rendimento': 'Rendimento',
     'tagline': 'Seu café, do jeito certo.',
     'sec.portions.filter': 'Quantas porções?',
     'sec.portions.espresso': 'Quantas doses?',
@@ -284,6 +289,11 @@ const T = {
     'bean.profile.applied': 'Perfil do grão aplicado',
   },
   en: {
+    'mode.cup': 'By cups',
+    'mode.coffee': 'By my coffee',
+    'sec.coffee.amount': 'How much ground coffee do you have?',
+    'lbl.coffee.amount': 'Ground coffee:',
+    'lbl.rendimento': 'Yield',
     'tagline': 'Your coffee, the right way.',
     'sec.portions.filter': 'How many portions?',
     'sec.portions.espresso': 'How many shots?',
@@ -546,6 +556,11 @@ const T = {
     'bean.profile.applied': 'Bean profile applied',
   },
   es: {
+    'mode.cup': 'Por tazas',
+    'mode.coffee': 'Por mi café',
+    'sec.coffee.amount': '¿Cuánto café molido tienes?',
+    'lbl.coffee.amount': 'Café molido:',
+    'lbl.rendimento': 'Rendimiento',
     'tagline': 'Tu café, como debe ser.',
     'sec.portions.filter': '¿Cuántas porciones?',
     'sec.portions.espresso': '¿Cuántos shots?',
@@ -808,6 +823,11 @@ const T = {
     'bean.profile.applied': 'Perfil del grano aplicado',
   },
   it: {
+    'mode.cup': 'Per tazze',
+    'mode.coffee': 'Dal mio caffè',
+    'sec.coffee.amount': 'Quanto caffè macinato hai?',
+    'lbl.coffee.amount': 'Caffè macinato:',
+    'lbl.rendimento': 'Resa',
     'tagline': 'Il tuo caffè, nel modo giusto.',
     'sec.portions.filter': 'Quante porzioni?',
     'sec.portions.espresso': 'Quanti shot?',
@@ -1070,6 +1090,11 @@ const T = {
     'bean.profile.applied': 'Profilo del chicco applicato',
   },
   ar: {
+    'mode.cup': 'حسب الأكواب',
+    'mode.coffee': 'حسب قهوتي',
+    'sec.coffee.amount': 'كم لديك من القهوة المطحونة؟',
+    'lbl.coffee.amount': 'القهوة المطحونة:',
+    'lbl.rendimento': 'الكمية الناتجة',
     'tagline': 'قهوتك، على الطريقة الصحيحة.',
     'sec.portions.filter': 'كم حصة؟',
     'sec.portions.espresso': 'كم شوت؟',
@@ -1332,6 +1357,11 @@ const T = {
     'bean.profile.applied': 'تم تطبيق ملف الحبوب',
   },
   ja: {
+    'mode.cup': 'カップで',
+    'mode.coffee': '豆の量で',
+    'sec.coffee.amount': '挽いたコーヒーはどれくらいありますか？',
+    'lbl.coffee.amount': '挽いたコーヒー：',
+    'lbl.rendimento': '出来上がり量',
     'tagline': 'あなたのコーヒー、正しい方法で。',
     'sec.portions.filter': '何人前？',
     'sec.portions.espresso': '何ショット？',
@@ -1594,6 +1624,11 @@ const T = {
     'bean.profile.applied': '豆のプロフィールが適用されました',
   },
   zh: {
+    'mode.cup': '按杯数',
+    'mode.coffee': '按咖啡量',
+    'sec.coffee.amount': '你有多少咖啡粉？',
+    'lbl.coffee.amount': '咖啡粉：',
+    'lbl.rendimento': '出品量',
     'tagline': '您的咖啡，恰到好处。',
     'sec.portions.filter': '几份？',
     'sec.portions.espresso': '几杯浓缩？',
@@ -1856,6 +1891,11 @@ const T = {
     'bean.profile.applied': '豆子配置已应用',
   },
   ru: {
+    'mode.cup': 'По чашкам',
+    'mode.coffee': 'По кофе',
+    'sec.coffee.amount': 'Сколько у вас молотого кофе?',
+    'lbl.coffee.amount': 'Молотый кофе:',
+    'lbl.rendimento': 'Выход',
     'tagline': 'Ваш кофе, правильным способом.',
     'sec.portions.filter': 'Сколько порций?',
     'sec.portions.espresso': 'Сколько шотов?',
@@ -2118,6 +2158,11 @@ const T = {
     'bean.profile.applied': 'Профиль зерна применён',
   },
   ko: {
+    'mode.cup': '잔 기준',
+    'mode.coffee': '가진 커피 기준',
+    'sec.coffee.amount': '분쇄 커피가 얼마나 있나요?',
+    'lbl.coffee.amount': '분쇄 커피:',
+    'lbl.rendimento': '완성량',
     'tagline': '당신의 커피, 제대로.',
     'sec.portions.filter': '몇 잔 내릴까요?',
     'sec.portions.espresso': '몇 샷을 내릴까요?',
@@ -2699,7 +2744,7 @@ const BEAN_PRESETS = [
 
 // ─── STATE ────────────────────────────────────────────────────────────────────
 
-const DEFAULT = { portions: 3, sizeId: 'sm', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo', beanRoast: null, beanProcess: null, beanSpecies: null };
+const DEFAULT = { portions: 3, sizeId: 'sm', customMl: 200, intensityId: 'forte', methodId: 'chemex', shotType: 'duplo', inputMode: 'cup', coffeeG: 20, beanRoast: null, beanProcess: null, beanSpecies: null };
 // Idioma: escolha explícita salva > idioma do navegador > português
 function detectLang() {
   const stored = localStorage.getItem('coado-lang');
@@ -2832,12 +2877,20 @@ function calcRecipe() {
     const yieldMl = yieldPerShot * state.portions;
     return { isEspresso: true, dose, yieldMl, dosePerShot, yieldPerShot };
   }
+  const intensity = INTENSITIES.find(i => i.id === state.intensityId);
+  const compDelta = getBeanCompDelta();
+  if (state.inputMode === 'coffee') {
+    // Modo inverso: o usuário informa o café que tem; a água vem da mesma
+    // relação café:volume do modo por xícaras (gPer100 × ajuste do grão)
+    const cafeG = clamp(parseInt(state.coffeeG) || 20, 5, 100);
+    const volumeTotal = Math.round(cafeG * 100 / (intensity.gPer100 * dosageMult));
+    const aguaTotal = Math.round(volumeTotal * (1 + method.compensation + compDelta));
+    return { isEspresso: false, volumeTotal, cafeG, aguaTotal, sizeMl: null };
+  }
   const size = SIZES.find(s => s.id === state.sizeId);
   const sizeMl = size.id === 'custom' ? (parseInt(state.customMl) || 200) : size.ml;
-  const intensity = INTENSITIES.find(i => i.id === state.intensityId);
   const volumeTotal = state.portions * sizeMl;
   const cafeG = Math.round((volumeTotal / 100) * intensity.gPer100 * dosageMult * 10) / 10;
-  const compDelta = getBeanCompDelta();
   const aguaTotal = Math.round(volumeTotal * (1 + method.compensation + compDelta));
   return { isEspresso: false, volumeTotal, cafeG, aguaTotal, sizeMl };
 }
@@ -3011,11 +3064,15 @@ function buildShareURL() {
     url.searchParams.set('shot', state.shotType);
     url.searchParams.set('qty', state.portions);
   } else {
-    url.searchParams.set('p', state.portions);
-    url.searchParams.set('s', state.sizeId);
+    if (state.inputMode === 'coffee') {
+      url.searchParams.set('g', clamp(parseInt(state.coffeeG) || 20, 5, 100));
+    } else {
+      url.searchParams.set('p', state.portions);
+      url.searchParams.set('s', state.sizeId);
+      if (state.sizeId === 'custom') url.searchParams.set('c', state.customMl);
+    }
     url.searchParams.set('i', state.intensityId);
     url.searchParams.set('m', state.methodId);
-    if (state.sizeId === 'custom') url.searchParams.set('c', state.customMl);
   }
   return url.toString();
 }
@@ -3061,9 +3118,11 @@ function loadState() {
     return;
   }
   // Filter shared URL
-  if (params.has('p') || params.has('s') || params.has('i') || params.has('m')) {
+  if (params.has('p') || params.has('s') || params.has('i') || params.has('m') || params.has('g')) {
     const p = parseInt(params.get('p')), s = params.get('s'),
-          i = params.get('i'), m = params.get('m'), c = parseInt(params.get('c'));
+          i = params.get('i'), m = params.get('m'), c = parseInt(params.get('c')),
+          g = parseInt(params.get('g'));
+    if (g >= 5 && g <= 100) { state.inputMode = 'coffee'; state.coffeeG = g; }
     if (p >= 1 && p <= 10) state.portions = p;
     if (SIZES.find(x => x.id === s)) state.sizeId = s;
     if (INTENSITIES.find(x => x.id === i)) state.intensityId = i;
@@ -3141,9 +3200,15 @@ function saveToHistory(duration) {
     entry.aguaTotal = recipe.yieldMl;
   } else {
     const size = SIZES.find(s => s.id === state.sizeId);
+    entry.inputMode = state.inputMode;
     entry.sizeId = state.sizeId;
     entry.customMl = state.customMl;
-    entry.sizeName = size.id === 'custom' ? (state.customMl + 'ml') : size.name;
+    if (state.inputMode === 'coffee') {
+      entry.coffeeG = recipe.cafeG;
+      entry.sizeName = recipe.cafeG + 'g';
+    } else {
+      entry.sizeName = size.id === 'custom' ? (state.customMl + 'ml') : size.name;
+    }
     entry.cafeG = recipe.cafeG;
     entry.aguaTotal = recipe.aguaTotal;
   }
@@ -3444,6 +3509,12 @@ function renderConfig() {
             <span class="recipe-label">${t('lbl.cafe')}</span>
             <span class="recipe-value" id="val-cafe">${fmtWeight(recipe.cafeG)}</span>
           </div>
+          ${state.inputMode === 'coffee' ? `
+          <div class="recipe-row">
+            <span class="recipe-icon">${icon('cup')}</span>
+            <span class="recipe-label">${t('lbl.rendimento')}</span>
+            <span class="recipe-value" id="val-rendimento">≈ ${fmtVol(recipe.volumeTotal)}</span>
+          </div>` : ''}
           <div class="recipe-row">
             <span class="recipe-icon">${icon('timer')}</span>
             <span class="recipe-label">${t('lbl.tempo')}</span>
@@ -3531,6 +3602,15 @@ function renderConfig() {
         <div class="method-tip" role="status">${method.tip}</div>
       </section>
 
+      ${!isEspresso ? `
+      <section class="section">
+        <div class="bean-tabs" id="input-mode-tabs" role="group" aria-label="${t('sec.portions.filter')}">
+          <button class="bean-tab ${state.inputMode !== 'coffee' ? 'bean-tab-active' : ''}" data-mode="cup" aria-pressed="${state.inputMode !== 'coffee'}">${t('mode.cup')}</button>
+          <button class="bean-tab ${state.inputMode === 'coffee' ? 'bean-tab-active' : ''}" data-mode="coffee" aria-pressed="${state.inputMode === 'coffee'}">${t('mode.coffee')}</button>
+        </div>
+      </section>` : ''}
+
+      ${isEspresso || state.inputMode !== 'coffee' ? `
       <section class="section">
         <h2 class="section-title">${isEspresso ? t('sec.portions.espresso') : t('sec.portions.filter')}</h2>
         <div class="portion-selector">
@@ -3540,7 +3620,17 @@ function renderConfig() {
         </div>
       </section>
 
-      ${secao1}
+      ${secao1}` : `
+      <section class="section">
+        <h2 class="section-title">${t('sec.coffee.amount')}</h2>
+        <div class="custom-ml-row">
+          <label for="coffee-g">${t('lbl.coffee.amount')}</label>
+          <input type="number" id="coffee-g" class="custom-ml-input"
+                 value="${clamp(parseInt(state.coffeeG) || 20, 5, 100)}" min="5" max="100" step="1"
+                 aria-label="${t('lbl.coffee.amount')}">
+          <span style="font-size:.85rem;color:var(--muted)">g</span>
+        </div>
+      </section>`}
       ${secao2}
 
       <section class="section" aria-label="${t('recipe.title.filter')}">
@@ -3602,7 +3692,7 @@ function renderConfig() {
                         <button class="btn-hist-delete" data-delete-hist="${i}" aria-label="${t('hist.delete.aria')}">${icon('trash', 15)}</button>
                       </div>
                       <div class="history-item-info">
-                        ${h.portions}× ${h.sizeName} · ${fmtVol(h.aguaTotal)} · ${fmtWeight(h.cafeG)}
+                        ${h.inputMode === 'coffee' ? h.sizeName : `${h.portions}× ${h.sizeName}`} · ${fmtVol(h.aguaTotal)} · ${fmtWeight(h.cafeG)}
                         ${h.duration ? `· ${formatTime(h.duration)}` : ''}
                       </div>
                     </div>`;
@@ -3756,14 +3846,34 @@ function bindConfigEvents() {
     });
   }
 
-  document.getElementById('btn-minus').addEventListener('click', () => {
-    const max = METHODS[state.methodId].isEspresso ? 4 : 10;
+  const btnMinus = document.getElementById('btn-minus');
+  if (btnMinus) btnMinus.addEventListener('click', () => {
     if (state.portions > 1) { state.portions--; saveState(); renderConfig(); }
   });
-  document.getElementById('btn-plus').addEventListener('click', () => {
+  const btnPlus = document.getElementById('btn-plus');
+  if (btnPlus) btnPlus.addEventListener('click', () => {
     const max = METHODS[state.methodId].isEspresso ? 4 : 10;
     if (state.portions < max) { state.portions++; saveState(); renderConfig(); }
   });
+
+  // Alternância entre "por xícaras" e "pelo café que tenho" (filtro apenas)
+  const modeTabs = document.getElementById('input-mode-tabs');
+  if (modeTabs) {
+    modeTabs.addEventListener('click', e => {
+      const btn = e.target.closest('[data-mode]');
+      if (!btn || btn.dataset.mode === state.inputMode) return;
+      state.inputMode = btn.dataset.mode;
+      saveState(); renderConfig();
+    });
+  }
+
+  const coffeeInput = document.getElementById('coffee-g');
+  if (coffeeInput) {
+    coffeeInput.addEventListener('input', e => {
+      state.coffeeG = clamp(parseInt(e.target.value) || 20, 5, 100);
+      saveState(); refreshRecipe();
+    });
+  }
 
   // Shot selector (espresso)
   const shotCards = document.getElementById('shot-cards');
@@ -3856,6 +3966,8 @@ function bindConfigEvents() {
         sizeId: h.sizeId || DEFAULT.sizeId,
         customMl: h.customMl || DEFAULT.customMl,
         shotType: h.shotType || DEFAULT.shotType,
+        inputMode: h.inputMode || DEFAULT.inputMode,
+        coffeeG: h.coffeeG || DEFAULT.coffeeG,
       });
       saveState(); renderConfig();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -3870,8 +3982,10 @@ function refreshRecipe() {
   const recipe = calcRecipe();
   const el1 = document.getElementById('val-agua');
   const el2 = document.getElementById('val-cafe');
+  const el3 = document.getElementById('val-rendimento');
   if (el1) el1.textContent = fmtVol(recipe.aguaTotal);
   if (el2) el2.textContent = fmtWeight(recipe.cafeG);
+  if (el3) el3.textContent = '≈ ' + fmtVol(recipe.volumeTotal);
 }
 
 // ─── RENDER PREP ──────────────────────────────────────────────────────────────
@@ -4170,7 +4284,7 @@ function renderDone() {
       ${elapsed > 0 ? `<p class="done-time">${icon('timer', 15)} ${t('done.time.label')} <strong>${formatTime(elapsed)}</strong></p>` : ''}
 
       <div class="done-recipe-card">
-        <div class="done-recipe-title">${method.name}${!isEspresso ? ' · ' + t('intensity.' + state.intensityId) : ' · ' + (state.shotType === 'duplo' ? t('shot.duplo') : t('shot.simples'))} · ${state.portions} ${t('lbl.porcoes')}</div>
+        <div class="done-recipe-title">${method.name}${!isEspresso ? ' · ' + t('intensity.' + state.intensityId) : ' · ' + (state.shotType === 'duplo' ? t('shot.duplo') : t('shot.simples'))}${!isEspresso && state.inputMode === 'coffee' ? ` · ${recipe.cafeG}g` : ` · ${state.portions} ${t('lbl.porcoes')}`}</div>
         ${recipeRows}
       </div>
 
@@ -4230,6 +4344,14 @@ function renderDone() {
 // ─── CHANGELOG ────────────────────────────────────────────────────────────────
 
 const CHANGELOG = [
+  {
+    version: '6.3',
+    date: 'Set 2026',
+    items: [
+      'Novo modo: informe quanto café moído você tem e receba a receita completa',
+      'Rendimento estimado no card da receita',
+    ],
+  },
   {
     version: '6.2',
     date: 'Jul 2026',
